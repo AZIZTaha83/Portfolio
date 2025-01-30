@@ -129,12 +129,6 @@
             color: #fff;
         }
 
-        .modal-content p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
         .modal-content img {
             max-width: 100%;
             height: auto;
@@ -153,25 +147,34 @@
             cursor: pointer;
         }
 
-        .carousel-button {
+        /* Styles pour les boutons de description et ressenti */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .detail-button {
             background-color: #555;
             border: none;
             color: #fff;
-            font-size: 1.5rem;
-            padding: 10px;
+            font-size: 0.9rem;
+            padding: 8px 16px;
             cursor: pointer;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .carousel-button.prev {
-            left: -50px;
+        .detail-button:hover {
+            background-color: #666;
         }
 
-        .carousel-button.next {
-            right: -50px;
+        .project-details p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+            display: none; /* Masqué par défaut */
         }
     </style>
 </head>
@@ -186,7 +189,8 @@
                 <li>React, Angular, Vue.js</li>
                 <li>Node.js, Express</li>
             </ul>
-            <button class="project-button" onclick="showModal('web-projects')">Voir les projets</button>
+            <button class="project-button" onclick="showModal('web-project-1')">Projet E-commerce</button>
+            <button class="project-button" onclick="showModal('web-project-2')">Application de Gestion de Tâches</button>
         </div>
 
         <!-- Base de données -->
@@ -196,7 +200,8 @@
                 <li>MySQL, PostgreSQL</li>
                 <li>MongoDB</li>
             </ul>
-            <button class="project-button" onclick="showModal('database-projects')">Voir les projets</button>
+            <button class="project-button" onclick="showModal('database-project-1')">Système de Gestion de Bibliothèque</button>
+            <button class="project-button" onclick="showModal('database-project-2')">Analyse de Données avec MongoDB</button>
         </div>
 
         <!-- Outils et Technologies -->
@@ -206,85 +211,148 @@
                 <li>Git, Docker</li>
                 <li>Figma, Adobe XD</li>
             </ul>
-            <button class="project-button" onclick="showModal('tools-projects')">Voir les projets</button>
+            <button class="project-button" onclick="showModal('tools-project-1')">CI/CD avec Docker</button>
+            <button class="project-button" onclick="showModal('tools-project-2')">Conception d'UI avec Figma</button>
         </div>
 
         <!-- Bouton de retour -->
         <button class="back-button" onclick="window.location.href='accueil.html'">Retour à l'accueil</button>
     </div>
 
-    <!-- Fenêtres modales pour les projets -->
-    <div id="web-projects" class="modal">
+    <!-- Fenêtre modale pour le projet E-commerce -->
+    <div id="web-project-1" class="modal">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal('web-projects')">&times;</button>
-            <h2>Projets de Développement Web</h2>
-            <div class="carousel">
-                <button class="carousel-button prev" onclick="prevProject('web-projects')">&#10094;</button>
-                <div class="project-slide active">
-                    <img src="https://source.unsplash.com/600x400/?ecommerce,website" alt="Projet 1">
-                    <p>
-                        <strong>Projet 1 : Site E-commerce</strong><br>
-                        Un site e-commerce développé avec React et Node.js. J'ai travaillé sur la gestion des produits, le panier d'achat et l'intégration de paiements sécurisés.
-                    </p>
-                </div>
-                <div class="project-slide">
-                    <img src="https://source.unsplash.com/600x400/?task,management" alt="Projet 2">
-                    <p>
-                        <strong>Projet 2 : Application de Gestion de Tâches</strong><br>
-                        Une application web pour gérer les tâches quotidiennes, utilisant Vue.js et Firebase pour le stockage des données.
-                    </p>
-                </div>
-                <button class="carousel-button next" onclick="nextProject('web-projects')">&#10095;</button>
+            <button class="close-button" onclick="closeModal('web-project-1')">&times;</button>
+            <h2>Projet E-commerce</h2>
+            <img src="https://source.unsplash.com/600x400/?ecommerce,website" alt="Projet E-commerce">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Un site e-commerce développé avec React et Node.js. J'ai travaillé sur la gestion des produits, le panier d'achat et l'intégration de paiements sécurisés.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    Ce projet m'a permis de renforcer mes compétences en développement full-stack et en gestion de projets complexes.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'web-project-1')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'web-project-1')">Ressenti</button>
             </div>
         </div>
     </div>
 
-    <div id="database-projects" class="modal">
+    <!-- Fenêtre modale pour l'application de gestion de tâches -->
+    <div id="web-project-2" class="modal">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal('database-projects')">&times;</button>
-            <h2>Projets de Base de Données</h2>
-            <div class="carousel">
-                <button class="carousel-button prev" onclick="prevProject('database-projects')">&#10094;</button>
-                <div class="project-slide active">
-                    <img src="https://source.unsplash.com/600x400/?library,books" alt="Projet 1">
-                    <p>
-                        <strong>Projet 1 : Système de Gestion de Bibliothèque</strong><br>
-                        Une base de données MySQL pour gérer les livres, les utilisateurs et les emprunts dans une bibliothèque.
-                    </p>
-                </div>
-                <div class="project-slide">
-                    <img src="https://source.unsplash.com/600x400/?data,analysis" alt="Projet 2">
-                    <p>
-                        <strong>Projet 2 : Analyse de Données avec MongoDB</strong><br>
-                        Un projet d'analyse de données utilisant MongoDB pour stocker et interroger des données volumineuses.
-                    </p>
-                </div>
-                <button class="carousel-button next" onclick="nextProject('database-projects')">&#10095;</button>
+            <button class="close-button" onclick="closeModal('web-project-2')">&times;</button>
+            <h2>Application de Gestion de Tâches</h2>
+            <img src="https://source.unsplash.com/600x400/?task,management" alt="Application de Gestion de Tâches">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Une application web pour gérer les tâches quotidiennes, utilisant Vue.js et Firebase pour le stockage des données.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    Ce projet a été un excellent exercice pour comprendre l'intégration de bases de données en temps réel.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'web-project-2')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'web-project-2')">Ressenti</button>
             </div>
         </div>
     </div>
 
-    <div id="tools-projects" class="modal">
+    <!-- Fenêtre modale pour le système de gestion de bibliothèque -->
+    <div id="database-project-1" class="modal">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal('tools-projects')">&times;</button>
-            <h2>Projets avec Outils et Technologies</h2>
-            <div class="carousel">
-                <button class="carousel-button prev" onclick="prevProject('tools-projects')">&#10094;</button>
-                <div class="project-slide active">
-                    <img src="https://source.unsplash.com/600x400/?docker,ci-cd" alt="Projet 1">
-                    <p>
-                        <strong>Projet 1 : CI/CD avec Docker</strong><br>
-                        Mise en place d'un pipeline CI/CD pour une application web en utilisant Docker et GitHub Actions.
-                    </p>
-                </div>
-                <div class="project-slide">
-                    <img src="https://source.unsplash.com/600x400/?figma,design" alt="Projet 2">
-                    <p>
-                        <strong>Projet 2 : Conception d'UI avec Figma</strong><br>
-                        Conception d'une interface utilisateur pour une application mobile en utilisant Figma.
-                    </p>
-                </div>
-                <button class="carousel-button next" onclick="nextProject('tools-projects')">&#10095;</button>
+            <button class="close-button" onclick="closeModal('database-project-1')">&times;</button>
+            <h2>Système de Gestion de Bibliothèque</h2>
+            <img src="https://source.unsplash.com/600x400/?library,books" alt="Système de Gestion de Bibliothèque">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Une base de données MySQL pour gérer les livres, les utilisateurs et les emprunts dans une bibliothèque.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    Ce projet m'a aidé à mieux comprendre la modélisation des bases de données relationnelles.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'database-project-1')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'database-project-1')">Ressenti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale pour l'analyse de données avec MongoDB -->
+    <div id="database-project-2" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('database-project-2')">&times;</button>
+            <h2>Analyse de Données avec MongoDB</h2>
+            <img src="https://source.unsplash.com/600x400/?data,analysis" alt="Analyse de Données avec MongoDB">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Un projet d'analyse de données utilisant MongoDB pour stocker et interroger des données volumineuses.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    J'ai apprécié travailler avec des données non structurées et découvrir les avantages de MongoDB.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'database-project-2')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'database-project-2')">Ressenti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale pour CI/CD avec Docker -->
+    <div id="tools-project-1" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('tools-project-1')">&times;</button>
+            <h2>CI/CD avec Docker</h2>
+            <img src="https://source.unsplash.com/600x400/?docker,ci-cd" alt="CI/CD avec Docker">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Mise en place d'un pipeline CI/CD pour une application web en utilisant Docker et GitHub Actions.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    Ce projet m'a permis de maîtriser les concepts de l'intégration continue et du déploiement continu.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'tools-project-1')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'tools-project-1')">Ressenti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale pour la conception d'UI avec Figma -->
+    <div id="tools-project-2" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('tools-project-2')">&times;</button>
+            <h2>Conception d'UI avec Figma</h2>
+            <img src="https://source.unsplash.com/600x400/?figma,design" alt="Conception d'UI avec Figma">
+            <div class="project-details">
+                <p class="description">
+                    <strong>Description :</strong><br>
+                    Conception d'une interface utilisateur pour une application mobile en utilisant Figma.
+                </p>
+                <p class="feedback">
+                    <strong>Mon ressenti :</strong><br>
+                    J'ai adoré travailler sur le design et voir comment l'UI/UX impacte l'expérience utilisateur.
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="detail-button" onclick="toggleDetail('description', 'tools-project-2')">Description</button>
+                <button class="detail-button" onclick="toggleDetail('feedback', 'tools-project-2')">Ressenti</button>
             </div>
         </div>
     </div>
@@ -300,32 +368,19 @@
             document.getElementById(modalId).style.display = 'none';
         }
 
-        // Fonction pour passer au projet suivant
-        function nextProject(modalId) {
-            const slides = document.querySelectorAll(`#${modalId} .project-slide`);
-            let activeIndex = 0;
-            slides.forEach((slide, index) => {
-                if (slide.classList.contains('active')) {
-                    slide.classList.remove('active');
-                    activeIndex = index;
-                }
-            });
-            const nextIndex = (activeIndex + 1) % slides.length;
-            slides[nextIndex].classList.add('active');
-        }
+        // Fonction pour afficher/masquer la description ou le ressenti
+        function toggleDetail(type, modalId) {
+            const modal = document.getElementById(modalId);
+            const description = modal.querySelector('.description');
+            const feedback = modal.querySelector('.feedback');
 
-        // Fonction pour revenir au projet précédent
-        function prevProject(modalId) {
-            const slides = document.querySelectorAll(`#${modalId} .project-slide`);
-            let activeIndex = 0;
-            slides.forEach((slide, index) => {
-                if (slide.classList.contains('active')) {
-                    slide.classList.remove('active');
-                    activeIndex = index;
-                }
-            });
-            const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
-            slides[prevIndex].classList.add('active');
+            if (type === 'description') {
+                description.style.display = description.style.display === 'none' ? 'block' : 'none';
+                feedback.style.display = 'none'; // Masquer le ressenti
+            } else if (type === 'feedback') {
+                feedback.style.display = feedback.style.display === 'none' ? 'block' : 'none';
+                description.style.display = 'none'; // Masquer la description
+            }
         }
 
         // Fermer la fenêtre modale en cliquant à l'extérieur
