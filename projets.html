@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Mon Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .project-card {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .project-card .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .project-card button {
+            background-color: #444;
+            border: none;
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-card button:hover {
+            background-color: #555;
+        }
+
+        /* Styles pour les fenêtres modales */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mes Projets</h1>
+    <div class="projects-container">
+        <!-- Projet 1 -->
+        <div class="project-card">
+            <h2>Projet E-commerce</h2>
+            <img src="https://source.unsplash.com/600x400/?ecommerce,website" alt="Projet E-commerce">
+            <div class="buttons">
+                <button onclick="showModal('description-1')">Description</button>
+                <button onclick="showModal('feedback-1')">Ressenti</button>
+            </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="project-card">
+            <h2>Application de Gestion de Tâches</h2>
+            <img src="https://source.unsplash.com/600x400/?task,management" alt="Application de Gestion de Tâches">
+            <div class="buttons">
+                <button onclick="showModal('description-2')">Description</button>
+                <button onclick="showModal('feedback-2')">Ressenti</button>
+            </div>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="project-card">
+            <h2>Système de Gestion de Bibliothèque</h2>
+            <img src="https://source.unsplash.com/600x400/?library,books" alt="Système de Gestion de Bibliothèque">
+            <div class="buttons">
+                <button onclick="showModal('description-3')">Description</button>
+                <button onclick="showModal('feedback-3')">Ressenti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fenêtres modales pour les descriptions -->
+    <div id="description-1" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('description-1')">&times;</button>
+            <h2>Description du Projet E-commerce</h2>
+            <p>
+                Un site e-commerce développé avec React et Node.js. J'ai travaillé sur la gestion des produits, le panier d'achat et l'intégration de paiements sécurisés.
+            </p>
+        </div>
+    </div>
+
+    <div id="description-2" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('description-2')">&times;</button>
+            <h2>Description de l'Application de Gestion de Tâches</h2>
+            <p>
+                Une application web pour gérer les tâches quotidiennes, utilisant Vue.js et Firebase pour le stockage des données.
+            </p>
+        </div>
+    </div>
+
+    <div id="description-3" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('description-3')">&times;</button>
+            <h2>Description du Système de Gestion de Bibliothèque</h2>
+            <p>
+                Une base de données MySQL pour gérer les livres, les utilisateurs et les emprunts dans une bibliothèque.
+            </p>
+        </div>
+    </div>
+
+    <!-- Fenêtres modales pour les ressentis -->
+    <div id="feedback-1" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('feedback-1')">&times;</button>
+            <h2>Ressenti sur le Projet E-commerce</h2>
+            <p>
+                Ce projet m'a permis de renforcer mes compétences en développement full-stack et en gestion de projets complexes.
+            </p>
+        </div>
+    </div>
+
+    <div id="feedback-2" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('feedback-2')">&times;</button>
+            <h2>Ressenti sur l'Application de Gestion de Tâches</h2>
+            <p>
+                Ce projet a été un excellent exercice pour comprendre l'intégration de bases de données en temps réel.
+            </p>
+        </div>
+    </div>
+
+    <div id="feedback-3" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('feedback-3')">&times;</button>
+            <h2>Ressenti sur le Système de Gestion de Bibliothèque</h2>
+            <p>
+                Ce projet m'a aidé à mieux comprendre la modélisation des bases de données relationnelles.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour afficher une fenêtre modale
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        // Fonction pour fermer une fenêtre modale
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Fermer la fenêtre modale en cliquant à l'extérieur
+        window.addEventListener('click', (event) => {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
