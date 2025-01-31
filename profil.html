@@ -25,7 +25,8 @@
             min-height: 100vh;
             padding: 20px;
         }
-/* Conteneur du carrousel */
+
+        /* Conteneur du carrousel */
         .carousel {
             display: flex;
             align-items: center;
@@ -150,6 +151,14 @@
         .back-button:hover {
             background-color: #555;
         }
+
+        .passions-text {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -164,8 +173,9 @@
         </p>
         <button class="back-button" onclick="window.location.href='accueil.html'">Retour à l'accueil</button>
     </div>
-     <br>
-     <!-- Carrousel -->
+    <span class="passions-text">Mes Passions</span>
+    <br>
+    <!-- Carrousel -->
     <div class="carousel">
         <button class="carousel-button prev" onclick="prevBlock()" aria-label="Précédent">&#10094;</button>
         <div class="carousel-block active" data-target="profil" data-url="https://aziztaha83.github.io/Portfolio/codages.html">
@@ -190,7 +200,7 @@
         </div>
         <button class="carousel-button next" onclick="nextBlock()" aria-label="Suivant">&#10095;</button>
     </div>
-      <script>
+    <script>
         const blocks = document.querySelectorAll('.carousel-block');
         let currentIndex = 0;
 
@@ -209,7 +219,8 @@
             currentIndex = (currentIndex - 1 + blocks.length) % blocks.length;
             updateCarousel();
         }
-                  blocks.forEach((block) => {
+
+        blocks.forEach((block) => {
             block.addEventListener('click', () => {
                 const url = block.dataset.url;
                 if (url) {
