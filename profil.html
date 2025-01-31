@@ -209,6 +209,14 @@
             currentIndex = (currentIndex - 1 + blocks.length) % blocks.length;
             updateCarousel();
         }
+                  blocks.forEach((block) => {
+            block.addEventListener('click', () => {
+                const url = block.dataset.url;
+                if (url) {
+                    window.location.href = url; // Ouvre la page dans la même fenêtre
+                }
+            });
+        });
     </script>  
 </body>
 </html>
