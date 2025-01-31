@@ -25,7 +25,85 @@
             min-height: 100vh;
             padding: 20px;
         }
+/* Conteneur du carrousel */
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            margin-bottom: 40px;
+        }
 
+        /* Blocs du carrousel */
+        .carousel-block {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 10px;
+            width: 200px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.3s ease;
+            opacity: 0.6;
+            gap: 10px; /* Espace entre l'icône et le texte */
+        }
+
+        .carousel-block.active {
+            transform: scale(1.2);
+            opacity: 1;
+            background-color: #444;
+        }
+
+        .carousel-block:hover {
+            background-color: #555;
+        }
+
+        .carousel-block i {
+            font-size: 2rem; /* Taille de l'icône */
+            color: #fff; /* Couleur de l'icône */
+        }
+
+        .carousel-block span {
+            font-size: 1rem; /* Taille du texte */
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Boutons de navigation */
+        .carousel-button {
+            background-color: #555;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button.prev {
+            left: -50px;
+        }
+
+        .carousel-button.next {
+            right: -50px;
+        }
+        .carousel-block {
+                width: 150px;
+                height: 100px;
+        }
+        .carousel-button {
+                font-size: 1.2rem;
+                padding: 8px;
+        }
         .profile-picture {
             width: 150px;
             height: 150px;
@@ -86,5 +164,32 @@
         </p>
         <button class="back-button" onclick="window.location.href='accueil.html'">Retour à l'accueil</button>
     </div>
+    
+     <!-- Carrousel -->
+    <div class="carousel">
+        <button class="carousel-button prev" onclick="prevBlock()" aria-label="Précédent">&#10094;</button>
+        <div class="carousel-block active" data-target="profil" data-url="https://aziztaha83.github.io/Portfolio/profil.html">
+            <i class="fas fa-user"></i> <!-- Icône pour Profil -->
+            <span>Profil</span>
+        </div>
+        <div class="carousel-block" data-target="formation" data-url="https://aziztaha83.github.io/Portfolio/formation.html">
+            <i class="fas fa-graduation-cap"></i> <!-- Icône pour Formation -->
+            <span>Formation</span>
+        </div>
+        <div class="carousel-block" data-target="experience" data-url="https://aziztaha83.github.io/Portfolio/experience.html">
+            <i class="fas fa-briefcase"></i> <!-- Icône pour Expérience -->
+            <span>Expérience</span>
+        </div>
+        <div class="carousel-block" data-target="competences" data-url="https://aziztaha83.github.io/Portfolio/competences.html">
+            <i class="fas fa-code"></i> <!-- Icône pour Compétences -->
+            <span>Compétences</span>
+        </div>
+        <div class="carousel-block" data-target="projets" data-url="https://aziztaha83.github.io/Portfolio/projets.html">
+            <i class="fas fa-project-diagram"></i> <!-- Icône pour Projets -->
+            <span>Projets</span>
+        </div>
+        <button class="carousel-button next" onclick="nextBlock()" aria-label="Suivant">&#10095;</button>
+    </div>
+    
 </body>
 </html>
