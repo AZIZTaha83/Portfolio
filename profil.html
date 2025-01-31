@@ -190,6 +190,25 @@
         </div>
         <button class="carousel-button next" onclick="nextBlock()" aria-label="Suivant">&#10095;</button>
     </div>
-    
+      <script>
+        const blocks = document.querySelectorAll('.carousel-block');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            blocks.forEach((block, index) => {
+                block.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextBlock() {
+            currentIndex = (currentIndex + 1) % blocks.length;
+            updateCarousel();
+        }
+
+        function prevBlock() {
+            currentIndex = (currentIndex - 1 + blocks.length) % blocks.length;
+            updateCarousel();
+        }
+    </script>  
 </body>
 </html>
