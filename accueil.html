@@ -1,380 +1,978 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Reset des styles par défaut */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | Taha Aziz</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --primary: #0d6efd; --light: #f8f9fa; --dark: #212529; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: var(--light); color: var(--dark); }
+    .navbar-nav .nav-link.active { color: var(--primary) !important; font-weight: 600; }
+    .section-title { position: relative; margin-bottom: 2rem; }
+    .section-title::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -6px; left: 0; }
+    .card-icon { font-size: 2rem; color: var(--primary); }
+    .bg-primary-alt { background-color: rgba(13, 110, 253, 0.1); }
+    footer { background-color: var(--dark); color: #ccc; padding: 1.5rem 0; }
+    .form-note { font-size: 0.8rem; color: #aaa; }
+        /* Timeline horizontal scroll */
+        .timeline-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; }
+    .timeline-card { min-width: 250px; flex: 0 0 auto; border: none; }
+    .timeline-card img { width: 100%; height: 150px; object-fit: cover; border-top-left-radius: .25rem; border-top-right-radius: .25rem; }
+  
+  
+/* Écran de connexion */
+#login-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-        /* Styles généraux */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom,#4B0082, #9370DB);
-            color: #f4f4f4;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
+.login-box {
+  animation: fadeInUp 1s ease;
+}
 
-        /* Bouton de réglage */
-        .settings-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #444;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-        .settings-button:hover {
-            background-color: #555;
-        }
-
-        /* Photo de profil */
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #444;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .welcome-text {
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 600px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Conteneur du carrousel */
-        .carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 800px;
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        /* Blocs du carrousel */
-        .carousel-block {
-            background-color: #770e8a;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 0 10px;
-            width: 200px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.3s ease;
-            opacity: 0.6;
-            gap: 10px; /* Espace entre l'icône et le texte */
-        }
-
-        .carousel-block.active {
-            transform: scale(1.2);
-            opacity: 1;
-            background-color: ##a711c2;
-        }
-
-        .carousel-block:hover {
-            background-color: #555;
-        }
-
-        .carousel-block i {
-            font-size: 2rem; /* Taille de l'icône */
-            color: #fff; /* Couleur de l'icône */
-        }
-
-        .carousel-block span {
-            font-size: 1rem; /* Taille du texte */
-            color: #fff; /* Couleur du texte */
-        }
-
-        /* Boutons de navigation */
-        .carousel-button {
-            background-color: #555;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .carousel-button.prev {
-            left: -50px;
-        }
-
-        .carousel-button.next {
-            right: -50px;
-        }
-
-        /* Boutons en bas de page */
-        .action-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .action-buttons button {
-            background-color: #444;
-            border: none;
-            color: #fff;
-            font-size: 1rem;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-buttons button:hover {
-            background-color: #555;
-        }
-
-        /* Fenêtre modale pour les contacts et le CV */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .modal-content h2 {
-            margin-bottom: 20px;
-        }
-
-        .modal-content a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-        }
-
-        .modal-content a:hover {
-            text-decoration: underline;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-content iframe {
-            background-color: #fff;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .welcome-text {
-                font-size: 1rem;
-            }
-            .carousel-block {
-                width: 150px;
-                height: 100px;
-            }
-            .carousel-button {
-                font-size: 1.2rem;
-                padding: 8px;
-            }
-        }
-    </style>
+#login-message {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #5c8f6d;
+}
+  
+  </style>
 </head>
 <body>
-    <!-- Bouton de réglage -->
-    <button class="settings-button" onclick="openSettings()">
-        <i class="fas fa-cog"></i>
-    </button>
 
-    <!-- Photo de profil -->
-    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Photo de profil de [Votre Nom]" class="profile-picture">
+  <script>
+    window.addEventListener('load', () => {
+      const loginBox = document.getElementById('login-animation');
+      const loginMessage = document.getElementById('login-message');
+  
+      // Étape 1 : "Connexion en cours..."
+      setTimeout(() => {
+        loginMessage.textContent = 'Accès autorisé ✓';
+      }, 1000); // après 2 secondes
+  
+      // Étape 2 : disparition de l'animation
+      setTimeout(() => {
+        loginBox.style.opacity = '0';
+        setTimeout(() => loginBox.style.display = 'none', 500);
+      }, 2000); // total 3 secondes
+    });
+  </script>
+  
+<!-- Animation de connexion -->
+<div id="login-animation">
+  <div class="login-box text-white text-center">
+    <h2>Connexion à l’espace de Taha Aziz</h2>
+    <p id="login-message">Connexion en cours...</p>
+  </div>
+</div>
 
-    <header>
-        <h1>Mon Portfolio</h1>
-        <p class="welcome-text">
-         </p>
-    </header>
 
-    <!-- Carrousel -->
-    <div class="carousel">
-        <button class="carousel-button prev" onclick="prevBlock()" aria-label="Précédent">&#10094;</button>
-        <div class="carousel-block active" data-target="profil" data-url="https://aziztaha83.github.io/Portfolio/profil.html">
-            <i class="fas fa-user"></i> <!-- Icône pour Profil -->
-            <span>Profil</span>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">PortFolio by Taha Aziz</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#about">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Formation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#interests">Centres d'intérêt</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="py-5 text-white" style="background-color: var(--primary);">
+    <div class="container d-flex flex-column flex-lg-row align-items-center">
+      <div class="me-lg-5 text-center text-lg-start">
+        <h1 class="display-5 fw-bold">Taha Aziz</h1>
+        <p class="lead">Futur Ingénieur en Systèmes Embarqués</p>
+        <p>Passionné par l'électronique et les systèmes embarqués, je suis curieux et toujours en quête de nouvelles expériences et d'apprentissages.</p>
+        <a href="#contact" class="btn btn-light me-2">Me contacter</a>
+        <a href="#projects" class="btn btn-outline-light me-2">Voir mes projets</a>
+        <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalCV">Afficher mon CV</button>
+        <a href="https://drive.google.com/uc?export=download&id=14vBFxXkX04AoCW0sueQRnIJU8V2Y3ANc" class="btn btn-outline-light">Télécharger mon CV</a>
+      </div>
+      <div class="mt-4 mt-lg-0 text-center">
+        <div class="rounded-circle bg-white p-3" style="  width: 180px; 
+        height: 180px; 
+        border-radius: 20%; 
+        overflow: hidden;
+        background: transparent;">
+          <iframe
+            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+            width="100%"
+            height="180px"
+            frameborder="0"
+            allow="autoplay">
+          </iframe>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">À propos de moi</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <p>Aider les autres, participer au progrès au bénéfice de tous : c'est mon objectif professionnel. Le métier d'ingénieur en robotique  contribue justement à des innovations qui transforment notre monde en résolvant des problèmes complexes pour améliorer nos vies quotidiennes. 
+            Que ce soit dans les secteurs de la santé, de l'industrie, ou de l'exploration spatiale, on a besoin de  concevoir, développer et améliorer ces machines intelligentes afin d'assister l'humanité. 
+            En tant que futur ingénieur en robotique, je souhaite faire partie de cette révolution technologique. </p>
+          <p>Pour atteindre mon objectif, j'ai choisi de commencer par un BUT GEII, afin d'acquérir une base solide en électronique, en informatique et en automatisme, compétences essentielles dans le domaine de la robotique.</p>
+          <p>Bilingue français/arabe, compétences techniques en anglais et espagnol, j'ai une solide expérience en programmation et systèmes embarqués.</p>
         </div>
-        <div class="carousel-block" data-target="formation" data-url="https://aziztaha83.github.io/Portfolio/formation.html">
-            <i class="fas fa-graduation-cap"></i> <!-- Icône pour Formation -->
-            <span>Formation</span>
+        <div class="col-lg-4">
+          <div class="card p-3 shadow-sm">
+            <h5>Informations personnelles</h5>
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-envelope me-2"></i><a href="mailto:taha.aziz5111@gmail.com">taha.aziz5111@gmail.com</a></li>
+              <li><i class="fas fa-phone me-2"></i>07 69 54 19 12</li>
+              <li><i class="fas fa-language me-2"></i>French, Arabic (bilingual)</li>
+              <li><i class="fas fa-school me-2"></i>BUT3 GEII</li>
+            </ul>
+          </div>
         </div>
-        <div class="carousel-block" data-target="experience" data-url="https://aziztaha83.github.io/Portfolio/experience.html">
-            <i class="fas fa-briefcase"></i> <!-- Icône pour Expérience -->
-            <span>Expérience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Compétences</h2>
+      <h5>Compétences avancées</h5>
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-code card-icon"></i>
+            <p class="mt-2 mb-0">C, C++, C#, Python, Arduino, STM32</p>
+          </div>
         </div>
-        <div class="carousel-block" data-target="competences" data-url="https://aziztaha83.github.io/Portfolio/competences.html">
-            <i class="fas fa-code"></i> <!-- Icône pour Compétences -->
-            <span>Compétences</span>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-database card-icon"></i>
+            <p class="mt-2 mb-0">SQL, Codesys</p>
+          </div>
         </div>
-        <div class="carousel-block" data-target="projets" data-url="https://aziztaha83.github.io/Portfolio/projets.html">
-            <i class="fas fa-project-diagram"></i> <!-- Icône pour Projets -->
-            <span>Projets</span>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-laptop-code card-icon"></i>
+            <p class="mt-2 mb-0">HTML, CSS, JavaScript, PHP</p>
+          </div>
         </div>
-        <button class="carousel-button next" onclick="nextBlock()" aria-label="Suivant">&#10095;</button>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fab fa-linux card-icon"></i>
+            <p class="mt-2 mb-0">Linux</p>
+          </div>
+        </div>
+      </div>
+      <h5>Notions</h5>
+      <div class="row g-3">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-robot card-icon"></i>
+            <p class="mt-2 mb-0">IA, OpenCV</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-chart-line card-icon"></i>
+            <p class="mt-2 mb-0">Matlab, Armbian</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-paint-brush card-icon"></i>
+            <p class="mt-2 mb-0">Canva, Office 365</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card bg-primary-alt p-3 h-100 text-center">
+            <i class="fas fa-microchip card-icon"></i>
+            <p class="mt-2 mb-0">MBLAB, Qt Creator</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Projets</h2>
+      <div class="row g-4">
+        <!-- Transmetteur -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body bg-primary-alt text-center"><i class="fas fa-signal card-icon"></i></div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Transmetteur longue distance</h5>
+              <p class="mb-1"><small>180H – 2025</small></p>
+              <p class="flex-grow-1">Conception, réalisation et programmation d'un transmetteur bas débit via ionosphère, étude du protocole WSPR et optimisation de la consommation.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary me-1">STM32</span>
+                <span class="badge bg-primary me-1">WSPR</span>
+                <span class="badge bg-primary">Électronique</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalTransmetteur">En Savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <!-- Robot autonome -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body bg-primary-alt text-center"><i class="fas fa-robot card-icon"></i></div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Robot mobile autonome</h5>
+              <p class="mb-1"><small>160H – 2025</small></p>
+              <p class="flex-grow-1">Asservissement PID, générateur de trajectoire et vision pour détection d'objets, communication UART entre composants.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary me-1">PID</span>
+                <span class="badge bg-primary me-1">Matlab</span>
+                <span class="badge bg-primary">UART</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalRobot">En Savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <!-- Détection visuelle -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body bg-primary-alt text-center"><i class="fas fa-camera card-icon"></i></div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Détection visuelle d'objets</h5>
+              <p class="mb-1"><small>120H – 2025</small></p>
+              <p class="flex-grow-1">Détection d'objets rouges par caméra JeVois-Pro, discrimination couleur et localisation 3D.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary me-1">OpenCV</span>
+                <span class="badge bg-primary me-1">Python</span>
+                <span class="badge bg-primary">PIC</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalDetection">En Savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <!-- OptiPlant -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body bg-primary-alt text-center"><i class="fas fa-seedling card-icon"></i></div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">OptiPlant</h5>
+              <p class="mb-1"><small>80H – 2025</small></p>
+              <p class="flex-grow-1">BDD MySQL et interface web (PHP, JS, HTML, CSS) pour gestion d'ombrière et recettes personnalisées.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary me-1">MySQL</span>
+                <span class="badge bg-primary me-1">PHP</span>
+                <span class="badge bg-primary">HTML/CSS</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalOptiPlant">En Savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <!-- NanoPi -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body bg-primary-alt text-center"><i class="fas fa-microchip card-icon"></i></div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">NanoPi Neo 2 & Linux</h5>
+              <p class="mb-1"><small>70H – 2024</small></p>
+              <p class="flex-grow-1">Installation d'une distribution Linux sur NanoPi Neo 2, exploration d'Armbian.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary me-1">Linux</span>
+                <span class="badge bg-primary">Armbian</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalNanoPi">En Savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Boutons d'action -->
-    <div class="action-buttons">
-        <button onclick="downloadCV()">Télécharger mon CV</button>
-        <button onclick="showCV()">Afficher mon CV</button>
-        <button onclick="showContacts()">Mes contacts</button>
-    </div>
-
-    <!-- Fenêtres modales -->
-    <div id="contactsModal" class="modal">
+    <!-- Project Modals -->
+    <!-- Transmetteur Modal -->
+    <div class="modal fade" id="modalTransmetteur" tabindex="-1" aria-labelledby="modalTransmetteurLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal('contactsModal')" aria-label="Fermer">&times;</button>
-            <h2>Liens de mes contacts</h2>
-            <a href="https://www.linkedin.com/in/tahaaziz83" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:taha.aziz5111@gmail.com">taha.aziz5111@gmail.com</a>
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTransmetteurLabel">Transmetteur longue distance</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body text-center">
+                <iframe
+                src="https://drive.google.com/file/d/1MlQB6OzbkVvsLNelROmPadTMZaJ93ri9/preview"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allow="autoplay">
+            </iframe>
+            <p><strong>Mon ressenti :</strong> Ce projet m'a permis d'approfondir ma compréhension des communications radio bas débit et de l'optimisation énergétique.</p>
+            <div>
+              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
+              <span class="badge bg-secondary">Implanter Niv 2</span>
+            </div>
+          </div>
         </div>
-    </div>
-    <div id="cvModal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('cvModal')" aria-label="Fermer">&times;</button>
-            <h2>Mon CV</h2>
-            <iframe src="https://drive.google.com/file/d/17MAm6LVrlO6s13IPekRpOA18-hKmxu8R/preview" width="100%" height="500px" style="border: none;"></iframe>
-        </div>
+      </div>
     </div>
 
+    <!-- Robot Modal -->
+    <div class="modal fade" id="modalRobot" tabindex="-1" aria-labelledby="modalRobotLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRobotLabel">Robot mobile autonome</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body text-center">
+            <iframe
+            src="https://drive.google.com/file/d/1bVEAoC1-k5vPgH42_w_c2f9x2O3WCUMm/preview"
+            width="100%"
+            height="600"
+            frameborder="0"
+            allow="autoplay">
+        </iframe>
+            <p><strong>Mon ressenti :</strong> J'ai apprécié la gestion de l'asservissement PID et l'intégration de la vision pour améliorer l'autonomie.</p>
+            <div>
+              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
+              <span class="badge bg-secondary">Implanter Niv 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Détection Modal -->
+    <div class="modal fade" id="modalDetection" tabindex="-1" aria-labelledby="modalDetectionLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDetectionLabel">Détection visuelle d'objets</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body text-center">
+            <iframe
+            src="https://drive.google.com/file/d/1AdXkqqF8j0ZYvbrJD9_5rTKplieU6EIk/preview"
+            width="100%"
+            height="600"
+            frameborder="0"
+            allow="autoplay">
+        </iframe>
+        <p><strong>Rapport de projet:</strong></p>
+        <iframe
+        src="https://drive.google.com/file/d/1d9ABdHh9eczrSJ6JLwOZ6OzGxJIa2s_Z/preview"
+        width="100%"
+        height="600"
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
+            <p><strong>Mon ressenti :</strong> Ce projet m'a confronté à la complexité des traitements d'image en temps réel.</p>
+            <div>
+              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
+              <span class="badge bg-secondary">Implanter Niv 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OptiPlant Modal -->
+    <div class="modal fade" id="modalOptiPlant" tabindex="-1" aria-labelledby="modalOptiPlantLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalOptiPlantLabel">OptiPlant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body text-center">
+            <iframe
+            src="https://drive.google.com/file/d/1-3CmTqf8l09bbajhrIi1FCM6Xxoq3TfA/preview"
+            width="100%"
+            height="600"
+            frameborder="0"
+            allow="autoplay">
+        </iframe>
+        <p><strong>Rapport de projet:</strong></p>
+        <iframe
+        src="https://drive.google.com/file/d/1LzRTHQ9U424EK7FHoYKIaOGdrlDN-LYK/preview"
+        width="100%"
+        height="600"
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
+            <p><strong>Mon ressenti :</strong> La gestion de la base de données et l'UX de l'interface web ont été particulièrement enrichissantes.</p>
+            <div>
+              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
+              <span class="badge bg-secondary">Implanter Niv 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NanoPi Modal -->
+    <div class="modal fade" id="modalNanoPi" tabindex="-1" aria-labelledby="modalNanoPiLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalNanoPiLabel">NanoPi Neo 2 & Linux</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body text-center">
+            <iframe
+                src="https://drive.google.com/file/d/12d625jVVMs9Rjblmhf9Oa2Pay1g8CTXq/preview"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allow="autoplay">
+            </iframe>
+            <p><strong>Rapport de projet:</strong></p>
+            <iframe
+                src="https://drive.google.com/file/d/1w-MwFfGIfD8D0815mKFFNCZsoTLyB5KPahY4oBiSBik/preview"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allow="autoplay">
+            </iframe>
+            <p><strong>Mon ressenti :</strong> L'exploration d'Armbian et la configuration Linux sur NanoPi ont renforcé mes compétences SysAdmin.</p>
+            <div>
+              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
+              <span class="badge bg-secondary">Implanter Niv 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Formation</h2>
+      <ul class="list-unstyled">
+        <li class="mb-3">
+          <h5>BUT3 GEII, Université de Toulon, IUT La Garde</h5>
+          <p>En cours – Électronique systèmes embarqués</p>
+          <button class="btn btn-primary btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#competencesModal">Voir compétences</button>
+        </li>
+        <li class="mb-3">
+          <h5>Habilitation électrique BR</h5>
+          <p>2022 – Chargé d'interventions générales</p>
+        </li>
+        <li>
+          <h5>Baccalauréat Général</h5>
+          <p>2022 – Maths, Physique-Chimie, SVT – Mention Assez Bien</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+    <!-- Compétences Modal -->
+  <div class="modal fade" id="competencesModal" tabindex="-1" aria-labelledby="competencesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="competencesModalLabel">Auto-évaluation des compétences du BUT GEII</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- BUT1 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT1</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:50%"></div></div>
+                  <small>50%</small>
+                </div>
+                <small class="text-muted d-block">Mener une conception partielle intégrant une démarche projet</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:50%"></div></div>
+                  <small>50%</small>
+                </div>
+                <small class="text-muted d-block">Effectuer les tests et mesures nécessaires à la vérification d’un système</small>
+              </div>
+              <h6>Projets associés :</h6>
+              <ul>
+                <li><strong>Transmetteur longue distance</strong> — conception partielle et protocole WSPR</li>
+                <li><strong>NanoPi Neo 2 & Linux</strong> — vérification des fonctionnalités embarquées</li>
+              </ul>
+            </div>
+            <!-- BUT2 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT2</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:66%"></div></div>
+                  <small>66%</small>
+                </div>
+                <small class="text-muted d-block">Concevoir un système en fiabilisant les solutions proposées</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:66%"></div></div>
+                  <small>66%</small>
+                </div>
+                <small class="text-muted d-block">Mettre en place un protocole de tests pour valider un système</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Maintenir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-success" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Intervenir sur un système pour maintenance</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Implanter</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-success" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Réaliser un système avec démarche qualité</small>
+              </div>
+              <h6>Projets associés :</h6>
+              <ul>
+                <li><strong>Robot mobile autonome</strong> — asservissement PID et trajectoire</li>
+                <li><strong>OptiPlant</strong> — validation de la base de données et UI</li>
+              </ul>
+            </div>
+            <!-- BUT3 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT3</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Approche sélective dans les choix technologiques</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-primary" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Procédure qualité pour valider un système</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Maintenir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-success" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Stratégie de maintenance optimale</small>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Implanter</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;"><div class="progress-bar bg-success" style="width:100%"></div></div>
+                  <small>100%</small>
+                </div>
+                <small class="text-muted d-block">Interaction avec les acteurs pour mise en service</small>
+              </div>
+              <h6>Projets associés :</h6>
+              <ul>
+                <li><strong>Robot mobile autonome</strong> — choix technologiques pour l’asservissement</li>
+                <li><strong>Détection visuelle d'objets</strong> — traitements d’image temps réel</li>
+                <li><strong>OptiPlant</strong> — procédures qualité pour recettes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!--experience-->
+
+   <section id="experience" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Expérience</h2>
+      <div class="timeline-container">
+        <!-- MADE S.A. Mars 2025 -->
+        <div class="card timeline-card shadow-sm text-center">
+          <iframe
+          src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
+          width="100%"
+          height="180px"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+          <div class="card-body">
+            <h5 class="card-title">Assistant d’ingénieur – MADE S.A</h5>
+            <p><small>Mars 2025 – 14 semaines</small></p>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp1">Plus d'information</button>
+            <button class="btn btn-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Voir Projet</button>
+            <div class="collapse mt-2 text-start" id="exp1">
+              <ul class="mb-0">
+                <li>Développement et test d’une communication CAN SAE J1939 sur banc d’essai avec IHM, STM32F103RB, transceivers CAN.</li>
+                <li>Analyse des PGN et échanges de données ECU via STM32CubeIDE.</li>
+                <li>Tests et validation des trames CAN 2.0B à l’oscilloscope.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- MADE S.A. Avril 2024 -->
+        <div class="card timeline-card shadow-sm text-center">
+          <iframe
+          src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
+          width="100%"
+          height="180px"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+          <div class="card-body">
+            <h5 class="card-title">Assistant d’ingénieur – MADE S.A</h5>
+            <p><small>Avril 2024 – 8 semaines</small></p>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp2">Plus d'information</button>
+            <button class="btn btn-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#modalTraces2">Voir Projet</button>
+            <div class="collapse mt-2 text-start" id="exp2">
+              <ul class="mb-0">
+                <li>Adaptation du logiciel Sky Ng Radio pour nouvelle utilisation.</li>
+                <li>Étude des trames radio et gestion d’alarmes via Zigbee 3.0.</li>
+                <li>Mise en place d’un bus CAN protocole J1939.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- McDonald's -->
+        <div class="card timeline-card shadow-sm text-center">
+          <iframe
+          src="https://drive.google.com/file/d/1UEemWMIbhREh5hPkiJbPS4G8pMSN76qB/preview"
+          width="100%"
+          height="180px"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+          <div class="card-body">
+            <h5 class="card-title">Équipier polyvalent – McDonald’s</h5>
+            <p><small>Décembre 2022 – Avril 2025</small></p>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp3">Plus d'information</button>
+            <div class="collapse mt-2 text-start" id="exp3">
+              <ul class="mb-0">
+                <li>Plonge et service à table.</li>
+                <li>Assemblage et initiation des burgers.</li>
+                <li>Gril et cuisson.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Intérim 2022 -->
+        <div class="card timeline-card shadow-sm text-center">
+          <iframe
+          src="https://drive.google.com/file/d/1QqedNXCe_m8V5Z1A_GJK5FN6xnlLOkrH/preview"
+          width="100%"
+          height="180px"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+          <div class="card-body">
+            <h5 class="card-title">Assistant menuisier – Intérim</h5>
+            <p><small>Un mois en 2022</small></p>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp4">Plus d'information</button>
+            <div class="collapse mt-2 text-start" id="exp4">
+              <ul class="mb-0">
+                <li>Travaux de manutention et gondage de portes et fenêtres.</li>
+                <li>Réparation et remplacement de baies vitrées.</li>
+                <li>Empaquetage de pièces automobiles.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Judo 2021–2022 -->
+        <div class="card timeline-card shadow-sm text-center">
+          <iframe
+          src="https://drive.google.com/file/d/1h-6SHT0S4LofKfGC08eRHEFOXFxEXjfe/preview"
+          width="100%"
+          height="180px"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+          <div class="card-body">
+            <h5 class="card-title">Encadrement judo – USC La Crau</h5>
+            <p><small>2021 – 2022</small></p>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp5">Plus d'information</button>
+            <div class="collapse mt-2 text-start" id="exp5">
+              <ul class="mb-0">
+                <li>Aide et encadrement des cours Poussins et Benjamins (2 h/semaine).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals pour traces MADE S.A -->
+    <div class="modal fade" id="modalTraces1" tabindex="-1" aria-labelledby="modalTraces1Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTraces1Label">Traces - MADE S.A (Mars 2025)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Insère ici tes traces (texte, images ou iframe) -->
+            <iframe
+            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+            width="100%"
+            height="180px"
+            frameborder="0"
+            allow="autoplay">
+          </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalTraces2" tabindex="-1" aria-labelledby="modalTraces2Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTraces2Label">Traces - MADE S.A (Avril 2024)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+            width="100%"
+            height="180px"
+            frameborder="0"
+            allow="autoplay">
+          </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- interests -->
+  <section id="interests" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Centres d'intérêt</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center p-3 shadow-sm">
+            <i class="fas fa-futbol card-icon"></i>
+            <p class="mt-2 mb-0">Volley-ball (4–6 h/semaine)</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center p-3 shadow-sm">
+            <i class="fas fa-hand-rock card-icon"></i>
+            <p class="mt-2 mb-0">Judo – ceinture marron (12 ans)</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center p-3 shadow-sm">
+            <i class="fas fa-paint-brush card-icon"></i>
+            <p class="mt-2 mb-0">Dessin figuratif et portraits</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center p-3 shadow-sm">
+            <i class="fas fa-utensils card-icon"></i>
+            <p class="mt-2 mb-0">Cuisine et pâtisserie amateur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Contact -->
+<section id="contact" class="py-5" style="background-color: var(--primary); color: #fff;">
+    <div class="container">
+      <h2 class="section-title text-white">Contact</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form action="https://formspree.io/f/mgvknapo" method="POST" novalidate>
+            <!-- Redirection après envoi -->
+            <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+            <!-- Sujet personnalisé du mail -->
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+            <!-- Adresse de réponse -->
+            <input type="hidden" name="_replyto" value="taha.aziz5111@gmail.com">
+  
+            <div class="mb-3">
+              <label for="contactName" class="form-label text-white">Nom</label>
+              <input type="text" class="form-control" id="contactName" name="name" placeholder="Votre nom" required>
+              <div class="invalid-feedback">
+                Merci de saisir votre nom.
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label text-white">Email</label>
+              <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Votre adresse email" required>
+              <div class="invalid-feedback">
+                Merci de saisir une adresse email valide.
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="contactSubject" class="form-label text-white">Sujet</label>
+              <input type="text" class="form-control" id="contactSubject" name="subject" placeholder="Sujet de votre message" required>
+              <div class="invalid-feedback">
+                Merci de préciser le sujet.
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label text-white">Message</label>
+              <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Votre message" required></textarea>
+              <div class="invalid-feedback">
+                Merci de rédiger un message.
+              </div>
+            </div>
+  
+            <div class="text-center">
+              <button type="submit" class="btn btn-light">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
     <script>
-        const blocks = document.querySelectorAll('.carousel-block');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            blocks.forEach((block, index) => {
-                block.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function nextBlock() {
-            currentIndex = (currentIndex + 1) % blocks.length;
-            updateCarousel();
-        }
-
-        function prevBlock() {
-            currentIndex = (currentIndex - 1 + blocks.length) % blocks.length;
-            updateCarousel();
-        }
-
-        blocks.forEach((block) => {
-            block.addEventListener('click', () => {
-                const url = block.dataset.url;
-                if (url) {
-                    window.location.href = url; // Ouvre la page dans la même fenêtre
-                }
-            });
-        });
-
-        function downloadCV() {
-            const link = document.createElement('a');
-            link.href = 'https://drive.google.com/uc?export=download&id=17MAm6LVrlO6s13IPekRpOA18-hKmxu8R';
-            link.download = 'CV_Taha_Aziz.pdf';
-            link.click();
-        }
-
-        function showCV() {
-            document.getElementById('cvModal').style.display = 'flex';
-        }
-
-        function showContacts() {
-            document.getElementById('contactsModal').style.display = 'flex';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function openSettings() {
-            alert("Ouvrir les paramètres ici");
-            // Vous pouvez ajouter ici une logique pour ouvrir une fenêtre modale ou une page de paramètres
-        }
-
-        window.addEventListener('click', (event) => {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
+      // Validation Bootstrap 5
+      (function () {
+        'use strict'
+        const forms = document.querySelectorAll('form')
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
             }
-        });
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
+  </section>
+  
+    
+    <script>
+      // Bootstrap custom validation
+      (function () {
+        'use strict'
+        const forms = document.querySelectorAll('form')
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
+    </script>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-1 fw-bold">Taha Aziz</p>
+      <p class="mb-0">Futur Ingénieur en Électronique et Systèmes Embarqués</p>
+      <div class="mt-2">
+        <a href="https://www.linkedin.com/in/tahaaziz83/" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://github.com/AZIZTaha83" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+        <a href="mailto:taha.aziz5111@gmail.com" class="text-light"><i class="fas fa-envelope fa-lg"></i></a>
+      </div>
+      <p class="mt-3">&copy; 2025 Taha Aziz. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+    <!-- CV Modal -->
+  <div class="modal fade" id="modalCV" tabindex="-1" aria-labelledby="modalCVLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCVLabel">Curriculum Vitae</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body p-0">
+            <iframe
+            src="https://drive.google.com/file/d/14vBFxXkX04AoCW0sueQRnIJU8V2Y3ANc/preview"
+            width="100%"
+            height="600"
+            frameborder="0"
+            allow="autoplay">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    
+      function activateNav() {
+        let index = sections.length;
+    
+        while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+        
+        navLinks.forEach(link => link.classList.remove("active"));
+        const activeLink = document.querySelector('.navbar-nav .nav-link[href="#' + sections[index].id + '"]');
+        if (activeLink) activeLink.classList.add("active");
+      }
+    
+      activateNav();
+      window.addEventListener("scroll", activateNav);
+    });
+    </script>
+
+
 </body>
 </html>
