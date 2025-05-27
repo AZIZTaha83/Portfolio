@@ -9,54 +9,194 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root { --primary: #0d6efd; --light: #f8f9fa; --dark: #212529; }
-    body { font-family: 'Segoe UI', sans-serif; background-color: var(--light); color: var(--dark); }
-    .navbar-nav .nav-link.active { color: var(--primary) !important; font-weight: 600; }
-    .section-title { position: relative; margin-bottom: 2rem; }
-    .section-title::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -6px; left: 0; }
-    .card-icon { font-size: 2rem; color: var(--primary); }
-    .bg-primary-alt { background-color: rgba(13, 110, 253, 0.1); }
-    footer { background-color: var(--dark); color: #ccc; padding: 1.5rem 0; }
-    .form-note { font-size: 0.8rem; color: #aaa; }
-        /* Timeline horizontal scroll */
-        .timeline-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; }
-    .timeline-card { min-width: 250px; flex: 0 0 auto; border: none; }
-    .timeline-card img { width: 100%; height: 150px; object-fit: cover; border-top-left-radius: .25rem; border-top-right-radius: .25rem; }
-  
-  
-/* Écran de connexion */
-#login-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--dark);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    :root {
+        --primary: #00FF7F; /* Vert électronique */
+        --secondary: #0d6efd; /* Bleu électrique */
+        --dark: #1a1a1a; /* Fond sombre pour l'aspect industriel */
+        --light: #f8f9fa; /* Couleur de texte claire */
+        --bg-dark: #222; /* Fond sombre de la section */
+    }
 
-.login-box {
-  animation: fadeInUp 1s ease;
-}
+    body {
+        font-family: 'Roboto Mono', monospace;
+        background-color: var(--bg-dark);
+        color: var(--light);
+    }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    /* Navbar */
+    .navbar {
+        background-color: #333; /* Fond sombre pour la navbar */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-#login-message {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  color: #5c8f6d;
-}
-  
-  </style>
+    .navbar-nav .nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 600;
+    }
+
+    .navbar-nav .nav-link {
+        color: #ccc;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--primary);
+    }
+
+    /* Section Titles */
+    .section-title {
+        position: relative;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .section-title::after {
+        content: '';
+        width: 60px;
+        height: 3px;
+        background: var(--primary);
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+    }
+
+    /* Card Hover Effect */
+    .card:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        color: var(--primary);
+    }
+
+    .bg-primary-alt {
+        background-color: rgba(13, 110, 253, 0.1);
+    }
+
+    /* Buttons */
+    .btn-outline-light:hover, .btn-outline-primary:hover {
+        background-color: var(--primary);
+        color: #fff;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: #ccc;
+        padding: 2rem 0;
+    }
+
+    footer a {
+        color: #ccc;
+    }
+
+    footer a:hover {
+        color: var(--primary);
+    }
+
+    /* Form & Inputs */
+    .form-control, .form-select, .form-textarea {
+        border-radius: 10px;
+        border-color: #444;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .timeline-card {
+        min-width: 250px;
+        flex: 0 0 auto;
+        border: none;
+    }
+
+    .timeline-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    /* Écran de connexion */
+    #login-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .login-box {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-message {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #5c8f6d;
+    }
+
+    /* Animations */
+    .fadeInElement {
+        animation: fadeInTech 1s ease;
+    }
+
+    @keyframes fadeInTech {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Modals */
+    .modal-content {
+        background-color: #222;
+        color: #fff;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #444;
+    }
+
+    .modal-body {
+        background-color: #333;
+        padding: 2rem;
+    }
+
+</style>
 </head>
-<body>
 
+<body>
   <script>
     window.addEventListener('load', () => {
       const loginBox = document.getElementById('login-animation');
@@ -106,7 +246,7 @@
   </nav>
 
   <!-- Header -->
-  <header class="py-5 text-white" style="background-color: var(--primary);">
+  <header class="py-5 text-white" style="background-color: var(--dark);">
     <div class="container d-flex flex-column flex-lg-row align-items-center">
       <div class="me-lg-5 text-center text-lg-start">
         <h1 class="display-5 fw-bold">Taha Aziz</h1>
@@ -115,7 +255,7 @@
         <a href="#contact" class="btn btn-light me-2">Me contacter</a>
         <a href="#projects" class="btn btn-outline-light me-2">Voir mes projets</a>
         <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalCV">Afficher mon CV</button>
-        <a href="https://drive.google.com/uc?export=download&id=14vBFxXkX04AoCW0sueQRnIJU8V2Y3ANc" class="btn btn-outline-light">Télécharger mon CV</a>
+        <a href="https://drive.google.com/uc?export=download&id=1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl" class="btn btn-outline-light">Télécharger mon CV</a>
       </div>
       <div class="mt-4 mt-lg-0 text-center">
         <div class="rounded-circle bg-white p-3" style="  width: 180px; 
@@ -164,143 +304,374 @@
   </section>
 
  <!-- Compétences -->
-<section id="skills" class="py-5 bg-white">
+<section id="skills" class="py-5">
   <div class="container">
     <h2 class="section-title">Compétences</h2>
 
-    <h5>Langages de programmation</h5>
-    <div class="row g-3 mb-4">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card bg-primary-alt p-3 h-100 text-center">
-          <i class="fas fa-code card-icon"></i>
-          <p class="mt-2 mb-0">
-            C, C++, C#, Python, Arduino, STM32, SQL, HTML, CSS, JavaScript, PHP, Matlab
-          </p>
-        </div>
-      </div>
+<h5>Langages de programmation</h5>
+<div class="row g-3 mb-4">
+  <!-- C / C++ -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fas fa-code card-icon"></i>
+      <p class="mt-2 mb-0" style="color: white;">C / C++ / C#</p>
     </div>
+  </div>
+  <!-- Python -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fab fa-python card-icon"></i>
+      <p class="mt-2 mb-0" style="color: white;">Python</p>
+    </div>
+  </div>
+  <!-- Arduino -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fas fa-microchip card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">Arduino</p>
+    </div>
+  </div>
+  <!-- STM32 -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fas fa-microchip card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">STM32</p>
+    </div>
+  </div>
+  <!-- SQL -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fas fa-database card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">SQL</p>
+    </div>
+  </div>
+  <!-- HTML5 -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fab fa-html5 card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">HTML5</p>
+    </div>
+  </div>
+  <!-- CSS3 -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fab fa-css3-alt card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">CSS3</p>
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fab fa-js card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">JavaScript</p>
+    </div>
+  </div>
+  <!-- PHP -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fab fa-php card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">PHP</p>
+    </div>
+  </div>
+  <!-- MATLAB -->
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card bg-primary-alt p-3 h-100 text-center">
+      <i class="fas fa-chart-line card-icon"></i>
+      <p class="mt-2 mb-0"style="color: white;">Matlab</p>
+    </div>
+  </div>
+</div>
+
 
     <h5>Outils & logiciels</h5>
     <div class="row g-3">
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card bg-primary-alt p-3 h-100 text-center">
           <i class="fas fa-database card-icon"></i>
-          <p class="mt-2 mb-0">Codesys, Linux, Armbian</p>
+          <p class="mt-2 mb-0"style="color: white;">Codesys, Linux, Armbian</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card bg-primary-alt p-3 h-100 text-center">
           <i class="fas fa-paint-brush card-icon"></i>
-          <p class="mt-2 mb-0">Canva, Office 365</p>
+          <p class="mt-2 mb-0"style="color: white;">Canva, Office 365</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card bg-primary-alt p-3 h-100 text-center">
           <i class="fas fa-microchip card-icon"></i>
-          <p class="mt-2 mb-0">MBLAB, Qt Creator</p>
+          <p class="mt-2 mb-0"style="color: white;">MBLAB, Qt Creator</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card bg-primary-alt p-3 h-100 text-center">
           <i class="fas fa-robot card-icon"></i>
-          <p class="mt-2 mb-0">OpenCV</p>
+          <p class="mt-2 mb-0"style="color: white;">OpenCV</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- Projects -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Projets</h2>
-      <div class="row g-4">
-        <!-- Transmetteur -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body bg-primary-alt text-center"><i class="fas fa-signal card-icon"></i></div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Transmetteur longue distance</h5>
-              <p class="mb-1"><small>180H – 2025</small></p>
-              <p class="flex-grow-1">Conception, réalisation et programmation d'un transmetteur bas débit via ionosphère, étude du protocole WSPR et optimisation de la consommation.</p>
-              <div class="mb-3">
-                <span class="badge bg-primary me-1">STM32</span>
-                <span class="badge bg-primary me-1">WSPR</span>
-                <span class="badge bg-primary">Électronique</span>
+<!-- Projets -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Projets</h2>
+
+    <!-- Onglets -->
+    <ul class="nav nav-tabs" id="projectsTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="but1-tab"
+                data-bs-toggle="tab" data-bs-target="#but1"
+                type="button" role="tab" aria-controls="but1"
+                aria-selected="true">BUT 1</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="but2-tab"
+                data-bs-toggle="tab" data-bs-target="#but2"
+                type="button" role="tab" aria-controls="but2"
+                aria-selected="false">BUT 2</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="but3-tab"
+                data-bs-toggle="tab" data-bs-target="#but3"
+                type="button" role="tab" aria-controls="but3"
+                aria-selected="false">BUT 3</button>
+      </li>
+    </ul>
+
+    <!-- Contenu des onglets -->
+    <div class="tab-content mt-4" id="projectsTabContent">
+
+      <!-- BUT1 -->
+      <div class="tab-pane fade show active" id="but1" role="tabpanel" aria-labelledby="but1-tab">
+        <div class="row g-4">
+          <!-- Smart Light -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Carte Smart Light">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Carte Smart Light</h5>
+                <p class="flex-grow-1">Conception d'une carte Smart Light pour contrôle d’éclairage embarqué.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Électronique</span>
+                  <span class="badge bg-primary">PCB</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalSmartLight">
+                  En savoir plus
+                </a>
               </div>
-              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalTransmetteur">En Savoir plus</a>
+            </div>
+          </div>                                
+          <!-- Vérif Electrique -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia" class="card-img-top" alt="Conception d'un système électronique émetteur / récepteur">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Vérification système électrique</h5>
+                <p class="flex-grow-1">Tests et validation d’un système électrique embarqué.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Conception</span>
+                  <span class="badge bg-primary">Validation</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalVerification">
+                  En savoir plus
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Robot autonome -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body bg-primary-alt text-center"><i class="fas fa-robot card-icon"></i></div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Robot mobile autonome</h5>
-              <p class="mb-1"><small>160H – 2025</small></p>
-              <p class="flex-grow-1">Asservissement PID, générateur de trajectoire et vision pour détection d'objets, communication UART entre composants.</p>
-              <div class="mb-3">
-                <span class="badge bg-primary me-1">PID</span>
-                <span class="badge bg-primary me-1">Matlab</span>
-                <span class="badge bg-primary">UART</span>
+          <!-- Robot Mobile -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Robot Mobile Autonome">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Robot mobile autonome</h5>
+                <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">PID</span>
+                  <span class="badge bg-primary">Vision</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalRobot">
+                  En savoir plus
+                </a>
               </div>
-              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalRobot">En Savoir plus</a>
-            </div>
-          </div>
-        </div>
-        <!-- Détection visuelle -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body bg-primary-alt text-center"><i class="fas fa-camera card-icon"></i></div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Détection visuelle d'objets</h5>
-              <p class="mb-1"><small>120H – 2025</small></p>
-              <p class="flex-grow-1">Détection d'objets rouges par caméra JeVois-Pro, discrimination couleur et localisation 3D.</p>
-              <div class="mb-3">
-                <span class="badge bg-primary me-1">OpenCV</span>
-                <span class="badge bg-primary me-1">Python</span>
-                <span class="badge bg-primary">PIC</span>
-              </div>
-              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalDetection">En Savoir plus</a>
-            </div>
-          </div>
-        </div>
-        <!-- OptiPlant -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body bg-primary-alt text-center"><i class="fas fa-seedling card-icon"></i></div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">OptiPlant</h5>
-              <p class="mb-1"><small>80H – 2025</small></p>
-              <p class="flex-grow-1">BDD MySQL et interface web (PHP, JS, HTML, CSS) pour gestion d'ombrière et recettes personnalisées.</p>
-              <div class="mb-3">
-                <span class="badge bg-primary me-1">MySQL</span>
-                <span class="badge bg-primary me-1">PHP</span>
-                <span class="badge bg-primary">HTML/CSS</span>
-              </div>
-              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalOptiPlant">En Savoir plus</a>
-            </div>
-          </div>
-        </div>
-        <!-- NanoPi -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body bg-primary-alt text-center"><i class="fas fa-microchip card-icon"></i></div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">NanoPi Neo 2 & Linux</h5>
-              <p class="mb-1"><small>70H – 2024</small></p>
-              <p class="flex-grow-1">Installation d'une distribution Linux sur NanoPi Neo 2, exploration d'Armbian.</p>
-              <div class="mb-3">
-                <span class="badge bg-primary me-1">Linux</span>
-                <span class="badge bg-primary">Armbian</span>
-              </div>
-              <a href="#" class="btn btn-primary btn-sm align-self-start" data-bs-toggle="modal" data-bs-target="#modalNanoPi">En Savoir plus</a>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- BUT2 -->
+      <div class="tab-pane fade" id="but2" role="tabpanel" aria-labelledby="but2-tab">
+        <div class="row g-4">
+          <!-- Robot amélioré -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Robot Mobile Amélioré">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Robot mobile autonome amélioré</h5>
+                <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Optimisation</span>
+                  <span class="badge bg-primary">Automatisation</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalRobot">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Assistant domotique -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Robot Mobile Amélioré">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Assistant domotique</h5>
+                <p class="flex-grow-1">Projet de Développement, de Conception et de Vérification d'un assitant domotique dotés de plusieurs capteurs, d'un écran tactile et d'une interface web.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Optimisation</span>
+                  <span class="badge bg-primary">Automatisation</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalRobot">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>          
+          <!-- Synthétiseur -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Synthétiseur de Musique">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Synthétiseur de musique</h5>
+                <p class="flex-grow-1">Signal audio équivalent à un synthétiseur via Dev-C++ embarqué.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Audio</span>
+                  <span class="badge bg-primary">Dev-C++</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalSynthese">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUT3 -->
+      <div class="tab-pane fade" id="but3" role="tabpanel" aria-labelledby="but3-tab">
+        <div class="row g-4">
+          <!-- Transmission longue distance -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Transmission longue distance">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Transmission longue distance</h5>
+                <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">WSPR</span>
+                  <span class="badge bg-primary">STM32</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalTransmetteur">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- OptiPlant -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="OptiPlant">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">OptiPlant</h5>
+                <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">MySQL</span>
+                  <span class="badge bg-primary">PHP</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalOptiPlant">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Détection visuelle -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="" class="card-img-top" alt="Détection visuelle d'objets">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Détection visuelle d'objets</h5>
+                <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>
+                <div class="mb-2">
+                  <span class="badge bg-primary me-1">OpenCV</span>
+                  <span class="badge bg-primary">Python</span>
+                </div>
+                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
+                   data-bs-toggle="modal" data-bs-target="#modalDetection">
+                  En savoir plus
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+
+<!-- Modales manquantes -->
+<div class="modal fade" id="modalSmartLight" tabindex="-1" aria-labelledby="modalSmartLightLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalSmartLightLabel">Carte Smart Light</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenu du projet Smart Light -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalVerification" tabindex="-1" aria-labelledby="modalVerificationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalVerificationLabel">Vérification système électrique</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenu du projet de vérification -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSynthese" tabindex="-1" aria-labelledby="modalSyntheseLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalSyntheseLabel">Synthétiseur de musique</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenu du projet synthétiseur -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <!-- Project Modals -->
     <!-- Transmetteur Modal -->
@@ -469,7 +840,7 @@
   </section>
 
   <!-- Education -->
-  <section id="education" class="py-5 bg-white">
+  <section id="education" class="py-5">
     <div class="container">
       <h2 class="section-title">Formation</h2>
       <ul class="list-unstyled">
@@ -616,7 +987,7 @@
 
    <!--experience-->
 
-   <section id="experience" class="py-5 bg-white">
+   <section id="experience" class="py-5">
     <div class="container">
       <h2 class="section-title">Expérience</h2>
       <div class="timeline-container">
@@ -775,42 +1146,132 @@
     </div>
   </section>
 
-<!-- interests -->
-  <section id="interests" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Centres d'intérêt</h2>
-      <div class="row g-4">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center p-3 shadow-sm">
-            <i class="fas fa-futbol card-icon"></i>
-            <p class="mt-2 mb-0">Volley-ball (4–6 h/semaine)</p>
+
+<!-- Centres d'intérêt -->
+<section id="interests" class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Centres d'intérêt</h2>
+
+    <div id="interestsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Sport -->
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center">
+            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
+              <i class="fas fa-futbol card-icon fa-2x mb-3"></i>
+              <h5>Sport</h5>
+              <p>Volley-ball (4–6 h/semaine)</p>
+              <p>Judo – ceinture marron (12 ans)</p>
+              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalSport">En savoir plus</button>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center p-3 shadow-sm">
-            <i class="fas fa-hand-rock card-icon"></i>
-            <p class="mt-2 mb-0">Judo – ceinture marron (12 ans)</p>
+
+        <!-- Art -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
+              <i class="fas fa-paint-brush card-icon fa-2x mb-3"></i>
+              <h5>Art</h5>
+              <p>Dessin figuratif et portraits</p>
+              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalArt">En savoir plus</button>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center p-3 shadow-sm">
-            <i class="fas fa-paint-brush card-icon"></i>
-            <p class="mt-2 mb-0">Dessin figuratif et portraits</p>
+
+        <!-- Projet perso -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
+              <i class="fas fa-lightbulb card-icon fa-2x mb-3"></i>
+              <h5>Projets perso</h5>
+              <p>Création d'applications ou jeux simples</p>
+              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalProjet">En savoir plus</button>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center p-3 shadow-sm">
-            <i class="fas fa-utensils card-icon"></i>
-            <p class="mt-2 mb-0">Cuisine et pâtisserie amateur</p>
+
+        <!-- Jeux -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
+              <i class="fas fa-gamepad card-icon fa-2x mb-3"></i>
+              <h5>Jeux</h5>
+              <p>Jeux vidéo coopératifs et de stratégie</p>
+              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalJeux">En savoir plus</button>
+            </div>
           </div>
         </div>
+
       </div>
+
+<!-- Contrôles du carrousel avec Font Awesome -->
+<button class="carousel-control-prev" type="button" data-bs-target="#interestsCarousel" data-bs-slide="prev">
+  <i class="fas fa-chevron-left fa-2x text-white"></i>
+  <span class="visually-hidden">Précédent</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#interestsCarousel" data-bs-slide="next">
+  <i class="fas fa-chevron-right fa-2x text-white"></i>
+  <span class="visually-hidden">Suivant</span>
+</button>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Modales d'information -->
+<div class="modal fade" id="modalSport" tabindex="-1" aria-labelledby="modalSportLabel" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modalSportLabel">Sport</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      Passionné de volley-ball et pratiquant régulier, je joue en club 4 à 6h par semaine. J’ai également pratiqué le judo pendant 12 ans, ceinture marron obtenue.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modalArt" tabindex="-1" aria-labelledby="modalArtLabel" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modalArtLabel">Art</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      Je réalise principalement des portraits au crayon et au fusain. Le dessin est un moyen pour moi de me concentrer et de m'exprimer.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modalProjet" tabindex="-1" aria-labelledby="modalProjetLabel" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modalProjetLabel">Projets personnels</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      En autodidacte, j’ai développé plusieurs petits projets web (jeux, outils de productivité) pour m'améliorer en programmation.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modalJeux" tabindex="-1" aria-labelledby="modalJeuxLabel" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modalJeuxLabel">Jeux</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      Je joue régulièrement à des jeux coopératifs et de stratégie, notamment sur PC, pour le fun et l’esprit d’équipe.
+    </div>
+  </div></div>
+</div>
+
 
 
 <!-- Contact -->
-<section id="contact" class="py-5" style="background-color: var(--primary); color: #fff;">
+<section id="contact" class="py-5" style="background-color: var(--dark); color: #fff;">
     <div class="container">
       <h2 class="section-title text-white">Contact</h2>
       <div class="row justify-content-center">
@@ -925,7 +1386,7 @@
         </div>
         <div class="modal-body p-0">
             <iframe
-            src="https://drive.google.com/file/d/14vBFxXkX04AoCW0sueQRnIJU8V2Y3ANc/preview"
+            src="https://drive.google.com/file/d/1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl/preview"
             width="100%"
             height="600"
             frameborder="0"
@@ -953,7 +1414,7 @@
         const activeLink = document.querySelector('.navbar-nav .nav-link[href="#' + sections[index].id + '"]');
         if (activeLink) activeLink.classList.add("active");
       }
-    
+    ""
       activateNav();
       window.addEventListener("scroll", activateNav);
     });
