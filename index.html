@@ -91,7 +91,7 @@
     }
 
     footer a {
-        color: #ccc;
+        text-decoration: none !important;
     }
 
     footer a:hover {
@@ -193,7 +193,97 @@
         padding: 2rem;
     }
 
-</style>
+    /* Frise chronologique verticale pour la formation */
+    .timeline-vertical {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: rgba(13, 110, 253, 0.07);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-left: 0;
+    }
+    @media (max-width: 576px) {
+      .timeline-vertical {
+        margin-left: 10px;
+        padding-left: 15px;
+      }
+      .timeline-dot {
+        left: -26px;
+      }
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Ajoute la classe bg-dark-section à chaque section pour un fond noir uniforme */
+    .bg-dark-section {
+      background-color: var(--dark) !important;
+      color: var(--light) !important;
+    }
+
+    /* Expérience - esthétique améliorée */
+    #experience .exp-card {
+      border-radius: 16px;
+      background: rgba(13,110,253,0.07);
+      border: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    #experience .exp-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    #experience .exp-img-container {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+    }
+    #experience .card-title {
+      font-weight: 600;
+    }
+    #experience .btn-outline-primary,
+    #experience .btn-outline-secondary {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 991px) {
+      #experience .exp-img-container {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 767px) {
+      #experience .exp-img-container {
+        min-height: 120px;
+      }
+      #experience .btn-outline-primary,
+      #experience .btn-outline-secondary {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -275,9 +365,33 @@
     </div>
   </header>
 
+  <div class="modal fade" id="modalCV" tabindex="-1" aria-labelledby="modalCVLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCVLabel">Mon CV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body text-center">
+        <iframe
+          src="https://drive.google.com/file/d/1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl/preview"
+          width="100%"
+          height="700"
+          frameborder="0"
+          allow="autoplay">
+        </iframe>
+        <div class="mt-3">
+          <a href="https://drive.google.com/uc?export=download&id=1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl" class="btn btn-primary" target="_blank">
+            Télécharger le CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   
   <!-- About -->
-  <section id="about" class="py-5">
+  <section id="about" class="py-5 bg-dark-section">
     <div class="container">
       <h2 class="section-title">À propos de moi</h2>
       <div class="row align-items-center">
@@ -304,7 +418,7 @@
   </section>
 
  <!-- Compétences -->
-<section id="skills" class="py-5">
+<section id="skills" class="py-5 bg-dark-section">
   <div class="container">
     <h2 class="section-title">Compétences</h2>
 
@@ -414,7 +528,7 @@
 </section>
 
 <!-- Projets -->
-<section id="projects" class="py-5">
+<section id="projects" class="py-5 bg-dark-section">
   <div class="container">
     <h2 class="section-title">Projets</h2>
 
@@ -467,7 +581,7 @@
           <!-- Vérif Electrique -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia" class="card-img-top" alt="Conception d'un système électronique émetteur / récepteur">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Conception d'un système électronique émetteur / récepteur">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Vérification système électrique</h5>
                 <p class="flex-grow-1">Tests et validation d’un système électrique embarqué.</p>
@@ -485,7 +599,7 @@
           <!-- Robot Mobile -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Robot Mobile Autonome">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Robot Mobile Autonome">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Robot mobile autonome</h5>
                 <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>
@@ -509,7 +623,7 @@
           <!-- Robot amélioré -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Robot Mobile Amélioré">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Robot Mobile Amélioré">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Robot mobile autonome amélioré</h5>
                 <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>
@@ -527,7 +641,7 @@
           <!-- Assistant domotique -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Robot Mobile Amélioré">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Assistant domotique">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Assistant domotique</h5>
                 <p class="flex-grow-1">Projet de Développement, de Conception et de Vérification d'un assitant domotique dotés de plusieurs capteurs, d'un écran tactile et d'une interface web.</p>
@@ -545,7 +659,7 @@
           <!-- Synthétiseur -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Synthétiseur de Musique">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Synthétiseur de Musique">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Synthétiseur de musique</h5>
                 <p class="flex-grow-1">Signal audio équivalent à un synthétiseur via Dev-C++ embarqué.</p>
@@ -569,7 +683,7 @@
           <!-- Transmission longue distance -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Transmission longue distance">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Transmission longue distance">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Transmission longue distance</h5>
                 <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>
@@ -587,7 +701,7 @@
           <!-- OptiPlant -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="OptiPlant">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="OptiPlant">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">OptiPlant</h5>
                 <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>
@@ -605,7 +719,7 @@
           <!-- Détection visuelle -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
-              <img src="" class="card-img-top" alt="Détection visuelle d'objets">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Détection visuelle d'objets">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Détection visuelle d'objets</h5>
                 <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>
@@ -840,24 +954,36 @@
   </section>
 
   <!-- Education -->
-  <section id="education" class="py-5">
+  <section id="education" class="py-5 bg-dark-section">
     <div class="container">
       <h2 class="section-title">Formation</h2>
-      <ul class="list-unstyled">
-        <li class="mb-3">
-          <h5>BUT3 GEII, Université de Toulon, IUT La Garde</h5>
-          <p>En cours – Électronique systèmes embarqués</p>
-          <button class="btn btn-primary btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#competencesModal">Voir compétences</button>
-        </li>
-        <li class="mb-3">
-          <h5>Habilitation électrique BR</h5>
-          <p>2022 – Chargé d'interventions générales</p>
-        </li>
-        <li>
-          <h5>Baccalauréat Général</h5>
-          <p>2022 – Maths, Physique-Chimie, SVT – Mention Assez Bien</p>
-        </li>
-      </ul>
+      <div class="timeline-vertical">
+        <!-- BUT3 GEII -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>BUT3 GEII, Université de Toulon, IUT La Garde</h5>
+            <p>En cours – Électronique systèmes embarqués</p>
+            <button class="btn btn-primary btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#competencesModal">Voir compétences</button>
+          </div>
+        </div>
+        <!-- Habilitation électrique BR -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>Habilitation électrique BR</h5>
+            <p>2022 – Chargé d'interventions générales</p>
+          </div>
+        </div>
+        <!-- Bac Général -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>Baccalauréat Général</h5>
+            <p>2022 – Maths, Physique-Chimie, SVT – Mention Assez Bien</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -987,25 +1113,27 @@
 
    <!--experience-->
 
-   <section id="experience" class="py-5">
+   <section id="experience" class="py-5 bg-dark-section">
     <div class="container">
       <h2 class="section-title">Expérience</h2>
-      <div class="timeline-container">
-        <!-- MADE S.A. Mars 2025 -->
-        <div class="card timeline-card shadow-sm text-center">
-          <iframe
-          src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
-          width="100%"
-          height="180px"
-          frameborder="0"
-          allow="autoplay">
-        </iframe>
-          <div class="card-body">
-            <h5 class="card-title">Assistant d’ingénieur – MADE S.A</h5>
-            <p><small>Mars 2025 – 14 semaines</small></p>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp1">Plus d'information</button>
-            <button class="btn btn-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Voir Projet</button>
-            <div class="collapse mt-2 text-start" id="exp1">
+      <div class="row gy-4">
+      <!-- Expérience 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm exp-card">
+          <div class="exp-img-container">
+            <iframe
+              src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary">14 semaines Assistant d’ingénieur – MADE S.A</h5>
+            <p class="mb-1"><small class="text-muted">Mars 2025 – 14 semaines</small></p>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp1">Plus d'information</button>
+            <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Voir Projet</button>
+            <div class="collapse mt-2 text-start text-white" id="exp1">
               <ul class="mb-0">
                 <li>Développement et test d’une communication CAN SAE J1939 sur banc d’essai avec IHM, STM32F103RB, transceivers CAN.</li>
                 <li>Analyse des PGN et échanges de données ECU via STM32CubeIDE.</li>
@@ -1014,21 +1142,24 @@
             </div>
           </div>
         </div>
-        <!-- MADE S.A. Avril 2024 -->
-        <div class="card timeline-card shadow-sm text-center">
-          <iframe
-          src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
-          width="100%"
-          height="180px"
-          frameborder="0"
-          allow="autoplay">
-        </iframe>
-          <div class="card-body">
-            <h5 class="card-title">Assistant d’ingénieur – MADE S.A</h5>
-            <p><small>Avril 2024 – 8 semaines</small></p>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp2">Plus d'information</button>
-            <button class="btn btn-secondary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#modalTraces2">Voir Projet</button>
-            <div class="collapse mt-2 text-start" id="exp2">
+      </div>
+      <!-- Expérience 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm exp-card">
+          <div class="exp-img-container">
+            <iframe
+              src="https://drive.google.com/file/d/1LcbBdkEJZsnL6mvCWXRUqENZ7xbcLMWs/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary">8 semaines Assistant d’ingénieur – MADE S.A</h5>
+            <p class="mb-1"><small class="text-muted">Avril 2024 – 8 semaines</small></p>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp2">Plus d'information</button>
+            <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces2">Voir Projet</button>
+            <div class="collapse mt-2 text-start text-white" id="exp2">
               <ul class="mb-0">
                 <li>Adaptation du logiciel Sky Ng Radio pour nouvelle utilisation.</li>
                 <li>Étude des trames radio et gestion d’alarmes via Zigbee 3.0.</li>
@@ -1037,20 +1168,23 @@
             </div>
           </div>
         </div>
-        <!-- McDonald's -->
-        <div class="card timeline-card shadow-sm text-center">
-          <iframe
-          src="https://drive.google.com/file/d/1UEemWMIbhREh5hPkiJbPS4G8pMSN76qB/preview"
-          width="100%"
-          height="180px"
-          frameborder="0"
-          allow="autoplay">
-        </iframe>
-          <div class="card-body">
-            <h5 class="card-title">Équipier polyvalent – McDonald’s</h5>
-            <p><small>Décembre 2022 – Avril 2025</small></p>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp3">Plus d'information</button>
-            <div class="collapse mt-2 text-start" id="exp3">
+      </div>
+      <!-- Expérience 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm exp-card">
+          <div class="exp-img-container">
+            <iframe
+              src="https://drive.google.com/file/d/1UEemWMIbhREh5hPkiJbPS4G8pMSN76qB/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-warning">Équipier polyvalent – McDonald’s</h5>
+            <p class="mb-1"><small class="text-muted">Décembre 2022 – Avril 2025</small></p>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp3">Plus d'information</button>
+            <div class="collapse mt-2 text-start text-white" id="exp3">
               <ul class="mb-0">
                 <li>Plonge et service à table.</li>
                 <li>Assemblage et initiation des burgers.</li>
@@ -1059,20 +1193,23 @@
             </div>
           </div>
         </div>
-        <!-- Intérim 2022 -->
-        <div class="card timeline-card shadow-sm text-center">
-          <iframe
-          src="https://drive.google.com/file/d/1QqedNXCe_m8V5Z1A_GJK5FN6xnlLOkrH/preview"
-          width="100%"
-          height="180px"
-          frameborder="0"
-          allow="autoplay">
-        </iframe>
-          <div class="card-body">
-            <h5 class="card-title">Assistant menuisier – Intérim</h5>
-            <p><small>Un mois en 2022</small></p>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp4">Plus d'information</button>
-            <div class="collapse mt-2 text-start" id="exp4">
+      </div>
+      <!-- Expérience 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm exp-card">
+          <div class="exp-img-container">
+            <iframe
+              src="https://drive.google.com/file/d/1QqedNXCe_m8V5Z1A_GJK5FN6xnlLOkrH/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-success">Assistant menuisier – Intérim</h5>
+            <p class="mb-1"><small class="text-muted">Un mois en 2022</small></p>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp4">Plus d'information</button>
+            <div class="collapse mt-2 text-start text-white" id="exp4">
               <ul class="mb-0">
                 <li>Travaux de manutention et gondage de portes et fenêtres.</li>
                 <li>Réparation et remplacement de baies vitrées.</li>
@@ -1081,20 +1218,23 @@
             </div>
           </div>
         </div>
-        <!-- Judo 2021–2022 -->
-        <div class="card timeline-card shadow-sm text-center">
-          <iframe
-          src="https://drive.google.com/file/d/1h-6SHT0S4LofKfGC08eRHEFOXFxEXjfe/preview"
-          width="100%"
-          height="180px"
-          frameborder="0"
-          allow="autoplay">
-        </iframe>
-          <div class="card-body">
-            <h5 class="card-title">Encadrement judo – USC La Crau</h5>
-            <p><small>2021 – 2022</small></p>
-            <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#exp5">Plus d'information</button>
-            <div class="collapse mt-2 text-start" id="exp5">
+      </div>
+      <!-- Expérience 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm exp-card">
+          <div class="exp-img-container">
+            <iframe
+              src="https://drive.google.com/file/d/1h-6SHT0S4LofKfGC08eRHEFOXFxEXjfe/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-info">Encadrement judo – USC La Crau</h5>
+            <p class="mb-1"><small class="text-muted">2021 – 2022</small></p>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp5">Plus d'information</button>
+            <div class="collapse mt-2 text-start text-white" id="exp5">
               <ul class="mb-0">
                 <li>Aide et encadrement des cours Poussins et Benjamins (2 h/semaine).</li>
               </ul>
@@ -1103,7 +1243,6 @@
         </div>
       </div>
     </div>
-
     <!-- Modals pour traces MADE S.A -->
     <div class="modal fade" id="modalTraces1" tabindex="-1" aria-labelledby="modalTraces1Label" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1113,14 +1252,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
           </div>
           <div class="modal-body">
-            <!-- Insère ici tes traces (texte, images ou iframe) -->
             <iframe
-            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
-            width="100%"
-            height="180px"
-            frameborder="0"
-            allow="autoplay">
-          </iframe>
+              src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
           </div>
         </div>
       </div>
@@ -1134,269 +1271,16 @@
           </div>
           <div class="modal-body">
             <iframe
-            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
-            width="100%"
-            height="180px"
-            frameborder="0"
-            allow="autoplay">
-          </iframe>
+              src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+              width="100%"
+              height="180"
+              frameborder="0"
+              allow="autoplay"></iframe>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-<!-- Centres d'intérêt -->
-<section id="interests" class="py-5">
-  <div class="container">
-    <h2 class="section-title text-center mb-4">Centres d'intérêt</h2>
-
-    <div id="interestsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-
-        <!-- Sport -->
-        <div class="carousel-item active">
-          <div class="d-flex justify-content-center">
-            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
-              <i class="fas fa-futbol card-icon fa-2x mb-3"></i>
-              <h5>Sport</h5>
-              <p>Volley-ball (4–6 h/semaine)</p>
-              <p>Judo – ceinture marron (12 ans)</p>
-              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalSport">En savoir plus</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Art -->
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center">
-            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
-              <i class="fas fa-paint-brush card-icon fa-2x mb-3"></i>
-              <h5>Art</h5>
-              <p>Dessin figuratif et portraits</p>
-              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalArt">En savoir plus</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projet perso -->
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center">
-            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
-              <i class="fas fa-lightbulb card-icon fa-2x mb-3"></i>
-              <h5>Projets perso</h5>
-              <p>Création d'applications ou jeux simples</p>
-              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalProjet">En savoir plus</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jeux -->
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center">
-            <div class="card text-center p-4 shadow-sm mx-2" style="min-width: 250px;">
-              <i class="fas fa-gamepad card-icon fa-2x mb-3"></i>
-              <h5>Jeux</h5>
-              <p>Jeux vidéo coopératifs et de stratégie</p>
-              <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalJeux">En savoir plus</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-<!-- Contrôles du carrousel avec Font Awesome -->
-<button class="carousel-control-prev" type="button" data-bs-target="#interestsCarousel" data-bs-slide="prev">
-  <i class="fas fa-chevron-left fa-2x text-white"></i>
-  <span class="visually-hidden">Précédent</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#interestsCarousel" data-bs-slide="next">
-  <i class="fas fa-chevron-right fa-2x text-white"></i>
-  <span class="visually-hidden">Suivant</span>
-</button>
-    </div>
-  </div>
-</section>
-
-<!-- Modales d'information -->
-<div class="modal fade" id="modalSport" tabindex="-1" aria-labelledby="modalSportLabel" aria-hidden="true">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="modalSportLabel">Sport</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      Passionné de volley-ball et pratiquant régulier, je joue en club 4 à 6h par semaine. J’ai également pratiqué le judo pendant 12 ans, ceinture marron obtenue.
-    </div>
-  </div></div>
-</div>
-
-<div class="modal fade" id="modalArt" tabindex="-1" aria-labelledby="modalArtLabel" aria-hidden="true">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="modalArtLabel">Art</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      Je réalise principalement des portraits au crayon et au fusain. Le dessin est un moyen pour moi de me concentrer et de m'exprimer.
-    </div>
-  </div></div>
-</div>
-
-<div class="modal fade" id="modalProjet" tabindex="-1" aria-labelledby="modalProjetLabel" aria-hidden="true">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="modalProjetLabel">Projets personnels</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      En autodidacte, j’ai développé plusieurs petits projets web (jeux, outils de productivité) pour m'améliorer en programmation.
-    </div>
-  </div></div>
-</div>
-
-<div class="modal fade" id="modalJeux" tabindex="-1" aria-labelledby="modalJeuxLabel" aria-hidden="true">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="modalJeuxLabel">Jeux</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      Je joue régulièrement à des jeux coopératifs et de stratégie, notamment sur PC, pour le fun et l’esprit d’équipe.
-    </div>
-  </div></div>
-</div>
-
-
-
-<!-- Contact -->
-<section id="contact" class="py-5" style="background-color: var(--dark); color: #fff;">
-    <div class="container">
-      <h2 class="section-title text-white">Contact</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <form action="https://formspree.io/f/mgvknapo" method="POST" novalidate>
-            <!-- Redirection après envoi -->
-            <input type="hidden" name="_next" value="https://votresite.com/merci.html">
-            <!-- Sujet personnalisé du mail -->
-            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
-            <!-- Adresse de réponse -->
-            <input type="hidden" name="_replyto" value="taha.aziz5111@gmail.com">
-  
-            <div class="mb-3">
-              <label for="contactName" class="form-label text-white">Nom</label>
-              <input type="text" class="form-control" id="contactName" name="name" placeholder="Votre nom" required>
-              <div class="invalid-feedback">
-                Merci de saisir votre nom.
-              </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="contactEmail" class="form-label text-white">Email</label>
-              <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Votre adresse email" required>
-              <div class="invalid-feedback">
-                Merci de saisir une adresse email valide.
-              </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="contactSubject" class="form-label text-white">Sujet</label>
-              <input type="text" class="form-control" id="contactSubject" name="subject" placeholder="Sujet de votre message" required>
-              <div class="invalid-feedback">
-                Merci de préciser le sujet.
-              </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="contactMessage" class="form-label text-white">Message</label>
-              <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Votre message" required></textarea>
-              <div class="invalid-feedback">
-                Merci de rédiger un message.
-              </div>
-            </div>
-  
-            <div class="text-center">
-              <button type="submit" class="btn btn-light">Envoyer</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  
-    <script>
-      // Validation Bootstrap 5
-      (function () {
-        'use strict'
-        const forms = document.querySelectorAll('form')
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
-    </script>
-  </section>
-  
-    
-    <script>
-      // Bootstrap custom validation
-      (function () {
-        'use strict'
-        const forms = document.querySelectorAll('form')
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
-    </script>
-  </section>
-  
-
-  <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <p class="mb-1 fw-bold">Taha Aziz</p>
-      <p class="mb-0">Futur Ingénieur en Électronique et Systèmes Embarqués</p>
-      <div class="mt-2">
-        <a href="https://www.linkedin.com/in/tahaaziz83/" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-        <a href="https://github.com/AZIZTaha83" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
-        <a href="mailto:taha.aziz5111@gmail.com" class="text-light"><i class="fas fa-envelope fa-lg"></i></a>
-      </div>
-      <p class="mt-3">&copy; 2025 Taha Aziz. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-    <!-- CV Modal -->
-  <div class="modal fade" id="modalCV" tabindex="-1" aria-labelledby="modalCVLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalCVLabel">Curriculum Vitae</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-        </div>
-        <div class="modal-body p-0">
-            <iframe
-            src="https://drive.google.com/file/d/1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl/preview"
-            width="100%"
-            height="600"
-            frameborder="0"
-            allow="autoplay">
-          </iframe>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1421,5 +1305,167 @@
     </script>
 
 
+<!-- Centres d'intérêt -->
+<section id="interests" class="py-5 bg-dark-section">
+  <div class="container">
+    <h2 class="section-title">Centres d'intérêt</h2>
+    <div class="row g-4 justify-content-center">
+      <!-- Robotique -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="card bg-primary-alt h-100 text-center border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fas fa-robot fa-3x mb-3" style="color: var(--primary);"></i>
+            <h5 class="card-title text-white">Robotique</h5>
+            <p class="card-text text-white-50">Passionné par la robotique, la programmation de robots et la compétition robotique.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Randonnée -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="card bg-primary-alt h-100 text-center border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fas fa-hiking fa-3x mb-3" style="color: var(--primary);"></i>
+            <h5 class="card-title text-white">Randonnée</h5>
+            <p class="card-text text-white-50">J'aime explorer la nature, faire des randonnées et découvrir de nouveaux paysages.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Lecture & veille techno -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="card bg-primary-alt h-100 text-center border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fas fa-book-reader fa-3x mb-3" style="color: var(--primary);"></i>
+            <h5 class="card-title text-white">Lecture & veille techno</h5>
+            <p class="card-text text-white-50">Lecture de livres techniques, veille sur les innovations en électronique et IA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-dark-section">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form id="contactForm" action="https://formspree.io/f/mgvknapo" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+          <input type="hidden" name="_replyto" value="taha.aziz5111@gmail.com">
+
+          <div class="mb-3">
+            <label for="contactName" class="form-label text-white">Nom</label>
+            <input type="text" class="form-control" id="contactName" name="name" placeholder="Votre nom" required>
+            <div class="invalid-feedback">
+              Merci de saisir votre nom.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label text-white">Email</label>
+            <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Votre adresse email" required>
+            <div class="invalid-feedback">
+              Merci de saisir une adresse email valide.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="contactSubject" class="form-label text-white">Sujet</label>
+            <input type="text" class="form-control" id="contactSubject" name="subject" placeholder="Sujet de votre message" required>
+            <div class="invalid-feedback">
+              Merci de préciser le sujet.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label text-white">Message</label>
+            <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Votre message" required></textarea>
+            <div class="invalid-feedback">
+              Merci de rédiger un message.
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-light">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmation d'envoi -->
+  <div class="modal fade" id="contactSuccessModal" tabindex="-1" aria-labelledby="contactSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactSuccessModalLabel">Message envoyé</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          Merci, votre message a bien été envoyé !<br>
+          Je vous répondrai dès que possible.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Validation Bootstrap 5 + affichage modale après envoi
+    (function () {
+      'use strict'
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+          form.classList.add('was-validated');
+        } else {
+          event.preventDefault();
+          // Envoi AJAX à Formspree
+          const formData = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          }).then(response => {
+            if (response.ok) {
+              form.reset();
+              form.classList.remove('was-validated');
+              var modal = new bootstrap.Modal(document.getElementById('contactSuccessModal'));
+              modal.show();
+            } else {
+              alert("Une erreur est survenue. Merci de réessayer.");
+            }
+          }).catch(() => {
+            alert("Une erreur est survenue. Merci de réessayer.");
+          });
+        }
+      }, false);
+    })();
+  </script>
+</section>
+
+<!-- Footer avec bordure et icônes réseaux -->
+<footer class="mt-5 border-top pt-4 pb-3 bg-dark-section">
+  <div class="container text-center">
+    <div class="mb-3">
+      <a href="https://github.com/AZIZTaha83" target="_blank" class="mx-3" aria-label="GitHub" style="color: var(--primary); font-size: 2rem;">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:taha.aziz5111@gmail.com" class="mx-3" aria-label="Mail" style="color: var(--primary); font-size: 2rem;">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/tahaaziz83" target="_blank" class="mx-3" aria-label="LinkedIn" style="color: var(--primary); font-size: 2rem;">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+    <div class="text-white-50 small">
+      © 2025 Taha Aziz — Tous droits réservés
+    </div>
+  </div>
+</footer>
 </body>
 </html>
+
+
