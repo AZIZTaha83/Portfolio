@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio | Taha Aziz</title>
-  <!-- Bootstrap CSS -->
+  <title>Portfolio | Taha Aziz</title>  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -66,15 +65,19 @@
         transform: scale(1.05);
         transition: all 0.3s ease-in-out;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .card-icon {
+    }    .card-icon {
         font-size: 2rem;
         color: var(--primary);
     }
 
     .bg-primary-alt {
-        background-color: rgba(13, 110, 253, 0.1);
+        background-color: rgba(33, 37, 41, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .bg-dark-alt {
+        background-color: rgba(33, 37, 41, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Buttons */
@@ -176,21 +179,52 @@
             opacity: 1;
             transform: translateY(0);
         }
-    }
-
-    /* Modals */
+    }    /* Modals - Style uniforme avec fond blanc et bouton rouge */
     .modal-content {
-        background-color: #222;
-        color: #fff;
+        background-color: #ffffff !important;
+        color: #333 !important;
     }
 
     .modal-header {
-        border-bottom: 1px solid #444;
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #ddd !important;
     }
 
     .modal-body {
-        background-color: #333;
+        background-color: #ffffff !important;
+        color: #333 !important;
         padding: 2rem;
+    }
+
+    .btn-close {
+        background-color: #dc3545 !important;
+        border: 2px solid #dc3545 !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .btn-close:hover {
+        background-color: #c82333 !important;
+        border-color: #c82333 !important;
+        transform: scale(1.1);
+    }
+
+    .btn-close::before {
+        content: "✕" !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    .modal .text-muted {
+        color: #6c757d !important;
+    }
+
+    .modal .text-white {
+        color: #333 !important;
     }
 
     /* Frise chronologique verticale pour la formation */
@@ -277,11 +311,2752 @@
     @media (max-width: 767px) {
       #experience .exp-img-container {
         min-height: 120px;
-      }
-      #experience .btn-outline-primary,
+      }    #experience .btn-outline-primary,
       #experience .btn-outline-secondary {
         font-size: 0.95rem;
       }
+    }
+
+    /* Mon Profil Section */
+    .profile-container {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .profile-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(13, 110, 253, 0.1));
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 127, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 255, 127, 0.3);
+      border-color: var(--primary);
+    }
+
+    .profile-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .profile-box h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .profile-content {
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .profile-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profile-content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    .objective-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light);
+      text-align: justify;
+    }
+
+    .objective-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .interest-item:hover {
+      background: rgba(0, 255, 127, 0.1);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 127, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover .interest-icon {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .interest-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .interest-description {
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+      }
+      
+      .profile-box {
+        height: 400px;
+      }
+    }
+
+    /* Header Contact Icons */
+    .header-contact-icons {
+      z-index: 10;
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .header-icon i {
+      font-size: 1.5rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .header-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-icon:hover::before {
+      opacity: 1;
+    }
+
+    /* Email Icon - Rouge */
+    .header-icon.email-icon {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      animation-delay: 0s;
+    }
+
+    .header-icon.email-icon:hover {
+      background: linear-gradient(135deg, #c82333, #a71e2a);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+      animation: bounce 0.6s ease;
+    }
+
+    /* LinkedIn Icon - Bleu */
+    .header-icon.linkedin-icon {
+      background: linear-gradient(135deg, #0077b5, #005885);
+      color: white;
+      animation-delay: 0.5s;
+    }
+
+    .header-icon.linkedin-icon:hover {
+      background: linear-gradient(135deg, #005885, #004066);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4), 0 0 20px rgba(0, 119, 181, 0.3);
+      animation: pulse 0.6s ease;
+    }
+
+    /* GitHub Icon - Violet */
+    .header-icon.github-icon {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: white;
+      animation-delay: 1s;
+    }
+
+    .header-icon.github-icon:hover {
+      background: linear-gradient(135deg, #6a2dd8, #5620b3);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4), 0 0 20px rgba(139, 69, 255, 0.3);
+      animation: rotate 0.6s ease;
+    }
+
+    /* Modern Action Buttons */
+    .modern-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modern-btn i {
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      text-decoration: none;
+    }
+
+    /* Contact Button - Green */
+    .modern-btn.contact-btn {
+      background: linear-gradient(135deg, #00FF7F, #00cc66);
+      color: #fff;
+    }
+
+    .modern-btn.contact-btn:hover {
+      background: linear-gradient(135deg, #00cc66, #00b359);
+      box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+      color: #fff;
+    }
+
+    /* Projects Button - Blue */
+    .modern-btn.projects-btn {
+      background: transparent;
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+    }
+
+    .modern-btn.projects-btn:hover {
+      background: linear-gradient(135deg, #0d6efd, #0056b3);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+    }
+
+    /* CV Display Button - Purple */
+    .modern-btn.cv-display-btn {
+      background: transparent;
+      border: 2px solid #8b45ff;
+      color: #8b45ff;
+    }
+
+    .modern-btn.cv-display-btn:hover {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4);
+    }
+
+    /* CV Download Button - Orange */
+    .modern-btn.cv-download-btn {
+      background: transparent;
+      border: 2px solid #ff6b35;
+      color: #ff6b35;
+    }
+
+    .modern-btn.cv-download-btn:hover {
+      background: linear-gradient(135deg, #ff6b35, #e55a2b);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    @media (max-width: 991px) {
+      .modern-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .modern-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: #ccc;
+        padding: 2rem 0;
+    }
+
+    footer a {
+        text-decoration: none !important;
+    }
+
+    footer a:hover {
+        color: var(--primary);
+    }
+
+    /* Form & Inputs */
+    .form-control, .form-select, .form-textarea {
+        border-radius: 10px;
+        border-color: #444;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .timeline-card {
+        min-width: 250px;
+        flex: 0 0 auto;
+        border: none;
+    }
+
+    .timeline-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    /* Écran de connexion */
+    #login-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .login-box {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-message {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #5c8f6d;
+    }
+
+    /* Animations */
+    .fadeInElement {
+        animation: fadeInTech 1s ease;
+    }
+
+    @keyframes fadeInTech {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }    /* Modals - Style uniforme avec fond blanc et bouton rouge */
+    .modal-content {
+        background-color: #ffffff !important;
+        color: #333 !important;
+    }
+
+    .modal-header {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .modal-body {
+        background-color: #ffffff !important;
+        color: #333 !important;
+        padding: 2rem;
+    }
+
+    .btn-close {
+        background-color: #dc3545 !important;
+        border: 2px solid #dc3545 !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .btn-close:hover {
+        background-color: #c82333 !important;
+        border-color: #c82333 !important;
+        transform: scale(1.1);
+    }
+
+    .btn-close::before {
+        content: "✕" !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    .modal .text-muted {
+        color: #6c757d !important;
+    }
+
+    .modal .text-white {
+        color: #333 !important;
+    }
+
+    /* Frise chronologique verticale pour la formation */
+    .timeline-vertical {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: rgba(13, 110, 253, 0.07);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-left: 0;
+    }
+    @media (max-width: 576px) {
+      .timeline-vertical {
+        margin-left: 10px;
+        padding-left: 15px;
+      }
+      .timeline-dot {
+        left: -26px;
+      }
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Ajoute la classe bg-dark-section à chaque section pour un fond noir uniforme */
+    .bg-dark-section {
+      background-color: var(--dark) !important;
+      color: var(--light) !important;
+    }
+
+    /* Expérience - esthétique améliorée */
+    #experience .exp-card {
+      border-radius: 16px;
+      background: rgba(13,110,253,0.07);
+      border: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    #experience .exp-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    #experience .exp-img-container {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+    }
+    #experience .card-title {
+      font-weight: 600;
+    }
+    #experience .btn-outline-primary,
+    #experience .btn-outline-secondary {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 991px) {
+      #experience .exp-img-container {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 767px) {
+      #experience .exp-img-container {
+        min-height: 120px;
+      }    #experience .btn-outline-primary,
+      #experience .btn-outline-secondary {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Mon Profil Section */
+    .profile-container {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .profile-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(13, 110, 253, 0.1));
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 127, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 255, 127, 0.3);
+      border-color: var(--primary);
+    }
+
+    .profile-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .profile-box h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .profile-content {
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .profile-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profile-content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    .objective-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light);
+      text-align: justify;
+    }
+
+    .objective-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .interest-item:hover {
+      background: rgba(0, 255, 127, 0.1);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 127, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover .interest-icon {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .interest-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .interest-description {
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+      }
+      
+      .profile-box {
+        height: 400px;
+      }
+    }
+
+    /* Header Contact Icons */
+    .header-contact-icons {
+      z-index: 10;
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .header-icon i {
+      font-size: 1.5rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .header-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-icon:hover::before {
+      opacity: 1;
+    }
+
+    /* Email Icon - Rouge */
+    .header-icon.email-icon {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      animation-delay: 0s;
+    }
+
+    .header-icon.email-icon:hover {
+      background: linear-gradient(135deg, #c82333, #a71e2a);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+      animation: bounce 0.6s ease;
+    }
+
+    /* LinkedIn Icon - Bleu */
+    .header-icon.linkedin-icon {
+      background: linear-gradient(135deg, #0077b5, #005885);
+      color: white;
+      animation-delay: 0.5s;
+    }
+
+    .header-icon.linkedin-icon:hover {
+      background: linear-gradient(135deg, #005885, #004066);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4), 0 0 20px rgba(0, 119, 181, 0.3);
+      animation: pulse 0.6s ease;
+    }
+
+    /* GitHub Icon - Violet */
+    .header-icon.github-icon {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: white;
+      animation-delay: 1s;
+    }
+
+    .header-icon.github-icon:hover {
+      background: linear-gradient(135deg, #6a2dd8, #5620b3);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4), 0 0 20px rgba(139, 69, 255, 0.3);
+      animation: rotate 0.6s ease;
+    }
+
+    /* Modern Action Buttons */
+    .modern-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modern-btn i {
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      text-decoration: none;
+    }
+
+    /* Contact Button - Green */
+    .modern-btn.contact-btn {
+      background: linear-gradient(135deg, #00FF7F, #00cc66);
+      color: #fff;
+    }
+
+    .modern-btn.contact-btn:hover {
+      background: linear-gradient(135deg, #00cc66, #00b359);
+      box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+      color: #fff;
+    }
+
+    /* Projects Button - Blue */
+    .modern-btn.projects-btn {
+      background: transparent;
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+    }
+
+    .modern-btn.projects-btn:hover {
+      background: linear-gradient(135deg, #0d6efd, #0056b3);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+    }
+
+    /* CV Display Button - Purple */
+    .modern-btn.cv-display-btn {
+      background: transparent;
+      border: 2px solid #8b45ff;
+      color: #8b45ff;
+    }
+
+    .modern-btn.cv-display-btn:hover {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4);
+    }
+
+    /* CV Download Button - Orange */
+    .modern-btn.cv-download-btn {
+      background: transparent;
+      border: 2px solid #ff6b35;
+      color: #ff6b35;
+    }
+
+    .modern-btn.cv-download-btn:hover {
+      background: linear-gradient(135deg, #ff6b35, #e55a2b);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    @media (max-width: 991px) {
+      .modern-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .modern-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: #ccc;
+        padding: 2rem 0;
+    }
+
+    footer a {
+        text-decoration: none !important;
+    }
+
+    footer a:hover {
+        color: var(--primary);
+    }
+
+    /* Form & Inputs */
+    .form-control, .form-select, .form-textarea {
+        border-radius: 10px;
+        border-color: #444;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .timeline-card {
+        min-width: 250px;
+        flex: 0 0 auto;
+        border: none;
+    }
+
+    .timeline-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    /* Écran de connexion */
+    #login-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .login-box {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-message {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #5c8f6d;
+    }
+
+    /* Animations */
+    .fadeInElement {
+        animation: fadeInTech 1s ease;
+    }
+
+    @keyframes fadeInTech {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }    /* Modals - Style uniforme avec fond blanc et bouton rouge */
+    .modal-content {
+        background-color: #ffffff !important;
+        color: #333 !important;
+    }
+
+    .modal-header {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .modal-body {
+        background-color: #ffffff !important;
+        color: #333 !important;
+        padding: 2rem;
+    }
+
+    .btn-close {
+        background-color: #dc3545 !important;
+        border: 2px solid #dc3545 !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .btn-close:hover {
+        background-color: #c82333 !important;
+        border-color: #c82333 !important;
+        transform: scale(1.1);
+    }
+
+    .btn-close::before {
+        content: "✕" !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    .modal .text-muted {
+        color: #6c757d !important;
+    }
+
+    .modal .text-white {
+        color: #333 !important;
+    }
+
+    /* Frise chronologique verticale pour la formation */
+    .timeline-vertical {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: rgba(13, 110, 253, 0.07);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-left: 0;
+    }
+    @media (max-width: 576px) {
+      .timeline-vertical {
+        margin-left: 10px;
+        padding-left: 15px;
+      }
+      .timeline-dot {
+        left: -26px;
+      }
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Ajoute la classe bg-dark-section à chaque section pour un fond noir uniforme */
+    .bg-dark-section {
+      background-color: var(--dark) !important;
+      color: var(--light) !important;
+    }
+
+    /* Expérience - esthétique améliorée */
+    #experience .exp-card {
+      border-radius: 16px;
+      background: rgba(13,110,253,0.07);
+      border: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    #experience .exp-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    #experience .exp-img-container {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+    }
+    #experience .card-title {
+      font-weight: 600;
+    }
+    #experience .btn-outline-primary,
+    #experience .btn-outline-secondary {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 991px) {
+      #experience .exp-img-container {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 767px) {
+      #experience .exp-img-container {
+        min-height: 120px;
+      }    #experience .btn-outline-primary,
+      #experience .btn-outline-secondary {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Mon Profil Section */
+    .profile-container {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .profile-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(13, 110, 253, 0.1));
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 127, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 255, 127, 0.3);
+      border-color: var(--primary);
+    }
+
+    .profile-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .profile-box h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .profile-content {
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .profile-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profile-content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    .objective-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light);
+      text-align: justify;
+    }
+
+    .objective-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .interest-item:hover {
+      background: rgba(0, 255, 127, 0.1);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 127, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover .interest-icon {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .interest-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .interest-description {
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+      }
+      
+      .profile-box {
+        height: 400px;
+      }
+    }
+
+    /* Header Contact Icons */
+    .header-contact-icons {
+      z-index: 10;
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .header-icon i {
+      font-size: 1.5rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .header-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-icon:hover::before {
+      opacity: 1;
+    }
+
+    /* Email Icon - Rouge */
+    .header-icon.email-icon {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      animation-delay: 0s;
+    }
+
+    .header-icon.email-icon:hover {
+      background: linear-gradient(135deg, #c82333, #a71e2a);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+      animation: bounce 0.6s ease;
+    }
+
+    /* LinkedIn Icon - Bleu */
+    .header-icon.linkedin-icon {
+      background: linear-gradient(135deg, #0077b5, #005885);
+      color: white;
+      animation-delay: 0.5s;
+    }
+
+    .header-icon.linkedin-icon:hover {
+      background: linear-gradient(135deg, #005885, #004066);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4), 0 0 20px rgba(0, 119, 181, 0.3);
+      animation: pulse 0.6s ease;
+    }
+
+    /* GitHub Icon - Violet */
+    .header-icon.github-icon {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: white;
+      animation-delay: 1s;
+    }
+
+    .header-icon.github-icon:hover {
+      background: linear-gradient(135deg, #6a2dd8, #5620b3);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4), 0 0 20px rgba(139, 69, 255, 0.3);
+      animation: rotate 0.6s ease;
+    }
+
+    /* Modern Action Buttons */
+    .modern-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modern-btn i {
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      text-decoration: none;
+    }
+
+    /* Contact Button - Green */
+    .modern-btn.contact-btn {
+      background: linear-gradient(135deg, #00FF7F, #00cc66);
+      color: #fff;
+    }
+
+    .modern-btn.contact-btn:hover {
+      background: linear-gradient(135deg, #00cc66, #00b359);
+      box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+      color: #fff;
+    }
+
+    /* Projects Button - Blue */
+    .modern-btn.projects-btn {
+      background: transparent;
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+    }
+
+    .modern-btn.projects-btn:hover {
+      background: linear-gradient(135deg, #0d6efd, #0056b3);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+    }
+
+    /* CV Display Button - Purple */
+    .modern-btn.cv-display-btn {
+      background: transparent;
+      border: 2px solid #8b45ff;
+      color: #8b45ff;
+    }
+
+    .modern-btn.cv-display-btn:hover {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4);
+    }
+
+    /* CV Download Button - Orange */
+    .modern-btn.cv-download-btn {
+      background: transparent;
+      border: 2px solid #ff6b35;
+      color: #ff6b35;
+    }
+
+    .modern-btn.cv-download-btn:hover {
+      background: linear-gradient(135deg, #ff6b35, #e55a2b);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    @media (max-width: 991px) {
+      .modern-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .modern-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: #ccc;
+        padding: 2rem 0;
+    }
+
+    footer a {
+        text-decoration: none !important;
+    }
+
+    footer a:hover {
+        color: var(--primary);
+    }
+
+    /* Form & Inputs */
+    .form-control, .form-select, .form-textarea {
+        border-radius: 10px;
+        border-color: #444;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .timeline-card {
+        min-width: 250px;
+        flex: 0 0 auto;
+        border: none;
+    }
+
+    .timeline-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    /* Écran de connexion */
+    #login-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .login-box {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-message {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #5c8f6d;
+    }
+
+    /* Animations */
+    .fadeInElement {
+        animation: fadeInTech 1s ease;
+    }
+
+    @keyframes fadeInTech {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }    /* Modals - Style uniforme avec fond blanc et bouton rouge */
+    .modal-content {
+        background-color: #ffffff !important;
+        color: #333 !important;
+    }
+
+    .modal-header {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .modal-body {
+        background-color: #ffffff !important;
+        color: #333 !important;
+        padding: 2rem;
+    }
+
+    .btn-close {
+        background-color: #dc3545 !important;
+        border: 2px solid #dc3545 !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .btn-close:hover {
+        background-color: #c82333 !important;
+        border-color: #c82333 !important;
+        transform: scale(1.1);
+    }
+
+    .btn-close::before {
+        content: "✕" !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    .modal .text-muted {
+        color: #6c757d !important;
+    }
+
+    .modal .text-white {
+        color: #333 !important;
+    }
+
+    /* Frise chronologique verticale pour la formation */
+    .timeline-vertical {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: rgba(13, 110, 253, 0.07);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-left: 0;
+    }
+    @media (max-width: 576px) {
+      .timeline-vertical {
+        margin-left: 10px;
+        padding-left: 15px;
+      }
+      .timeline-dot {
+        left: -26px;
+      }
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Ajoute la classe bg-dark-section à chaque section pour un fond noir uniforme */
+    .bg-dark-section {
+      background-color: var(--dark) !important;
+      color: var(--light) !important;
+    }
+
+    /* Expérience - esthétique améliorée */
+    #experience .exp-card {
+      border-radius: 16px;
+      background: rgba(13,110,253,0.07);
+      border: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    #experience .exp-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    #experience .exp-img-container {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+    }
+    #experience .card-title {
+      font-weight: 600;
+    }
+    #experience .btn-outline-primary,
+    #experience .btn-outline-secondary {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 991px) {
+      #experience .exp-img-container {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 767px) {
+      #experience .exp-img-container {
+        min-height: 120px;
+      }    #experience .btn-outline-primary,
+      #experience .btn-outline-secondary {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Mon Profil Section */
+    .profile-container {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .profile-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(13, 110, 253, 0.1));
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 127, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 255, 127, 0.3);
+      border-color: var(--primary);
+    }
+
+    .profile-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .profile-box h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .profile-content {
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .profile-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profile-content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    .objective-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light);
+      text-align: justify;
+    }
+
+    .objective-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .interest-item:hover {
+      background: rgba(0, 255, 127, 0.1);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 127, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover .interest-icon {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .interest-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .interest-description {
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+      }
+      
+      .profile-box {
+        height: 400px;
+      }
+    }
+
+    /* Header Contact Icons */
+    .header-contact-icons {
+      z-index: 10;
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .header-icon i {
+      font-size: 1.5rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .header-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-icon:hover::before {
+      opacity: 1;
+    }
+
+    /* Email Icon - Rouge */
+    .header-icon.email-icon {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      animation-delay: 0s;
+    }
+
+    .header-icon.email-icon:hover {
+      background: linear-gradient(135deg, #c82333, #a71e2a);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+      animation: bounce 0.6s ease;
+    }
+
+    /* LinkedIn Icon - Bleu */
+    .header-icon.linkedin-icon {
+      background: linear-gradient(135deg, #0077b5, #005885);
+      color: white;
+      animation-delay: 0.5s;
+    }
+
+    .header-icon.linkedin-icon:hover {
+      background: linear-gradient(135deg, #005885, #004066);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4), 0 0 20px rgba(0, 119, 181, 0.3);
+      animation: pulse 0.6s ease;
+    }
+
+    /* GitHub Icon - Violet */
+    .header-icon.github-icon {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: white;
+      animation-delay: 1s;
+    }
+
+    .header-icon.github-icon:hover {
+      background: linear-gradient(135deg, #6a2dd8, #5620b3);
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4), 0 0 20px rgba(139, 69, 255, 0.3);
+      animation: rotate 0.6s ease;
+    }
+
+    /* Modern Action Buttons */
+    .modern-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modern-btn i {
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      text-decoration: none;
+    }
+
+    /* Contact Button - Green */
+    .modern-btn.contact-btn {
+      background: linear-gradient(135deg, #00FF7F, #00cc66);
+      color: #fff;
+    }
+
+    .modern-btn.contact-btn:hover {
+      background: linear-gradient(135deg, #00cc66, #00b359);
+      box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+      color: #fff;
+    }
+
+    /* Projects Button - Blue */
+    .modern-btn.projects-btn {
+      background: transparent;
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+    }
+
+    .modern-btn.projects-btn:hover {
+      background: linear-gradient(135deg, #0d6efd, #0056b3);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+    }
+
+    /* CV Display Button - Purple */
+    .modern-btn.cv-display-btn {
+      background: transparent;
+      border: 2px solid #8b45ff;
+      color: #8b45ff;
+    }
+
+    .modern-btn.cv-display-btn:hover {
+      background: linear-gradient(135deg, #8b45ff, #6a2dd8);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(139, 69, 255, 0.4);
+    }
+
+    /* CV Download Button - Orange */
+    .modern-btn.cv-download-btn {
+      background: transparent;
+      border: 2px solid #ff6b35;
+      color: #ff6b35;
+    }
+
+    .modern-btn.cv-download-btn:hover {
+      background: linear-gradient(135deg, #ff6b35, #e55a2b);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    @media (max-width: 991px) {
+      .modern-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .modern-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: #ccc;
+        padding: 2rem 0;
+    }
+
+    footer a {
+        text-decoration: none !important;
+    }
+
+    footer a:hover {
+        color: var(--primary);
+    }
+
+    /* Form & Inputs */
+    .form-control, .form-select, .form-textarea {
+        border-radius: 10px;
+        border-color: #444;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .timeline-card {
+        min-width: 250px;
+        flex: 0 0 auto;
+        border: none;
+    }
+
+    .timeline-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    /* Écran de connexion */
+    #login-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .login-box {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-message {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #5c8f6d;
+    }
+
+    /* Animations */
+    .fadeInElement {
+        animation: fadeInTech 1s ease;
+    }
+
+    @keyframes fadeInTech {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }    /* Modals - Style uniforme avec fond blanc et bouton rouge */
+    .modal-content {
+        background-color: #ffffff !important;
+        color: #333 !important;
+    }
+
+    .modal-header {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .modal-body {
+        background-color: #ffffff !important;
+        color: #333 !important;
+        padding: 2rem;
+    }
+
+    .btn-close {
+        background-color: #dc3545 !important;
+        border: 2px solid #dc3545 !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .btn-close:hover {
+        background-color: #c82333 !important;
+        border-color: #c82333 !important;
+        transform: scale(1.1);
+    }
+
+    .btn-close::before {
+        content: "✕" !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    .modal .text-muted {
+        color: #6c757d !important;
+    }
+
+    .modal .text-white {
+        color: #333 !important;
+    }
+
+    /* Frise chronologique verticale pour la formation */
+    .timeline-vertical {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: rgba(13, 110, 253, 0.07);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-left: 0;
+    }
+    @media (max-width: 576px) {
+      .timeline-vertical {
+        margin-left: 10px;
+        padding-left: 15px;
+      }
+      .timeline-dot {
+        left: -26px;
+      }
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Ajoute la classe bg-dark-section à chaque section pour un fond noir uniforme */
+    .bg-dark-section {
+      background-color: var(--dark) !important;
+      color: var(--light) !important;
+    }
+
+    /* Expérience - esthétique améliorée */
+    #experience .exp-card {
+      border-radius: 16px;
+      background: rgba(13,110,253,0.07);
+      border: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    #experience .exp-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    #experience .exp-img-container {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+    }
+    #experience .card-title {
+      font-weight: 600;
+    }
+    #experience .btn-outline-primary,
+    #experience .btn-outline-secondary {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 991px) {
+      #experience .exp-img-container {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 767px) {
+      #experience .exp-img-container {
+        min-height: 120px;
+      }    #experience .btn-outline-primary,
+      #experience .btn-outline-secondary {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Mon Profil Section */
+    .profile-container {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .profile-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(13, 110, 253, 0.1));
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 127, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 255, 127, 0.3);
+      border-color: var(--primary);
+    }
+
+    .profile-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .profile-box h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .profile-content {
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .profile-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profile-content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-content::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    .objective-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light);
+      text-align: justify;
+    }
+
+    .objective-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .interest-item:hover {
+      background: rgba(0, 255, 127, 0.1);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 255, 127, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover .interest-icon {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .interest-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .interest-description {
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+      }
+      
+      .profile-box {
+        height: 400px;
+      }
+    }    /* Styles pour les jauges circulaires de temps */
+    .time-gauge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      z-index: 10;
+    }
+
+    .circular-progress {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #0d6efd 0deg, #0d6efd var(--progress-angle), #e9ecef var(--progress-angle), #e9ecef 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .circular-progress:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+    }
+
+    .circular-progress::before {
+      content: '';
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .time-text {
+      position: relative;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: bold;
+      color: #0d6efd;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    /* Différentes couleurs pour les niveaux BUT */
+    .time-gauge.but1 .circular-progress {
+      background: conic-gradient(from 0deg, #28a745 0deg, #28a745 var(--progress-angle), #e9ecef var(--progress-angle), #e9ecef 360deg);
+    }
+
+    .time-gauge.but1 .time-text {
+      color: #28a745;
+    }
+
+    .time-gauge.but2 .circular-progress {
+      background: conic-gradient(from 0deg, #ffc107 0deg, #ffc107 var(--progress-angle), #e9ecef var(--progress-angle), #e9ecef 360deg);
+    }
+
+    .time-gauge.but2 .time-text {
+      color: #ffc107;
+    }
+
+    .time-gauge.but3 .circular-progress {
+      background: conic-gradient(from 0deg, #dc3545 0deg, #dc3545 var(--progress-angle), #e9ecef var(--progress-angle), #e9ecef 360deg);
+    }
+
+    .time-gauge.but3 .time-text {
+      color: #dc3545;
+    }
+
+    /* Animation d'apparition des jauges */
+    .time-gauge {
+      animation: gaugeAppear 0.8s ease-out;
+    }
+
+    @keyframes gaugeAppear {
+      from {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    /* Responsive pour les jauges */
+    @media (max-width: 576px) {
+      .time-gauge {
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .circular-progress {
+        width: 50px;
+        height: 50px;
+      }
+
+      .circular-progress::before {
+        width: 38px;
+        height: 38px;
+      }
+
+      .time-text {
+        font-size: 9px;
+      }
+    }
+
+    /* Effet hover sur les boutons + */
+    .modal .btn:hover {
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
+    }
+
+    /* Animation pour la rotation des boutons toggle */
+    .modal [data-bs-toggle="collapse"] {
+      transition: transform 0.3s ease;
+    }
+
+    /* Désactiver l'animation CSS pour les collapse et laisser Bootstrap gérer */
+    .modal .collapse {
+      transition: none !important;
+    }
+
+    /* Styles pour le bouton retour en haut */
+    #backToTopBtn {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      border: none;
+      background: linear-gradient(135deg, #0d6efd, #0056b3);
+    }
+
+    #backToTopBtn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #0056b3, #004085);
+      box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    }
+
+    #backToTopBtn:active {
+      transform: scale(0.95);
+    }    #backToTopBtn i {
+      font-size: 1.2rem;    }    /* Styles pour les boutons de projets dans les modals */
+    .modal .btn-outline-success:hover {
+      background-color: #198754;
+      border-color: #198754;
+      color: #fff;
+    }
+
+    .modal .btn-outline-danger:hover {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: #fff;
+    }
+
+    .modal .btn-outline-primary:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Styles supplémentaires pour les modals sur fond blanc */
+    .modal .progress {
+      background-color: #e9ecef !important;
+    }
+
+    .modal .progress-bar {
+      background-color: #0d6efd !important;
+    }
+
+    .modal .progress-bar.bg-success {
+      background-color: #198754 !important;
+    }
+
+    .modal .form-label {
+      color: #333 !important;
+      font-weight: 600;
+    }
+
+    .modal h6 {
+      color: #0d6efd !important;
+      font-weight: 700;
+    }
+
+    .modal .modal-title {
+      color: #333 !important;
+      font-weight: 700;
+    }
+
+    .modal .btn-primary {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+    }
+
+    .modal .btn-primary:hover {
+      background-color: #0b5ed7;
+      border-color: #0a58ca;
+    }
+
+    .modal .collapse {
+      background-color: #f8f9fa !important;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 8px;
+    }    .modal .collapse ul li {
+      color: #333 !important;
+    }    /* Animations pour les icônes du footer */
+    .footer-icon {
+      display: inline-block;
+      font-size: 2.2rem;
+      padding: 15px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }    .footer-icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s ease;
+      z-index: -1;
+      aspect-ratio: 1 / 1;
+    }
+
+    .footer-icon.email::before {
+      background: rgba(220, 53, 69, 0.2);
+    }
+
+    .footer-icon.linkedin::before {
+      background: rgba(0, 119, 181, 0.2);
+    }
+
+    .footer-icon.github::before {
+      background: rgba(139, 69, 255, 0.2);
+    }
+
+    .footer-icon:hover::before {
+      width: 70px;
+      height: 70px;
+    }    .footer-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Couleurs spécifiques pour chaque icône au survol */
+    .footer-icon.email:hover {
+      color: #dc3545 !important;
+      text-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+    }
+
+    .footer-icon.linkedin:hover {
+      color: #0077b5 !important;
+      text-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+    }
+
+    .footer-icon.github:hover {
+      color: #8b45ff !important;
+      text-shadow: 0 0 20px rgba(139, 69, 255, 0.6);
+    }
+
+    /* Animation spécifique pour chaque icône */
+    .footer-icon.email:hover {
+      animation: bounce 0.6s ease;
+    }
+
+    .footer-icon.linkedin:hover {
+      animation: pulse 0.6s ease;
+    }
+
+    .footer-icon.github:hover {
+      animation: rotate 0.6s ease;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(-5px) scale(1.1);
+      }
+      40% {
+        transform: translateY(-10px) scale(1.15);
+      }
+      60% {
+        transform: translateY(-7px) scale(1.12);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translateY(-5px) scale(1.1);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.2);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.1);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: translateY(-5px) scale(1.1) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.1) rotate(360deg);
+      }
+    }
+
+    /* Animation de flottement pour les icônes au repos */
+    .footer-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .footer-icon.email {
+      animation-delay: 0s;
+    }
+
+    .footer-icon.linkedin {
+      animation-delay: 0.5s;
+    }
+
+    .footer-icon.github {
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }    /* Effet de particules pour les icônes */
+    .footer-icon.email:hover {
+      box-shadow: 0 0 30px rgba(220, 53, 69, 0.6);
+      color: #dc3545 !important;
+    }
+
+    .footer-icon.linkedin:hover {
+      box-shadow: 0 0 30px rgba(0, 119, 181, 0.6);
+      color: #0077b5 !important;
+    }
+
+    .footer-icon.github:hover {
+      box-shadow: 0 0 30px rgba(139, 69, 255, 0.6);
+      color: #8b45ff !important;
+    }
+
+    /* Forcer les halos à être parfaitement ronds */
+    .footer-icon::before,
+    .footer-icon::after {
+      border-radius:  50% !important;
+      aspect-ratio: 1 / 1 !important;
+    }
+
+    .footer-icon:hover {
+      border-radius: 50% !important;
     }
   </style>
 </head>
@@ -305,13 +3080,13 @@
     });
   </script>
   
-<!-- Animation de connexion -->
+<!-- Animation de connexion
 <div id="login-animation">
   <div class="login-box text-white text-center">
     <h2>Connexion à l’espace de Taha Aziz</h2>
     <p id="login-message">Connexion en cours...</p>
   </div>
-</div>
+</div> -->
 
 
   <!-- Navigation -->
@@ -328,24 +3103,45 @@
           <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Formation</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#interests">Centres d'intérêt</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profile">Mon Profil</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
   <!-- Header -->
   <header class="py-5 text-white" style="background-color: var(--dark);">
-    <div class="container d-flex flex-column flex-lg-row align-items-center">
+    <div class="container d-flex flex-column flex-lg-row align-items-center position-relative">
       <div class="me-lg-5 text-center text-lg-start">
         <h1 class="display-5 fw-bold">Taha Aziz</h1>
-        <p class="lead">Futur Ingénieur en Systèmes Embarqués</p>
-        <p>Passionné par l'électronique et les systèmes embarqués, je suis curieux et toujours en quête de nouvelles expériences et d'apprentissages.</p>
-        <a href="#contact" class="btn btn-light me-2">Me contacter</a>
-        <a href="#projects" class="btn btn-outline-light me-2">Voir mes projets</a>
-        <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalCV">Afficher mon CV</button>
-        <a href="https://drive.google.com/uc?export=download&id=1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl" class="btn btn-outline-light">Télécharger mon CV</a>
+        <p class="lead">Futur Ingénieur en Systèmes Embarqués</p>        <p>Passionné par l'électronique et les systèmes embarqués, je suis curieux et toujours en quête de nouvelles expériences et d'apprentissages.</p>        
+        <div class="modern-buttons-container d-flex flex-wrap gap-3 mb-4">
+          <a href="#contact" class="modern-btn contact-btn">
+            <i class="fas fa-phone"></i>Me contacter
+          </a>
+          <a href="#projects" class="modern-btn projects-btn">
+            <i class="fas fa-code"></i>Voir mes projets
+          </a>
+          <button class="modern-btn cv-display-btn" data-bs-toggle="modal" data-bs-target="#modalCV">
+            <i class="fas fa-eye"></i>Afficher mon CV
+          </button>
+          <a href="https://drive.google.com/uc?export=download&id=1OkJnLiju-WLjmi3s_8UKTAjjpg8-oQDl" class="modern-btn cv-download-btn" target="_blank">
+            <i class="fas fa-download"></i>Télécharger mon CV
+          </a>
+        </div>
+        
+        <!-- Header Contact Icons -->
+        <div class="header-contact-icons d-inline-flex align-items-center">
+          <a href="mailto:taha.aziz5111@gmail.com" class="header-icon email-icon me-2" title="Envoyer un email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/taha-aziz-51a506297/" target="_blank" class="header-icon linkedin-icon me-2" title="Profil LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/AZIZTaha83" target="_blank" class="header-icon github-icon" title="Profil GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
       <div class="mt-4 mt-lg-0 text-center">
         <div class="rounded-circle bg-white p-3" style="  width: 180px; 
@@ -353,13 +3149,7 @@
         border-radius: 20%; 
         overflow: hidden;
         background: transparent;">
-          <iframe
-            src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
-            width="100%"
-            height="180px"
-            frameborder="0"
-            allow="autoplay">
-          </iframe>
+          <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/tete.png" alt="Taha Aziz" class="img-fluid rounded-circle">
           </div>
       </div>
     </div>
@@ -389,141 +3179,287 @@
     </div>
   </div>
 </div>
-  
-  <!-- About -->
-  <section id="about" class="py-5 bg-dark-section">
+<!-- Mon Profil -->
+  <section id="profile" class="py-5 bg-dark-section">
     <div class="container">
-      <h2 class="section-title">À propos de moi</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-8">
-          <p>Aider les autres, participer au progrès au bénéfice de tous : c'est mon objectif professionnel. Le métier d'ingénieur en robotique  contribue justement à des innovations qui transforment notre monde en résolvant des problèmes complexes pour améliorer nos vies quotidiennes. 
-            Que ce soit dans les secteurs de la santé, de l'industrie, ou de l'exploration spatiale, on a besoin de  concevoir, développer et améliorer ces machines intelligentes afin d'assister l'humanité. 
-            En tant que futur ingénieur en robotique, je souhaite faire partie de cette révolution technologique. </p>
-          <p>Pour atteindre mon objectif, j'ai choisi de commencer par un BUT GEII, afin d'acquérir une base solide en électronique, en informatique et en automatisme, compétences essentielles dans le domaine de la robotique.</p>
-          <p>Bilingue français/arabe, compétences techniques en anglais et espagnol, j'ai une solide expérience en programmation et systèmes embarqués.</p>
+      <h2 class="section-title">Mon Profil</h2>
+      <div class="profile-container">        <!-- Mon Objectif -->
+        <div class="profile-box">
+          <h3><i class="fas fa-bullseye"></i> Mon Objectif</h3>
+          <div class="profile-content">
+            <div class="objective-text">
+              <p>Aider les autres, participer au progrès au bénéfice de tous : c'est mon objectif professionnel.</p>
+              <p>Le métier d'ingénieur en robotique contribue justement à des innovations qui transforment notre monde en résolvant des problèmes complexes pour améliorer nos vies quotidiennes.</p>
+              <p>Que ce soit dans les secteurs de la santé, de l'industrie, ou de l'exploration spatiale, on a besoin de concevoir, développer et améliorer ces machines intelligentes afin d'assister l'humanité.</p>
+              <p>En tant que futur ingénieur en robotique, je souhaite faire partie de cette révolution technologique.</p>
+              <p>Pour atteindre mon objectif, j'ai choisi de commencer par un BUT GEII, afin d'acquérir une base solide en électronique, en informatique et en automatisme, compétences essentielles dans le domaine de la robotique.</p>
+              <p>Bilingue français/arabe, compétences techniques en anglais et espagnol, j'ai une solide expérience en programmation et systèmes embarqués.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4">
-          <div class="card p-3 shadow-sm">
-            <h5>Informations personnelles</h5>
-            <ul class="list-unstyled mb-0">
-              <li><i class="fas fa-envelope me-2"></i><a href="mailto:taha.aziz5111@gmail.com">taha.aziz5111@gmail.com</a></li>
-              <li><i class="fas fa-phone me-2"></i>07 69 54 19 12</li>
-              <li><i class="fas fa-language me-2"></i>French, Arabic (bilingual)</li>
-              <li><i class="fas fa-school me-2"></i>BUT3 GEII</li>
-            </ul>
+
+        <!-- Centres d'intérêt -->
+        <div class="profile-box">
+          <h3><i class="fas fa-heart"></i> Centres d'intérêt</h3>
+          <div class="profile-content">
+            <div class="interest-item">
+              <div class="interest-header">
+                <div class="interest-icon">
+                  <i class="fas fa-dumbbell"></i>
+                </div>
+                <h4 class="interest-title">Sport & Bien-être</h4>
+              </div>
+              <p class="interest-description">
+                Pratique régulière du judo pour la discipline mentale, musculation pour la force physique et course à pied pour l'endurance. Le sport m'apporte équilibre et persévérance dans mes projets.
+              </p>
+            </div>
+
+            <div class="interest-item">
+              <div class="interest-header">
+                <div class="interest-icon">
+                  <i class="fas fa-gamepad"></i>
+                </div>
+                <h4 class="interest-title">Gaming Stratégique</h4>
+              </div>
+              <p class="interest-description">
+                Passionné par les jeux vidéo stratégiques et compétitifs qui développent la réflexion tactique, la prise de décision rapide et l'esprit d'équipe - des compétences transférables en ingénierie.
+              </p>
+            </div>
+
+            <div class="interest-item">
+              <div class="interest-header">
+                <div class="interest-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h4 class="interest-title">Développement logiciel</h4>
+              </div>
+              <p class="interest-description">
+                Réalisation de projets personnels , notamment un jeu de plateforme en 2D et 3D, mais ainsi que des applications web/mobile pour approfondir mes compétences en programmation et systèmes embarqués. Passionné par la création de solutions innovantes.
+              </p>
+            </div>
+
+            <div class="interest-item">
+              <div class="interest-header">
+                <div class="interest-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <h4 class="interest-title">Robotique & IA</h4>
+              </div>
+              <p class="interest-description">
+                Fascination pour l'automatisation intelligente, les systèmes autonomes et l'intelligence artificielle. Conviction que la robotique transformera notre façon de vivre et de travailler.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
  <!-- Compétences -->
 <section id="skills" class="py-5 bg-dark-section">
   <div class="container">
     <h2 class="section-title">Compétences</h2>
 
-<h5>Langages de programmation</h5>
-<div class="row g-3 mb-4">
-  <!-- C / C++ -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fas fa-code card-icon"></i>
-      <p class="mt-2 mb-0" style="color: white;">C / C++ / C#</p>
-    </div>
-  </div>
-  <!-- Python -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fab fa-python card-icon"></i>
-      <p class="mt-2 mb-0" style="color: white;">Python</p>
-    </div>
-  </div>
-  <!-- Arduino -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fas fa-microchip card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">Arduino</p>
-    </div>
-  </div>
-  <!-- STM32 -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fas fa-microchip card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">STM32</p>
-    </div>
-  </div>
-  <!-- SQL -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fas fa-database card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">SQL</p>
-    </div>
-  </div>
-  <!-- HTML5 -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fab fa-html5 card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">HTML5</p>
-    </div>
-  </div>
-  <!-- CSS3 -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fab fa-css3-alt card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">CSS3</p>
-    </div>
-  </div>
-  <!-- JavaScript -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fab fa-js card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">JavaScript</p>
-    </div>
-  </div>
-  <!-- PHP -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fab fa-php card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">PHP</p>
-    </div>
-  </div>
-  <!-- MATLAB -->
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card bg-primary-alt p-3 h-100 text-center">
-      <i class="fas fa-chart-line card-icon"></i>
-      <p class="mt-2 mb-0"style="color: white;">Matlab</p>
-    </div>
-  </div>
-</div>
+    <!-- Hard Skills Button -->
+    <div class="mb-4">
+      <button class="btn btn-primary btn-lg w-100 d-flex justify-content-between align-items-center" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#hardSkillsCollapse" 
+              aria-expanded="true" 
+              aria-controls="hardSkillsCollapse">
+        <span><i class="fas fa-code me-2"></i>Hard Skills - Compétences Techniques</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      
+      <div class="collapse show" id="hardSkillsCollapse">
+        <div class="card card-body bg-dark-alt mt-3">
+          
+          <h5 class="text-primary mb-3">Langages de programmation</h5>
+          <div class="row g-3 mb-4">
+            <!-- C / C++ -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-code card-icon"></i>
+                <p class="mt-2 mb-0" style="color: white;">C / C++ / C#</p>
+              </div>
+            </div>
+            <!-- Python -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fab fa-python card-icon"></i>
+                <p class="mt-2 mb-0" style="color: white;">Python</p>
+              </div>
+            </div>
+            <!-- Arduino -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-microchip card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">Arduino</p>
+              </div>
+            </div>
+            <!-- STM32 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-microchip card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">STM32</p>
+              </div>
+            </div>
+            <!-- SQL -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-database card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">SQL</p>
+              </div>
+            </div>
+            <!-- HTML5 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fab fa-html5 card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">HTML5</p>
+              </div>
+            </div>
+            <!-- CSS3 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fab fa-css3-alt card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">CSS3</p>
+              </div>
+            </div>
+            <!-- JavaScript -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fab fa-js card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">JavaScript</p>
+              </div>
+            </div>
+            <!-- PHP -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fab fa-php card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">PHP</p>
+              </div>
+            </div>
+            <!-- MATLAB -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-chart-line card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">Matlab</p>
+              </div>
+            </div>
+          </div>
 
-
-    <h5>Outils & logiciels</h5>
-    <div class="row g-3">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card bg-primary-alt p-3 h-100 text-center">
-          <i class="fas fa-database card-icon"></i>
-          <p class="mt-2 mb-0"style="color: white;">Codesys, Linux, Armbian</p>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card bg-primary-alt p-3 h-100 text-center">
-          <i class="fas fa-paint-brush card-icon"></i>
-          <p class="mt-2 mb-0"style="color: white;">Canva, Office 365</p>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card bg-primary-alt p-3 h-100 text-center">
-          <i class="fas fa-microchip card-icon"></i>
-          <p class="mt-2 mb-0"style="color: white;">MBLAB, Qt Creator</p>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card bg-primary-alt p-3 h-100 text-center">
-          <i class="fas fa-robot card-icon"></i>
-          <p class="mt-2 mb-0"style="color: white;">OpenCV</p>
+          <h5 class="text-primary mb-3">Outils & logiciels</h5>
+          <div class="row g-3">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-database card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">Codesys, Linux, Armbian</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-paint-brush card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">Canva, Office 365</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-microchip card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">MBLAB, Qt Creator</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card bg-primary-alt p-3 h-100 text-center">
+                <i class="fas fa-robot card-icon"></i>
+                <p class="mt-2 mb-0"style="color: white;">OpenCV</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Soft Skills Button -->
+    <div class="mb-4">
+      <button class="btn btn-success btn-lg w-100 d-flex justify-content-between align-items-center" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#softSkillsCollapse" 
+              aria-expanded="false" 
+              aria-controls="softSkillsCollapse">
+        <span><i class="fas fa-users me-2"></i>Soft Skills - Compétences Relationnelles</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      
+      <div class="collapse" id="softSkillsCollapse">
+        <div class="card card-body bg-dark-alt mt-3">
+          <div class="row g-4">
+            
+            <!-- Communication & Langues -->
+            <div class="col-md-6">
+              <h5 class="text-success mb-3"><i class="fas fa-comments me-2"></i>Communication & Langues</h5>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-language text-success me-2"></i>
+                <strong>Multilingue :</strong> Français (natif), Arabe (bilingue), Anglais (technique), Espagnol (notions)
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-presentation text-success me-2"></i>
+                <strong>Présentation :</strong> Capacité à expliquer des concepts techniques complexes de manière claire
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-handshake text-success me-2"></i>
+                <strong>Relationnel :</strong> Facilité à travailler en équipe et à établir des relations professionnelles
+              </div>
+            </div>
+
+            <!-- Organisation & Méthodes -->
+            <div class="col-md-6">
+              <h5 class="text-success mb-3"><i class="fas fa-tasks me-2"></i>Organisation & Méthodes</h5>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-project-diagram text-success me-2"></i>
+                <strong>Gestion de projet :</strong> Planification, suivi et coordination de projets techniques
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-search text-success me-2"></i>
+                <strong>Résolution de problèmes :</strong> Approche analytique et méthodique face aux défis techniques
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-clock text-success me-2"></i>
+                <strong>Gestion du temps :</strong> Priorisation des tâches et respect des délais
+              </div>
+            </div>
+
+            <!-- Qualités personnelles -->
+            <div class="col-md-6">
+              <h5 class="text-success mb-3"><i class="fas fa-star me-2"></i>Qualités Personnelles</h5>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-cogs text-success me-2"></i>
+                <strong>Adaptabilité :</strong> Capacité à s'adapter rapidement aux nouvelles technologies
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-users-cog text-success me-2"></i>
+                <strong>Esprit d'équipe :</strong> Collaboration efficace et partage de connaissances
+              </div>
+            </div>
+
+            <!-- Leadership & Initiative -->
+            <div class="col-md-6">
+              <h5 class="text-success mb-3"><i class="fas fa-user-tie me-2"></i>Leadership & Initiative</h5>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-rocket text-success me-2"></i>
+                <strong>Proactivité :</strong> Initiative dans la recherche de solutions innovantes
+              </div>
+              <div class="soft-skill-item mb-3">
+                <i class="fas fa-trophy text-success me-2"></i>
+                <strong>Persévérance :</strong> Détermination face aux défis techniques complexes
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -562,55 +3498,127 @@
         <div class="row g-4">
           <!-- Smart Light -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Carte Smart Light">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 120deg;" title="120H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">120H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Smartlight.png" class="card-img-top" alt="Carte Smart Light">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Carte Smart Light</h5>
                 <p class="flex-grow-1">Conception d'une carte Smart Light pour contrôle d’éclairage embarqué.</p>
                 <div class="mb-2">
                   <span class="badge bg-primary me-1">Électronique</span>
                   <span class="badge bg-primary">PCB</span>
+                </div>                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalSmartLight">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#smartLightDetails" 
+                          aria-expanded="false" aria-controls="smartLightDetails">
+                    Plus d'information
+                  </button>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalSmartLight">
-                  En savoir plus
-                </a>
+                <div class="collapse mt-2" id="smartLightDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Développer une carte électronique intelligente pour le contrôle d'éclairage embarqué avec gestion de l'énergie et interface utilisateur intuitive.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Conception PCB avec Altium Designer<br>• Microcontrôleur STM32<br>• Capteurs de luminosité et température<br>• Protocoles de communication I2C/SPI</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Carte fonctionnelle avec gestion automatique de l'éclairage<br>• Optimisation de la consommation énergétique<br>• Interface de contrôle à distance développée<br>• Tests et validation en conditions réelles</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>                                
           <!-- Vérif Electrique -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Conception d'un système électronique émetteur / récepteur">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 100deg;" title="100H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">100H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/verifierS1.png" class="card-img-top" alt="Conception d'un système électronique émetteur / récepteur">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Vérification système électrique</h5>
                 <p class="flex-grow-1">Tests et validation d’un système électrique embarqué.</p>
                 <div class="mb-2">
                   <span class="badge bg-primary me-1">Conception</span>
                   <span class="badge bg-primary">Validation</span>
+                </div>                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalVerification">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#verificationDetails" 
+                          aria-expanded="false" aria-controls="verificationDetails">
+                    Plus d'information
+                  </button>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalVerification">
-                  En savoir plus
-                </a>
+                <div class="collapse mt-2" id="verificationDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Mettre en place une méthodologie complète de tests et validation d'un systèmes électrique garantissant la fiabilité et la conformité.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Oscilloscope numérique et analyseur de spectre<br>• Multimètres de précision<br>• Protocoles de test automatisés<br>• Documentation technique et rapports</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Procédures de test standardisées<br>• Validation des performances électriques<br>• Détection et correction d'anomalies<br>• Documentation complète des résultats</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <!-- Robot Mobile -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Robot Mobile Autonome">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 120deg;" title="120H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">120H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/RobotS2.png" class="card-img-top" alt="Robot Mobile Autonome">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Robot mobile autonome</h5>
-                <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>
-                <div class="mb-2">
+                <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">PID</span>
                   <span class="badge bg-primary">Vision</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalRobot">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalRobot">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#robotBut1Details" 
+                          aria-expanded="false" aria-controls="robotBut1Details">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="robotBut1Details">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Concevoir et développer un robot mobile capable de navigation autonome avec évitement d'obstacles et reconnaissance d'environnement.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Régulateurs PID pour l'asservissement<br>• Capteurs ultrasoniques et caméra<br>• Traitement d'image et vision artificielle<br>• Microcontrôleur et programmation C/C++</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Robot fonctionnel avec navigation autonome<br>• Algorithmes d'évitement d'obstacles<br>• Système de vision pour reconnaissance d'objets<br>• Interface de contrôle et monitoring</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -619,118 +3627,256 @@
 
       <!-- BUT2 -->
       <div class="tab-pane fade" id="but2" role="tabpanel" aria-labelledby="but2-tab">
-        <div class="row g-4">
-          <!-- Robot amélioré -->
+        <div class="row g-4">          <!-- Robot amélioré -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Robot Mobile Amélioré">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but3" style="--progress-angle: 300deg;" title="300H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">300H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/RobotS5.png" class="card-img-top" alt="Robot Mobile Amélioré">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Robot mobile autonome amélioré</h5>
-                <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>
-                <div class="mb-2">
+                <h5 class="card-title">Robot mobile autonome asservi</h5>
+                <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Optimisation</span>
                   <span class="badge bg-primary">Automatisation</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalRobot">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalRobot">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#robotBut2Details" 
+                          aria-expanded="false" aria-controls="robotBut2Details">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="robotBut2Details">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Améliorer les performances du robot mobile avec des algorithmes d'asservissement avancés et une précision de navigation optimisée.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Algorithmes PID avancés et filtrage numérique<br>• Capteurs haute précision (encodeurs, gyroscope)<br>• Optimisation des trajectoires<br>• Interface homme-machine développée</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Amélioration significative de la précision<br>• Réduction des oscillations et du temps de réponse<br>• Système de navigation optimisé<br>• Automatisation complète des tâches</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Assistant domotique -->
+          </div>          <!-- Assistant domotique -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Assistant domotique">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but2" style="--progress-angle: 150deg;" title="150H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">150H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/domotique.png" class="card-img-top" alt="Assistant domotique">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Assistant domotique</h5>
-                <p class="flex-grow-1">Projet de Développement, de Conception et de Vérification d'un assitant domotique dotés de plusieurs capteurs, d'un écran tactile et d'une interface web.</p>
-                <div class="mb-2">
-                  <span class="badge bg-primary me-1">Optimisation</span>
-                  <span class="badge bg-primary">Automatisation</span>
+                <p class="flex-grow-1">Développement d'un assistant vocal pour la maison intelligente.</p>                <div class="mb-2">
+                  <span class="badge bg-primary me-1">IoT</span>
+                  <span class="badge bg-primary">Assistant Vocal</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalRobot">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalAssistantDomotique">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#assistantDomotiqueDetails" 
+                          aria-expanded="false" aria-controls="assistantDomotiqueDetails">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="assistantDomotiqueDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Créer un système domotique intelligent avec contrôle vocal pour automatiser et optimiser la gestion d'une maison connectée.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Reconnaissance vocale et traitement du langage naturel<br>• Protocoles IoT (MQTT, WiFi, Zigbee)<br>• Interface web responsive<br>• Base de données pour historique et préférences</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Assistant vocal fonctionnel avec commandes personnalisées<br>• Intégration de multiples appareils connectés<br>• Interface utilisateur intuitive<br>• Automatisation basée sur les habitudes</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>          
-          <!-- Synthétiseur -->
+          </div>          <!-- NanoPi Neo 2 -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Synthétiseur de Musique">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Synthétiseur de musique</h5>
-                <p class="flex-grow-1">Signal audio équivalent à un synthétiseur via Dev-C++ embarqué.</p>
-                <div class="mb-2">
-                  <span class="badge bg-primary me-1">Audio</span>
-                  <span class="badge bg-primary">Dev-C++</span>
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 70deg;" title="70H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">70H</div>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalSynthese">
-                  En savoir plus
-                </a>
+              </div>
+              <img src="https://farm4.staticflickr.com/3731/33452088015_760db9bbb8_o.jpg" class="card-img-top" alt="NanoPi Neo 2">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">NanoPi Neo 2</h5>
+                <p class="flex-grow-1">Implémentation d'une carte NanoPi Neo 2, Mise en place d'une distribution Linux et exploration de l'ensemble de ses fonctionnalités.</p>                <div class="mb-2">
+                  <span class="badge bg-primary me-1">Linux</span>
+                  <span class="badge bg-primary">Embarqué</span>
+                </div>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalNanoPi">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#nanoPiDetails" 
+                          aria-expanded="false" aria-controls="nanoPiDetails">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="nanoPiDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Implémenter et configurer une carte NanoPi Neo 2, installer une distribution Linux personnalisée et explorer toutes ses capacités matérielles et logicielles.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• NanoPi Neo 2 (ARM Cortex-A53)<br>• Distribution Linux embarquée<br>• Configuration système et drivers<br>• GPIO et interfaces de communication</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Installation réussie de Linux embarqué<br>• Configuration optimisée des performances<br>• Exploration complète des fonctionnalités<br>• Documentation technique détaillée</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- BUT3 -->
+       <!-- BUT3 -->
       <div class="tab-pane fade" id="but3" role="tabpanel" aria-labelledby="but3-tab">
-        <div class="row g-4">
-          <!-- Transmission longue distance -->
+        <div class="row g-4">          <!-- Transmission longue distance -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Transmission longue distance">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but3" style="--progress-angle: 220deg;" title="220H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">220H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" class="card-img-top" alt="Transmission longue distance">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Transmission longue distance</h5>
-                <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>
-                <div class="mb-2">
+                <h5 class="card-title">Transmetteur longue distance</h5>
+                <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">WSPR</span>
                   <span class="badge bg-primary">STM32</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalTransmetteur">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalTransmetteur">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#transmetteurDetails" 
+                          aria-expanded="false" aria-controls="transmetteurDetails">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="transmetteurDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Concevoir un transmetteur radio longue distance utilisant l'ionosphère pour les communications bas débit avec optimisation énergétique.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Protocole WSPR (Weak Signal Propagation Reporter)<br>• Microcontrôleur STM32 haute performance<br>• Antennes accordées et amplificateurs RF<br>• Gestion d'énergie et synchronisation GPS</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Transmissions réussies sur plusieurs milliers de km<br>• Optimisation de la consommation énergétique<br>• Interface de configuration et monitoring<br>• Validation des performances en conditions réelles</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- OptiPlant -->
+          </div>          <!-- OptiPlant -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="OptiPlant">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 50deg;" title="50H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">50H</div>
+                </div>
+              </div>
+              <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Optiplant.png" class="card-img-top" alt="OptiPlant">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">OptiPlant</h5>
-                <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>
-                <div class="mb-2">
+                <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">MySQL</span>
                   <span class="badge bg-primary">PHP</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalOptiPlant">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalOptiPlant">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#optiPlantDetails" 
+                          aria-expanded="false" aria-controls="optiPlantDetails">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="optiPlantDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Développer une application web complète pour la gestion d'ombrières photovoltaïques et de recettes agricoles avec base de données intégrée.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• Base de données MySQL avec requêtes optimisées<br>• Backend PHP avec architecture MVC<br>• Interface web responsive (HTML/CSS/JavaScript)<br>• Gestion des utilisateurs et authentification</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Application web fonctionnelle et sécurisée<br>• Gestion complète des données agricoles<br>• Interface utilisateur intuitive et responsive<br>• Système de rapports et statistiques</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Détection visuelle -->
+          </div>          <!-- Détection visuelle -->
           <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" class="card-img-top" alt="Détection visuelle d'objets">
+            <div class="card h-100 shadow-sm" style="position: relative;">
+              <!-- Jauge de temps -->
+              <div class="time-gauge but1" style="--progress-angle: 100deg;" title="100H - Temps passé sur le projet">
+                <div class="circular-progress">
+                  <div class="time-text">100H</div>
+                </div>
+              </div>
+              <img src="https://hackster.imgix.net/uploads/attachments/1319611/image_KfTnL1cQQ8.png?auto=compress%2Cformat&w=830&h=466.875&fit=min&dpr=2.625" class="card-img-top" alt="Détection visuelle d'objets">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Détection visuelle d'objets</h5>
-                <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>
-                <div class="mb-2">
+                <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">OpenCV</span>
                   <span class="badge bg-primary">Python</span>
                 </div>
-                <a href="#" class="btn btn-primary btn-sm align-self-start mt-auto"
-                   data-bs-toggle="modal" data-bs-target="#modalDetection">
-                  En savoir plus
-                </a>
+                <div class="d-flex gap-2 mt-auto">
+                  <a href="#" class="btn btn-primary btn-sm"
+                     data-bs-toggle="modal" data-bs-target="#modalDetection">
+                    Voir les traces
+                  </a>
+                  <button class="btn btn-outline-primary btn-sm" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#detectionDetails" 
+                          aria-expanded="false" aria-controls="detectionDetails">
+                    Plus d'information
+                  </button>
+                </div>
+                <div class="collapse mt-2" id="detectionDetails">
+                  <div class="card card-body bg-light text-dark">
+                    <h6>🎯 Objectif</h6>
+                    <p class="small">Développer un système de vision artificielle pour la détection et localisation 3D d'objets colorés en temps réel avec la caméra JeVois-Pro.</p>
+                    
+                    <h6>💻 Technologies utilisées</h6>
+                    <p class="small">• OpenCV pour le traitement d'image<br>• Python pour les algorithmes de vision<br>• JeVois-Pro pour l'acquisition vidéo<br>• Calibration de caméra et géométrie 3D</p>
+                    
+                    <h6>🏆 Réalisations</h6>
+                    <p class="small">• Détection fiable d'objets rouges en temps réel<br>• Calcul de position 3D avec précision<br>• Interface de visualisation développée<br>• Optimisation des performances de traitement</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -990,12 +4136,24 @@
     <!-- Compétences Modal -->
   <div class="modal fade" id="competencesModal" tabindex="-1" aria-labelledby="competencesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content">        <div class="modal-header">
           <h5 class="modal-title" id="competencesModalLabel">Auto-évaluation des compétences du BUT GEII</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-        </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>        </div>
         <div class="modal-body">
+          <!-- Bouton de basculement entre évaluation actuelle et historique -->
+          <div class="d-flex justify-content-center mb-4">
+            <div class="btn-group" role="group" aria-label="Type d'évaluation">
+              <input type="radio" class="btn-check" name="evaluationType" id="currentEvaluation" checked>
+              <label class="btn btn-outline-primary" for="currentEvaluation">
+                <i class="fas fa-calendar-check me-2"></i>Évaluation actuelle
+              </label>
+              <input type="radio" class="btn-check" name="evaluationType" id="historicalEvaluation">
+              <label class="btn btn-outline-secondary" for="historicalEvaluation">
+                <i class="fas fa-history me-2"></i>Évaluation historique
+              </label>
+            </div>
+          </div>
+          
           <div class="row">
             <!-- BUT1 -->
             <div class="col-md-4 mb-4">
@@ -1012,14 +4170,12 @@
                           data-bs-toggle="collapse" data-bs-target="#but1-concevoir-details" aria-expanded="false" aria-controls="but1-concevoir-details">
                     <i class="fas fa-plus"></i>
                   </button>
-                </div>
-                <div class="collapse mt-2 text-white" id="but1-concevoir-details">
+                </div>                <div class="collapse mt-2 text-white" id="but1-concevoir-details">
                   <ul class="mb-0">
                     <li>Mener une conception partielle intégrant une démarche projet.</li>
                     <li>Premiers choix techniques et schémas simples.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Mener une conception partielle intégrant une démarche projet</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Vérifier</label>
@@ -1040,19 +4196,24 @@
                     <li>Utilisation d’oscilloscope, multimètre, etc.</li>
                   </li>
                 </div>
-                <small class="text-muted d-block">Effectuer les tests et mesures nécessaires à la vérification d’un système</small>
+                </div>
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but1-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
+                </button>
               </div>
-              <h6>Projets associés :</h6>
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
-                  Robot mobile autonome
-                </button>
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSmartLight\']').click(); }, 300);">
-                  Carte Smart Light
-                </button>
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalVerification\']').click(); }, 300);">
-                  Vérification système électrique
-                </button>
+              <div id="but1-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
+                    Robot mobile autonome
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSmartLight\']').click(); }, 300);">
+                    Carte Smart Light
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalVerification\']').click(); }, 300);">
+                    Vérification système électrique
+                  </button>
+                </div>
               </div>
             </div>
             <!-- BUT2 -->
@@ -1078,7 +4239,6 @@
                     <li>Participation à la rédaction de cahiers des charges.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Concevoir un système en fiabilisant les solutions proposées</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Vérifier</label>
@@ -1100,7 +4260,6 @@
                     <li>Analyse des résultats et rédaction de rapports de tests.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Mettre en place un protocole de tests pour valider un système</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Maintenir</label>
@@ -1122,7 +4281,6 @@
                     <li>Gestion de la documentation technique.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Intervenir sur un système pour maintenance</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Implanter</label>
@@ -1144,16 +4302,21 @@
                     <li>Tests de fonctionnement après implantation.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Réaliser un système avec démarche qualité</small>
               </div>
-              <h6>Projets associés :</h6>
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
-                  Robot mobile autonome amélioré
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but2-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
                 </button>
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSynthese\']').click(); }, 300);">
-                  Synthétiseur de musique
-                </button>
+              </div>
+              <div id="but2-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
+                    Robot mobile autonome amélioré
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSynthese\']').click(); }, 300);">
+                    Synthétiseur de musique
+                  </button>
+                </div>
               </div>
             </div>
             <!-- BUT3 -->
@@ -1178,7 +4341,6 @@
                     <li>Conception avancée et optimisation.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Approche sélective dans les choix technologiques</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Vérifier</label>
@@ -1199,7 +4361,6 @@
                     <li>Validation avancée et documentation.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Procédure qualité pour valider un système</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Maintenir</label>
@@ -1220,7 +4381,6 @@
                     <li>Gestion de la maintenance à grande échelle.</li>
                   </ul>
                 </div>
-                <small class="text-muted d-block">Stratégie de maintenance optimale</small>
               </div>
               <div class="mb-3">
                 <label class="form-label">Implanter</label>
@@ -1240,20 +4400,24 @@
                     <li>Interaction avec les acteurs pour mise en service.</li>
                     <li>Implantation de systèmes complexes.</li>
                   </ul>
-                </div>
-                <small class="text-muted d-block">Interaction avec les acteurs pour mise en service</small>
+                </div>           </div>
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but3-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
+                </button>
               </div>
-              <h6>Projets associés :</h6>
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalTransmetteur\']').click(); }, 300);">
-                  Transmission longue distance
-                </button>
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalDetection\']').click(); }, 300);">
-                  Détection visuelle d'objets
-                </button>
-                <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalOptiPlant\']').click(); }, 300);">
-                  OptiPlant
-                </button>
+              <div id="but3-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalTransmetteur\']').click(); }, 300);">
+                    Transmission longue distance
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalDetection\']').click(); }, 300);">
+                    Détection visuelle d'objets
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalOptiPlant\']').click(); }, 300);">
+                    OptiPlant
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1432,6 +4596,64 @@
       </div>
     </div>
   </div>
+
+
+
+
+  
+  <!-- Contact -->
+  <section id="contact" class="py-5 bg-dark-section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <!-- Message de succès -->
+          <div id="success-message" class="alert alert-success d-none" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
+          </div>
+          
+          <form id="contact-form" action="https://formspree.io/f/mgvknapo" method="POST">
+            <input type="hidden" name="_next" value="#contact">
+            <div class="mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Votre email" required>
+            </div>
+            <div class="mb-3">
+              <textarea name="message" class="form-control" rows="4" placeholder="Votre message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" id="submit-btn">
+              <span class="btn-text">Envoyer</span>
+              <span class="btn-loading d-none">
+                <i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Taha Aziz. Tous droits réservés.</p>
+      <div class="mt-3">
+        <a href="mailto:taha.aziz5111@gmail.com" class="text-light me-4 footer-icon email" title="Envoyer un email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/tahaaziz83" target="_blank" class="text-light me-4 footer-icon linkedin" title="Profil LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/AZIZTaha83" target="_blank" class="text-light footer-icon github" title="Profil GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1489,23 +4711,187 @@
       window.addEventListener("scroll", function() {
         activateNav();
         toggleBackToTopBtn();
-      });
+      });      // Événement clic sur le bouton
+      backToTopBtn.addEventListener('click', scrollToTop);      // Gestion du formulaire de contact
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');      // Gestion simple des boutons de projets dans la modal des compétences
+      function setupProjectToggle() {
+        // Supprimer les anciens listeners s'il y en a
+        removeProjectToggleListeners();
+        
+        // Bouton pour BUT1
+        const toggleBut1 = document.getElementById('toggle-but1-projects');
+        const but1Projects = document.getElementById('but1-projects');
+        
+        if (toggleBut1 && but1Projects) {
+          toggleBut1.removeEventListener('click', toggleBut1.clickHandler);
+          toggleBut1.clickHandler = () => {
+            if (but1Projects.classList.contains('d-none')) {
+              but1Projects.classList.remove('d-none');
+              toggleBut1.innerHTML = '<i class="fas fa-eye-slash me-1"></i>Masquer projets';
+              toggleBut1.classList.remove('btn-outline-success');
+              toggleBut1.classList.add('btn-outline-danger');
+            } else {
+              but1Projects.classList.add('d-none');
+              toggleBut1.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+              toggleBut1.classList.remove('btn-outline-danger');
+              toggleBut1.classList.add('btn-outline-success');
+            }
+          };
+          toggleBut1.addEventListener('click', toggleBut1.clickHandler);
+        }
 
-      // Événement clic sur le bouton
-      backToTopBtn.addEventListener('click', scrollToTop);
+        // Bouton pour BUT2
+        const toggleBut2 = document.getElementById('toggle-but2-projects');
+        const but2Projects = document.getElementById('but2-projects');
+        
+        if (toggleBut2 && but2Projects) {
+          toggleBut2.removeEventListener('click', toggleBut2.clickHandler);
+          toggleBut2.clickHandler = () => {
+            if (but2Projects.classList.contains('d-none')) {
+              but2Projects.classList.remove('d-none');
+              toggleBut2.innerHTML = '<i class="fas fa-eye-slash me-1"></i>Masquer projets';
+              toggleBut2.classList.remove('btn-outline-success');
+              toggleBut2.classList.add('btn-outline-danger');
+            } else {
+              but2Projects.classList.add('d-none');
+              toggleBut2.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+              toggleBut2.classList.remove('btn-outline-danger');
+              toggleBut2.classList.add('btn-outline-success');
+            }
+          };
+          toggleBut2.addEventListener('click', toggleBut2.clickHandler);
+        }
+
+        // Bouton pour BUT3
+        const toggleBut3 = document.getElementById('toggle-but3-projects');
+        const but3Projects = document.getElementById('but3-projects');
+        
+        if (toggleBut3 && but3Projects) {
+          toggleBut3.removeEventListener('click', toggleBut3.clickHandler);
+          toggleBut3.clickHandler = () => {
+            if (but3Projects.classList.contains('d-none')) {
+              but3Projects.classList.remove('d-none');
+              toggleBut3.innerHTML = '<i class="fas fa-eye-slash me-1"></i>Masquer projets';
+              toggleBut3.classList.remove('btn-outline-success');
+              toggleBut3.classList.add('btn-outline-danger');
+            } else {
+              but3Projects.classList.add('d-none');
+              toggleBut3.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+              toggleBut3.classList.remove('btn-outline-danger');
+              toggleBut3.classList.add('btn-outline-success');
+            }
+          };
+          toggleBut3.addEventListener('click', toggleBut3.clickHandler);
+        }
+      }
+
+      function removeProjectToggleListeners() {
+        const toggleBut1 = document.getElementById('toggle-but1-projects');
+        const toggleBut2 = document.getElementById('toggle-but2-projects');
+        const toggleBut3 = document.getElementById('toggle-but3-projects');
+        
+        if (toggleBut1 && toggleBut1.clickHandler) {
+          toggleBut1.removeEventListener('click', toggleBut1.clickHandler);
+        }
+        if (toggleBut2 && toggleBut2.clickHandler) {
+          toggleBut2.removeEventListener('click', toggleBut2.clickHandler);
+        }
+        if (toggleBut3 && toggleBut3.clickHandler) {
+          toggleBut3.removeEventListener('click', toggleBut3.clickHandler);
+        }
+      }
+
+      function resetProjectToggle() {
+        // Remettre tous les boutons et projets à leur état initial
+        const toggleBut1 = document.getElementById('toggle-but1-projects');
+        const toggleBut2 = document.getElementById('toggle-but2-projects');
+        const toggleBut3 = document.getElementById('toggle-but3-projects');
+        const but1Projects = document.getElementById('but1-projects');
+        const but2Projects = document.getElementById('but2-projects');
+        const but3Projects = document.getElementById('but3-projects');
+
+        // Remettre les boutons à l'état "Voir projets"
+        if (toggleBut1) {
+          toggleBut1.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+          toggleBut1.classList.remove('btn-outline-danger');
+          toggleBut1.classList.add('btn-outline-success');
+        }
+        if (toggleBut2) {
+          toggleBut2.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+          toggleBut2.classList.remove('btn-outline-danger');
+          toggleBut2.classList.add('btn-outline-success');
+        }
+        if (toggleBut3) {
+          toggleBut3.innerHTML = '<i class="fas fa-eye me-1"></i>Voir projets';
+          toggleBut3.classList.remove('btn-outline-danger');
+          toggleBut3.classList.add('btn-outline-success');
+        }
+
+        // Masquer tous les projets
+        if (but1Projects) but1Projects.classList.add('d-none');
+        if (but2Projects) but2Projects.classList.add('d-none');
+        if (but3Projects) but3Projects.classList.add('d-none');
+      }
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Afficher l'état de chargement
+          btnText.classList.add('d-none');
+          btnLoading.classList.remove('d-none');
+          submitBtn.disabled = true;
+          
+          try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+            
+            if (response.ok) {
+              // Afficher le message de succès
+              successMessage.classList.remove('d-none');
+              contactForm.reset(); // Vider le formulaire
+              
+              // Masquer le message après 5 secondes
+              setTimeout(() => {
+                successMessage.classList.add('d-none');
+              }, 5000);
+            } else {
+              throw new Error('Erreur lors de l\'envoi');
+            }
+          } catch (error) {
+            alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+          } finally {
+            // Restaurer l'état du bouton
+            btnText.classList.remove('d-none');
+            btnLoading.classList.add('d-none');
+            submitBtn.disabled = false;
+          }
+        });
+      }
 
       // Animation des jauges dans la modal des compétences
-      const competencesModal = document.getElementById('competencesModal');
-      
-      if (competencesModal) {
+      const competencesModal = document.getElementById('competencesModal');      if (competencesModal) {
         competencesModal.addEventListener('shown.bs.modal', function () {
           animateProgressBars();
           setupToggleButtons();
+          setupProjectToggle();
         });
 
         competencesModal.addEventListener('hidden.bs.modal', function () {
           resetProgressBars();
           resetToggleButtons();
+          resetProjectToggle();
+          removeProjectToggleListeners();
         });
       }
 
@@ -1589,15 +4975,13 @@
         box-shadow: 0 0 5px rgba(0, 255, 127, 0.5);
         transform: scaleY(1);
       }
-    }
-
-    #competencesModal .progress-bar {
+    }    .modal .progress-bar {
       transition: width 1.5s ease-in-out;
       position: relative;
       overflow: hidden;
     }
 
-    #competencesModal .progress-bar::after {
+    .modal .progress-bar::after {
       content: '';
       position: absolute;
       top: 0;
@@ -1618,7 +5002,7 @@
     }
 
     /* Animation d'apparition des éléments de la modal */
-    #competencesModal .modal-content {
+    .modal .modal-content {
       animation: modalSlideIn 0.4s ease-out;
     }
 
@@ -1634,18 +5018,18 @@
     }
 
     /* Effet hover sur les boutons + */
-    #competencesModal .btn:hover {
+    .modal .btn:hover {
       transform: scale(1.1);
       transition: transform 0.2s ease;
     }
 
     /* Animation pour la rotation des boutons toggle */
-    #competencesModal [data-bs-toggle="collapse"] {
+    .modal [data-bs-toggle="collapse"] {
       transition: transform 0.3s ease;
     }
 
     /* Désactiver l'animation CSS pour les collapse et laisser Bootstrap gérer */
-    #competencesModal .collapse {
+    .modal .collapse {
       transition: none !important;
     }
 
@@ -1666,13 +5050,225 @@
 
     #backToTopBtn:active {
       transform: scale(0.95);
+    }    #backToTopBtn i {
+      font-size: 1.2rem;    }    /* Styles pour les boutons de projets dans les modals */
+    .modal .btn-outline-success:hover {
+      background-color: #198754;
+      border-color: #198754;
+      color: #fff;
     }
 
-    #backToTopBtn i {
-      font-size: 1.2rem;
+    .modal .btn-outline-danger:hover {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: #fff;
+    }
+
+    .modal .btn-outline-primary:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Styles supplémentaires pour les modals sur fond blanc */
+    .modal .progress {
+      background-color: #e9ecef !important;
+    }
+
+    .modal .progress-bar {
+      background-color: #0d6efd !important;
+    }
+
+    .modal .progress-bar.bg-success {
+      background-color: #198754 !important;
+    }
+
+    .modal .form-label {
+      color: #333 !important;
+      font-weight: 600;
+    }
+
+    .modal h6 {
+      color: #0d6efd !important;
+      font-weight: 700;
+    }
+
+    .modal .modal-title {
+      color: #333 !important;
+      font-weight: 700;
+    }
+
+    .modal .btn-primary {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+    }
+
+    .modal .btn-primary:hover {
+      background-color: #0b5ed7;
+      border-color: #0a58ca;
+    }
+
+    .modal .collapse {
+      background-color: #f8f9fa !important;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 8px;
+    }    .modal .collapse ul li {
+      color: #333 !important;
+    }    /* Animations pour les icônes du footer */
+    .footer-icon {
+      display: inline-block;
+      font-size: 2.2rem;
+      padding: 15px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }    .footer-icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s ease;
+      z-index: -1;
+      aspect-ratio: 1 / 1;
+    }
+
+    .footer-icon.email::before {
+      background: rgba(220, 53, 69, 0.2);
+    }
+
+    .footer-icon.linkedin::before {
+      background: rgba(0, 119, 181, 0.2);
+    }
+
+    .footer-icon.github::before {
+      background: rgba(139, 69, 255, 0.2);
+    }
+
+    .footer-icon:hover::before {
+      width: 70px;
+      height: 70px;
+    }    .footer-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Couleurs spécifiques pour chaque icône au survol */
+    .footer-icon.email:hover {
+      color: #dc3545 !important;
+      text-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+    }
+
+    .footer-icon.linkedin:hover {
+      color: #0077b5 !important;
+      text-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+    }
+
+    .footer-icon.github:hover {
+      color: #8b45ff !important;
+      text-shadow: 0 0 20px rgba(139, 69, 255, 0.6);
+    }
+
+    /* Animation spécifique pour chaque icône */
+    .footer-icon.email:hover {
+      animation: bounce 0.6s ease;
+    }
+
+    .footer-icon.linkedin:hover {
+      animation: pulse 0.6s ease;
+    }
+
+    .footer-icon.github:hover {
+      animation: rotate 0.6s ease;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(-5px) scale(1.1);
+      }
+      40% {
+        transform: translateY(-10px) scale(1.15);
+      }
+      60% {
+        transform: translateY(-7px) scale(1.12);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translateY(-5px) scale(1.1);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.2);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.1);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: translateY(-5px) scale(1.1) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.1) rotate(360deg);
+      }
+    }
+
+    /* Animation de flottement pour les icônes au repos */
+    .footer-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .footer-icon.email {
+      animation-delay: 0s;
+    }
+
+    .footer-icon.linkedin {
+      animation-delay: 0.5s;
+    }
+
+    .footer-icon.github {
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }    /* Effet de particules pour les icônes */
+    .footer-icon.email:hover {
+      box-shadow: 0 0 30px rgba(220, 53, 69, 0.6);
+      color: #dc3545 !important;
+    }
+
+    .footer-icon.linkedin:hover {
+      box-shadow: 0 0 30px rgba(0, 119, 181, 0.6);
+      color: #0077b5 !important;
+    }
+
+    .footer-icon.github:hover {
+      box-shadow: 0 0 30px rgba(139, 69, 255, 0.6);
+      color: #8b45ff !important;
+    }
+
+    /* Forcer les halos à être parfaitement ronds */
+    .footer-icon::before,
+    .footer-icon::after {
+      border-radius:  50% !important;
+      aspect-ratio: 1 / 1 !important;
+    }
+
+    .footer-icon:hover {
+      border-radius: 50% !important;
     }
   </style>
 </body>
 </html>
-
-
