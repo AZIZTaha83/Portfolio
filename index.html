@@ -3099,11 +3099,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#about">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profile">Mon Profil</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Formation</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#profile">Mon Profil</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -3512,18 +3512,26 @@
                 <div class="mb-2">
                   <span class="badge bg-primary me-1">Électronique</span>
                   <span class="badge bg-primary">PCB</span>
-                </div>                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalSmartLight">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#smartLightDetails" 
-                          aria-expanded="false" aria-controls="smartLightDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="smartLightDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalSmartLight">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#smartLightDetails" 
+                            aria-expanded="false" aria-controls="smartLightDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#smartLightFeedback" 
+                            aria-expanded="false" aria-controls="smartLightFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="smartLightDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Développer une carte électronique intelligente pour le contrôle d'éclairage embarqué avec gestion de l'énergie et interface utilisateur intuitive.</p>
@@ -3533,6 +3541,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Carte fonctionnelle avec gestion automatique de l'éclairage<br>• Optimisation de la consommation énergétique<br>• Interface de contrôle à distance développée<br>• Tests et validation en conditions réelles</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="smartLightFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Ce projet m'a permis de découvrir la conception PCB professionnelle avec Altium Designer. J'ai particulièrement apprécié la phase de conception et l'optimisation de la consommation énergétique. Les tests en conditions réelles ont été très formateurs et m'ont donné confiance en mes compétences techniques.</p>
                   </div>
                 </div>
               </div>
@@ -3552,20 +3566,28 @@
                 <h5 class="card-title">Vérification système électrique</h5>
                 <p class="flex-grow-1">Tests et validation d’un système électrique embarqué.</p>
                 <div class="mb-2">
-                  <span class="badge bg-primary me-1">Conception</span>
+                  <span class="badge bg-primary me-1">Vérification</span>
                   <span class="badge bg-primary">Validation</span>
-                </div>                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalVerification">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#verificationDetails" 
-                          aria-expanded="false" aria-controls="verificationDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="verificationDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalVerification">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#verificationDetails" 
+                            aria-expanded="false" aria-controls="verificationDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#verificationFeedback" 
+                            aria-expanded="false" aria-controls="verificationFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="verificationDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Mettre en place une méthodologie complète de tests et validation d'un systèmes électrique garantissant la fiabilité et la conformité.</p>
@@ -3575,6 +3597,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Procédures de test standardisées<br>• Validation des performances électriques<br>• Détection et correction d'anomalies<br>• Documentation complète des résultats</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="verificationFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Ce projet m'a initié aux méthodologies de validation professionnelles. J'ai développé une approche méthodique et rigoureuse des tests électroniques. La documentation des résultats m'a appris l'importance de la traçabilité dans les projets techniques.</p>
                   </div>
                 </div>
               </div>
@@ -3593,22 +3621,29 @@
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Robot mobile autonome</h5>
                 <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>                <div class="mb-2">
-                  <span class="badge bg-primary me-1">PID</span>
-                  <span class="badge bg-primary">Vision</span>
+                  <span class="badge bg-primary me-1">Arduino</span>
+                  <span class="badge bg-primary">IR/Ultrason</span>
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalRobot">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#robotBut1Details" 
+                            aria-expanded="false" aria-controls="robotBut1Details">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#robotBut1Feedback" 
+                            aria-expanded="false" aria-controls="robotBut1Feedback">
+                      Mon ressenti
+                    </button>
+                  </div>
                 </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalRobot">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#robotBut1Details" 
-                          aria-expanded="false" aria-controls="robotBut1Details">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="robotBut1Details">
-                  <div class="card card-body bg-light text-dark">
+                <div class="collapse mt-2" id="robotBut1Details">                  <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Concevoir et développer un robot mobile capable de navigation autonome avec évitement d'obstacles et reconnaissance d'environnement.</p>
                     
@@ -3617,6 +3652,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Robot fonctionnel avec navigation autonome<br>• Algorithmes d'évitement d'obstacles<br>• Système de vision pour reconnaissance d'objets<br>• Interface de contrôle et monitoring</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="robotBut1Feedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Mon premier vrai projet de robotique autonome ! La partie la plus challenging était l'implémentation des régulateurs PID. J'ai adoré voir le robot évoluer de façon autonome après des heures de debug. La vision artificielle m'a ouvert les yeux sur les possibilités de l'IA embarquée.</p>
                   </div>
                 </div>
               </div>
@@ -3642,19 +3683,26 @@
                 <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Optimisation</span>
                   <span class="badge bg-primary">Automatisation</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalRobot">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#robotBut2Details" 
-                          aria-expanded="false" aria-controls="robotBut2Details">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="robotBut2Details">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalRobot">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#robotBut2Details" 
+                            aria-expanded="false" aria-controls="robotBut2Details">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#robotBut2Feedback" 
+                            aria-expanded="false" aria-controls="robotBut2Feedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="robotBut2Details">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Améliorer les performances du robot mobile avec des algorithmes d'asservissement avancés et une précision de navigation optimisée.</p>
@@ -3664,6 +3712,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Amélioration significative de la précision<br>• Réduction des oscillations et du temps de réponse<br>• Système de navigation optimisé<br>• Automatisation complète des tâches</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="robotBut2Feedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Ce projet d'amélioration m'a appris la valeur de l'optimisation continue. Voir les performances s'améliorer progressivement grâce aux algorithmes PID avancés était très gratifiant. J'ai développé une approche plus scientifique du debugging et de l'optimisation.</p>
                   </div>
                 </div>
               </div>
@@ -3683,19 +3737,26 @@
                 <p class="flex-grow-1">Développement d'un assistant vocal pour la maison intelligente.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">IoT</span>
                   <span class="badge bg-primary">Assistant Vocal</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalAssistantDomotique">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#assistantDomotiqueDetails" 
-                          aria-expanded="false" aria-controls="assistantDomotiqueDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="assistantDomotiqueDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalAssistantDomotique">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#assistantDomotiqueDetails" 
+                            aria-expanded="false" aria-controls="assistantDomotiqueDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#assistantDomotiqueFeedback" 
+                            aria-expanded="false" aria-controls="assistantDomotiqueFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="assistantDomotiqueDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Créer un système domotique intelligent avec contrôle vocal pour automatiser et optimiser la gestion d'une maison connectée.</p>
@@ -3705,6 +3766,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Assistant vocal fonctionnel avec commandes personnalisées<br>• Intégration de multiples appareils connectés<br>• Interface utilisateur intuitive<br>• Automatisation basée sur les habitudes</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="assistantDomotiqueFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Ce projet m'a passionné car il combine IA et IoT. Développer la reconnaissance vocale était un défi technique stimulant. Voir l'assistant répondre et contrôler réellement les appareils de la maison était magique. J'ai découvert l'univers des objets connectés et leurs possibilités infinies.</p>
                   </div>
                 </div>
               </div>
@@ -3724,19 +3791,26 @@
                 <p class="flex-grow-1">Implémentation d'une carte NanoPi Neo 2, Mise en place d'une distribution Linux et exploration de l'ensemble de ses fonctionnalités.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Linux</span>
                   <span class="badge bg-primary">Embarqué</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalNanoPi">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#nanoPiDetails" 
-                          aria-expanded="false" aria-controls="nanoPiDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="nanoPiDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalNanoPi">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#nanoPiDetails" 
+                            aria-expanded="false" aria-controls="nanoPiDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#nanoPiFeedback" 
+                            aria-expanded="false" aria-controls="nanoPiFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="nanoPiDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Implémenter et configurer une carte NanoPi Neo 2, installer une distribution Linux personnalisée et explorer toutes ses capacités matérielles et logicielles.</p>
@@ -3746,6 +3820,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Installation réussie de Linux embarqué<br>• Configuration optimisée des performances<br>• Exploration complète des fonctionnalités<br>• Documentation technique détaillée</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="nanoPiFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Ce projet m'a initié au monde des systèmes embarqués Linux. Configurer le système from scratch était challenging mais très formateur. J'ai appris la patience et la méthodologie nécessaires pour le debug bas niveau. Une vraie découverte de l'informatique embarquée !</p>
                   </div>
                 </div>
               </div>
@@ -3771,17 +3851,25 @@
                 <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">WSPR</span>
                   <span class="badge bg-primary">STM32</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalTransmetteur">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#transmetteurDetails" 
-                          aria-expanded="false" aria-controls="transmetteurDetails">
-                    Plus d'information
-                  </button>
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalTransmetteur">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#transmetteurDetails" 
+                            aria-expanded="false" aria-controls="transmetteurDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#transmetteurFeedback" 
+                            aria-expanded="false" aria-controls="transmetteurFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
                 </div>
                 <div class="collapse mt-2" id="transmetteurDetails">
                   <div class="card card-body bg-light text-dark">
@@ -3790,9 +3878,14 @@
                     
                     <h6>💻 Technologies utilisées</h6>
                     <p class="small">• Protocole WSPR (Weak Signal Propagation Reporter)<br>• Microcontrôleur STM32 haute performance<br>• Antennes accordées et amplificateurs RF<br>• Gestion d'énergie et synchronisation GPS</p>
-                    
-                    <h6>🏆 Réalisations</h6>
+                      <h6>🏆 Réalisations</h6>
                     <p class="small">• Transmissions réussies sur plusieurs milliers de km<br>• Optimisation de la consommation énergétique<br>• Interface de configuration et monitoring<br>• Validation des performances en conditions réelles</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="transmetteurFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Un projet fascinant qui m'a fait découvrir les radiofréquences et la propagation ionosphérique ! Réussir à communiquer à des milliers de kilomètres avec si peu de puissance était magique. J'ai développé une passion pour les communications longue distance et la physique des ondes.</p>
                   </div>
                 </div>
               </div>
@@ -3812,19 +3905,26 @@
                 <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">MySQL</span>
                   <span class="badge bg-primary">PHP</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalOptiPlant">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#optiPlantDetails" 
-                          aria-expanded="false" aria-controls="optiPlantDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="optiPlantDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalOptiPlant">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#optiPlantDetails" 
+                            aria-expanded="false" aria-controls="optiPlantDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#optiPlantFeedback" 
+                            aria-expanded="false" aria-controls="optiPlantFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="optiPlantDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Développer une application web complète pour la gestion d'ombrières photovoltaïques et de recettes agricoles avec base de données intégrée.</p>
@@ -3834,6 +3934,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Application web fonctionnelle et sécurisée<br>• Gestion complète des données agricoles<br>• Interface utilisateur intuitive et responsive<br>• Système de rapports et statistiques</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="optiPlantFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">Mon premier gros projet web full-stack ! J'ai adoré créer une application complète de A à Z. La gestion de base de données et l'architecture MVC m'ont donné des bases solides en développement web. Voir les utilisateurs naviguer dans l'interface que j'avais créée était très satisfaisant.</p>
                   </div>
                 </div>
               </div>
@@ -3853,19 +3959,26 @@
                 <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">OpenCV</span>
                   <span class="badge bg-primary">Python</span>
-                </div>
-                <div class="d-flex gap-2 mt-auto">
-                  <a href="#" class="btn btn-primary btn-sm"
-                     data-bs-toggle="modal" data-bs-target="#modalDetection">
-                    Voir les traces
-                  </a>
-                  <button class="btn btn-outline-primary btn-sm" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#detectionDetails" 
-                          aria-expanded="false" aria-controls="detectionDetails">
-                    Plus d'information
-                  </button>
-                </div>
-                <div class="collapse mt-2" id="detectionDetails">
+                </div>                <div class="mt-auto">
+                  <div class="d-flex gap-2 mb-2">
+                    <a href="#" class="btn btn-primary btn-sm"
+                       data-bs-toggle="modal" data-bs-target="#modalDetection">
+                      Voir les traces
+                    </a>
+                    <button class="btn btn-outline-primary btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#detectionDetails" 
+                            aria-expanded="false" aria-controls="detectionDetails">
+                      Plus d'information
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-outline-success btn-sm" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#detectionFeedback" 
+                            aria-expanded="false" aria-controls="detectionFeedback">
+                      Mon ressenti
+                    </button>
+                  </div>
+                </div><div class="collapse mt-2" id="detectionDetails">
                   <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
                     <p class="small">Développer un système de vision artificielle pour la détection et localisation 3D d'objets colorés en temps réel avec la caméra JeVois-Pro.</p>
@@ -3875,6 +3988,12 @@
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Détection fiable d'objets rouges en temps réel<br>• Calcul de position 3D avec précision<br>• Interface de visualisation développée<br>• Optimisation des performances de traitement</p>
+                  </div>
+                </div>
+                <div class="collapse mt-2" id="detectionFeedback">
+                  <div class="card card-body bg-success text-white">
+                    <h6>💭 Mon ressenti</h6>
+                    <p class="small">La vision par ordinateur, c'était mon rêve ! Voir la caméra identifier et localiser les objets en temps réel était fascinant. OpenCV m'a ouvert les portes de l'IA visuelle. Ce projet m'a confirmé ma passion pour l'intelligence artificielle et l'analyse d'images.</p>
                   </div>
                 </div>
               </div>
@@ -4143,18 +4262,17 @@
           <!-- Bouton de basculement entre évaluation actuelle et historique -->
           <div class="d-flex justify-content-center mb-4">
             <div class="btn-group" role="group" aria-label="Type d'évaluation">
-              <input type="radio" class="btn-check" name="evaluationType" id="currentEvaluation" checked>
-              <label class="btn btn-outline-primary" for="currentEvaluation">
+              <input type="radio" class="btn-check" name="evaluationType" id="toggle-annual" checked>
+              <label class="btn btn-outline-primary" for="toggle-annual">
                 <i class="fas fa-calendar-check me-2"></i>Évaluation actuelle
               </label>
-              <input type="radio" class="btn-check" name="evaluationType" id="historicalEvaluation">
-              <label class="btn btn-outline-secondary" for="historicalEvaluation">
+              <input type="radio" class="btn-check" name="evaluationType" id="toggle-historical">
+              <label class="btn btn-outline-secondary" for="toggle-historical">
                 <i class="fas fa-history me-2"></i>Évaluation historique
               </label>
             </div>
           </div>
-          
-          <div class="row">
+          <div id="annualContent" class="row">
             <!-- BUT1 -->
             <div class="col-md-4 mb-4">
               <h6>BUT1</h6>
@@ -4162,9 +4280,9 @@
                 <label class="form-label">Concevoir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:50%"></div>
+                    <div class="progress-bar bg-primary" style="width:100%"></div>
                   </div>
-                  <small>50%</small>
+                  <small>100%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but1-concevoir-details" aria-expanded="false" aria-controls="but1-concevoir-details">
@@ -4181,9 +4299,9 @@
                 <label class="form-label">Vérifier</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:50%"></div>
+                    <div class="progress-bar bg-primary" style="width:100%"></div>
                   </div>
-                  <small>50%</small>
+                  <small>100%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but1-verifier-details" aria-expanded="false" aria-controls="but1-verifier-details">
@@ -4223,9 +4341,9 @@
                 <label class="form-label">Concevoir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:66%"></div>
+                    <div class="progress-bar bg-primary" style="width:100%"></div>
                   </div>
-                  <small>66%</small>
+                  <small>100%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-concevoir-details" aria-expanded="false" aria-controls="but2-concevoir-details">
@@ -4244,9 +4362,9 @@
                 <label class="form-label">Vérifier</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:66%"></div>
+                    <div class="progress-bar bg-primary" style="width:100%"></div>
                   </div>
-                  <small>66%</small>
+                  <small>100%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-verifier-details" aria-expanded="false" aria-controls="but2-verifier-details">
@@ -4326,9 +4444,9 @@
                 <label class="form-label">Concevoir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:100%"></div>
+                    <div class="progress-bar bg-primary" style="width:85%"></div>
                   </div>
-                  <small>100%</small>
+                  <small>85%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-concevoir-details" aria-expanded="false" aria-controls="but3-concevoir-details">
@@ -4346,9 +4464,9 @@
                 <label class="form-label">Vérifier</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:100%"></div>
+                    <div class="progress-bar bg-primary" style="width:85%"></div>
                   </div>
-                  <small>100%</small>
+                  <small>85%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-verifier-details" aria-expanded="false" aria-controls="but3-verifier-details">
@@ -4366,9 +4484,9 @@
                 <label class="form-label">Maintenir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-success" style="width:100%"></div>
+                    <div class="progress-bar bg-success" style="width:85%"></div>
                   </div>
-                  <small>100%</small>
+                  <small>85%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-maintenir-details" aria-expanded="false" aria-controls="but3-maintenir-details">
@@ -4386,9 +4504,276 @@
                 <label class="form-label">Implanter</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-success" style="width:100%"></div>
+                    <div class="progress-bar bg-success" style="width:85%"></div>
                   </div>
-                  <small>100%</small>
+                  <small>85%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but3-implanter-details" aria-expanded="false" aria-controls="but3-implanter-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but3-implanter-details">
+                  <ul class="mb-0">
+                    <li>Interaction avec les acteurs pour mise en service.</li>
+                    <li>Implantation de systèmes complexes.</li>
+                  </ul>
+                </div>           </div>
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but3-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
+                </button>
+              </div>
+              <div id="but3-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalTransmetteur\']').click(); }, 300);">
+                    Transmission longue distance
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalDetection\']').click(); }, 300);">
+                    Détection visuelle d'objets
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalOptiPlant\']').click(); }, 300);">
+                    OptiPlant
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="historicalContent" class="row">
+            <!-- BUT1 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT1</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but1-concevoir-details" aria-expanded="false" aria-controls="but1-concevoir-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>                <div class="collapse mt-2 text-white" id="but1-concevoir-details">
+                  <ul class="mb-0">
+                    <li>Mener une conception partielle intégrant une démarche projet.</li>
+                    <li>Premiers choix techniques et schémas simples.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but1-verifier-details" aria-expanded="false" aria-controls="but1-verifier-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but1-verifier-details">
+                  <ul class="mb-0">
+                    <li>Effectuer les tests et mesures nécessaires à la vérification d’un système.</li>
+                    <li>Utilisation d’oscilloscope, multimètre, etc.</li>
+                  </li>
+                </div>
+                </div>
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but1-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
+                </button>
+              </div>
+              <div id="but1-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
+                    Robot mobile autonome
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSmartLight\']').click(); }, 300);">
+                    Carte Smart Light
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalVerification\']').click(); }, 300);">
+                    Vérification système électrique
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- BUT2 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT2</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but2-concevoir-details" aria-expanded="false" aria-controls="but2-concevoir-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but2-concevoir-details">
+                  <ul class="mb-0">
+                    <li>Analyse fonctionnelle et choix de solutions techniques adaptées.</li>
+                    <li>Utilisation d'outils de conception (schémas, simulations, CAO...)</li>
+                    <li>Participation à la rédaction de cahiers des charges.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but2-verifier-details" aria-expanded="false" aria-controls="but2-verifier-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but2-verifier-details">
+                  <ul class="mb-0">
+                    <li>Élaboration de protocoles de tests et validation de systèmes.</li>
+                    <li>Utilisation d'outils de mesure (oscilloscope, multimètre...)</li>
+                    <li>Analyse des résultats et rédaction de rapports de tests.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Maintenir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-success" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but2-maintenir-details" aria-expanded="false" aria-controls="but2-maintenir-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but2-maintenir-details">
+                  <ul class="mb-0">
+                    <li>Diagnostic de pannes et interventions sur systèmes électroniques.</li>
+                    <li>Application de procédures de maintenance préventive et corrective.</li>
+                    <li>Gestion de la documentation technique.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Implanter</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-success" style="width:60%"></div>
+                  </div>
+                  <small>60%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but2-implanter-details" aria-expanded="false" aria-controls="but2-implanter-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but2-implanter-details">
+                  <ul class="mb-0">
+                    <li>Réalisation de prototypes et intégration de solutions techniques.</li>
+                    <li>Respect des normes qualité et sécurité lors de l'implantation.</li>
+                    <li>Tests de fonctionnement après implantation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="text-center mb-3">
+                <button class="btn btn-sm btn-outline-success" id="toggle-but2-projects">
+                  <i class="fas fa-eye me-1"></i>Voir projets
+                </button>
+              </div>
+              <div id="but2-projects" class="d-none">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalRobot\']').click(); }, 300);">
+                    Robot mobile autonome amélioré
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal" onclick="setTimeout(() => { document.querySelector('[data-bs-target=\'#modalSynthese\']').click(); }, 300);">
+                    Synthétiseur de musique
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- BUT3 -->
+            <div class="col-md-4 mb-4">
+              <h6>BUT3</h6>
+              <div class="mb-3">
+                <label class="form-label">Concevoir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:85%"></div>
+                  </div>
+                  <small>85%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but3-concevoir-details" aria-expanded="false" aria-controls="but3-concevoir-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but3-concevoir-details">
+                  <ul class="mb-0">
+                    <li>Approche sélective dans les choix technologiques.</li>
+                    <li>Conception avancée et optimisation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vérifier</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-primary" style="width:85%"></div>
+                  </div>
+                  <small>85%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but3-verifier-details" aria-expanded="false" aria-controls="but3-verifier-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but3-verifier-details">
+                  <ul class="mb-0">
+                    <li>Procédure qualité pour valider un système.</li>
+                    <li>Validation avancée et documentation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Maintenir</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-success" style="width:85%"></div>
+                  </div>
+                  <small>85%</small>
+                  <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
+                          style="width:2rem;height:2rem;padding:0;"
+                          data-bs-toggle="collapse" data-bs-target="#but3-maintenir-details" aria-expanded="false" aria-controls="but3-maintenir-details">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <div class="collapse mt-2 text-white" id="but3-maintenir-details">
+                  <ul class="mb-0">
+                    <li>Stratégie de maintenance optimale.</li>
+                    <li>Gestion de la maintenance à grande échelle.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Implanter</label>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1 me-2" style="height:1rem;">
+                    <div class="progress-bar bg-success" style="width:85%"></div>
+                  </div>
+                  <small>85%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-implanter-details" aria-expanded="false" aria-controls="but3-implanter-details">
@@ -4959,6 +5344,56 @@
         });
       }
     });
+/*  // Code pour faire défiler les onglets automatiquement*/
+    document.addEventListener('DOMContentLoaded', () => {
+  const tabsOrder = ['but1','but2','but3'];
+  const tabButtons = tabsOrder.reduce((acc, key) => {
+    acc[key] = document.querySelector(`#projectsTab button[data-bs-target="#${key}"]`);
+    return acc;
+  }, {});
+  const tabInstances = Object.fromEntries(
+    tabsOrder.map(key => [key, new bootstrap.Tab(tabButtons[key])])
+  );
+  let currentIndex = 0;
+
+  function cycleTabs() {
+    const key = tabsOrder[currentIndex];
+    tabInstances[key].show();
+    currentIndex = (currentIndex + 1) % tabsOrder.length;
+  }
+
+  // Démarrer la boucle de changements toutes les 10 secondes
+  cycleTabs();
+  setInterval(cycleTabs, 10000);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAnnual      = document.getElementById('toggle-annual');
+  const btnHistorical  = document.getElementById('toggle-historical');
+  const annualContent  = document.getElementById('annualContent');
+  const histContent    = document.getElementById('historicalContent');
+
+  function showAnnual() {
+    annualContent.classList.remove('d-none');
+    histContent.classList.add('d-none');
+    btnAnnual.classList.replace('btn-outline-primary','btn-primary');
+    btnHistorical.classList.replace('btn-primary','btn-outline-primary');
+  }
+
+  function showHistorical() {
+    histContent.classList.remove('d-none');
+    annualContent.classList.add('d-none');
+    btnHistorical.classList.replace('btn-outline-primary','btn-primary');
+    btnAnnual.classList.replace('btn-primary','btn-outline-primary');
+  }
+
+  btnAnnual.addEventListener('click', showAnnual);
+  btnHistorical.addEventListener('click', showHistorical);
+
+  // Initialisation à l'ouverture de la modal
+  const competencesModal = document.getElementById('competencesModal');
+  competencesModal.addEventListener('show.bs.modal', showAnnual);
+});
   </script>
 
   <style>
