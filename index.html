@@ -3074,7 +3074,25 @@
       width: 100%;
     }
 
+    .carousel2 {
+      position: relative;
+      max-width: 300px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .slides2 {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
     .slide {
+      min-width: 100%;
+    }
+     .slidee {
       min-width: 100%;
     }
 
@@ -3126,13 +3144,13 @@
     });
   </script>
   
-<!-- Animation de connexion
+<!-- Animation de connexion 
 <div id="login-animation">
   <div class="login-box text-white text-center">
     <h2>Connexion à l’espace de Taha Aziz</h2>
     <p id="login-message">Connexion en cours...</p>
   </div>
-</div> -->
+</div>-->
 
 
 
@@ -3641,7 +3659,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#smartLightDetails" 
                             aria-expanded="false" aria-controls="smartLightDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3698,7 +3716,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#verificationDetails" 
                             aria-expanded="false" aria-controls="verificationDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3755,7 +3773,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#robotBut1Details" 
                             aria-expanded="false" aria-controls="robotBut1Details">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3817,7 +3835,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#robotBut2Details" 
                             aria-expanded="false" aria-controls="robotBut2Details">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3875,7 +3893,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#assistantDomotiqueDetails" 
                             aria-expanded="false" aria-controls="assistantDomotiqueDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3900,7 +3918,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="collapse mt-2" id="assistantDomotiqueFeedback">
                   <div class="card card-body bg-success text-white">
                     <h6>💭 Mon ressenti</h6>
-                    <p class="small">Ce projet m'a passionné car il combine IA et IoT. Développer la reconnaissance vocale était un défi technique stimulant. Voir l'assistant répondre et contrôler réellement les appareils de la maison était magique. J'ai découvert l'univers des objets connectés et leurs possibilités infinies.</p>
+                    <p class="small">Ce projet m'a passionné car il combine électronique et logiciel. Développer le site web de contrôle et l'interface tactile en temps réel sur l'assistant était un défi et très stimulant. J'ai découvert l'univers des objets connectés et leurs possibilités infinies.</p>
                   </div>
                 </div>
               </div>
@@ -3931,7 +3949,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#nanoPiDetails" 
                             aria-expanded="false" aria-controls="nanoPiDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -3982,6 +4000,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="flex-grow-1">Ionosphère, protocole WSPR et optimisation énergétique.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">WSPR</span>
                   <span class="badge bg-primary">STM32</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+                  <span class="badge bg-secondary me-1">Implanter Niv 2</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3991,7 +4011,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#transmetteurDetails" 
                             aria-expanded="false" aria-controls="transmetteurDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -4036,6 +4056,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="flex-grow-1">Web + BDD pour gestion d'ombrières et recettes.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">MySQL</span>
                   <span class="badge bg-primary">PHP</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
+                  <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -4045,7 +4067,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#optiPlantDetails" 
                             aria-expanded="false" aria-controls="optiPlantDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -4070,7 +4092,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="collapse mt-2" id="optiPlantFeedback">
                   <div class="card card-body bg-success text-white">
                     <h6>💭 Mon ressenti</h6>
-                    <p class="small">Mon premier gros projet web full-stack ! J'ai adoré créer une application complète de A à Z. La gestion de base de données et l'architecture MVC m'ont donné des bases solides en développement web. Voir les utilisateurs naviguer dans l'interface que j'avais créée était très satisfaisant.</p>
+                    <p class="small">Mon premier gros projet web full-stack en équipe ! J'ai adoré créer une application complète de A à Z. La gestion de base de données et l'architecture MVC m'ont donné des bases solides en développement web. Pouvoir naviguer dans l'interface que l'on avait créée était très satisfaisant.</p>
                   </div>
                 </div>
               </div>
@@ -4090,6 +4112,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="flex-grow-1">Couleur rouge et localisation 3D via JeVois-Pro.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">OpenCV</span>
                   <span class="badge bg-primary">Python</span>
+                  <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
+                  <span class="badge bg-secondary me-1">Implanter Niv 2</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -4099,7 +4123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="btn btn-outline-primary btn-sm" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#detectionDetails" 
                             aria-expanded="false" aria-controls="detectionDetails">
-                      Plus d'information
+                      Détail
                     </button>
                   </div>
                   <div class="d-flex">
@@ -4201,10 +4225,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 allow="autoplay">
             </iframe>
             <div>
-              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
-              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
-              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
-              <span class="badge bg-secondary">Implanter Niv 2</span>
             </div>
           </div>
         </div>
@@ -4228,10 +4248,6 @@ document.addEventListener('DOMContentLoaded', function() {
             allow="autoplay">
             </iframe>
           <div>
-              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
-              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
-              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
-              <span class="badge bg-secondary">Implanter Niv 2</span>
             </div>
           </div>
         </div>
@@ -4263,10 +4279,6 @@ document.addEventListener('DOMContentLoaded', function() {
         allow="autoplay">
     </iframe>
           <div>
-              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
-              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
-              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
-              <span class="badge bg-secondary">Implanter Niv 2</span>
             </div>
           </div>
         </div>
@@ -4298,10 +4310,6 @@ document.addEventListener('DOMContentLoaded', function() {
         allow="autoplay">
     </iframe>
           <div>
-              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
-              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
-              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
-              <span class="badge bg-secondary">Implanter Niv 2</span>
             </div>
           </div>
         </div>
@@ -4333,10 +4341,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 allow="autoplay">
             </iframe>
              <div>
-              <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
-              <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
-              <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
-              <span class="badge bg-secondary">Implanter Niv 2</span>
             </div>
           </div>
         </div>
@@ -4420,10 +4424,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Mener une conception partielle intégrant une démarche projet.</li>
                     <li>Premiers choix techniques et schémas simples.</li>
                   </ul>
-                  <h6>Mon évaluation:</h6>
-                  <ul class="mb-0">
-                    <p></p>
-                  </ul>
                 </div>
               </div>
               <div class="mb-3">
@@ -4488,10 +4488,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Analyse fonctionnelle et choix de solutions techniques adaptées.</li>
                     <li>Utilisation d'outils de conception (schémas, simulations, CAO...)</li>
                     <li>Participation à la rédaction de cahiers des charges.</li>
-                  </ul>
-                  <h6>Mon évaluation:</h6>
-                  <ul class="mb-0">
-                    <p></p>
                   </ul>
                 </div>
               </div>
@@ -4705,6 +4701,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Mener une conception partielle intégrant une démarche projet.</li>
                     <li>Premiers choix techniques et schémas simples.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>Lors de la SAé « Concevoir » en BUT1, j’ai obtenu une notation correcte. J’ai conçu le circuit électronique d’une carte Smartlight sur KiCad, soudé les composants CMS et traversants, programmé la carte sous Arduino en respectant un cahier des charges, et rédigé une notice d’utilisation. Avec le recul, je reconnais que ce travail aurait pu être plus approfondi. Mon niveau en hardware et software s’est nettement amélioré depuis grâce aux projets réalisés par la suite.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>J’ai travaillé dans un cadre stimulant et collaboratif. Les travaux pratiques et les projets menés en équipe ont favorisé l’apprentissage. L’encadrement et les ressources techniques disponibles m’ont permis de bien assimiler les notions de base de la conception électronique.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4725,7 +4727,13 @@ document.addEventListener('DOMContentLoaded', function() {
                   <ul class="mb-0">
                     <li>Effectuer les tests et mesures nécessaires à la vérification d’un système.</li>
                     <li>Utilisation d’oscilloscope, multimètre, etc.</li>
-                  </li>
+                  </ul>
+                  <div class="mt-2">
+  <strong>Pourquoi cette notation&nbsp;?</strong>
+  <p>La SAé « Vérifier » a été moins réussie, avec une performance médiocre à l’époque. J’ai réalisé des tests fonctionnels et des mesures sur carte, mais mon manque d’expérience se faisait encore sentir. Aujourd’hui, je considère avoir atteint un bien meilleur niveau grâce à l’expérience accumulée en BUT2.</p>
+  <strong>Environnement de travail</strong>
+  <p>L’approche en équipe a été très bénéfique. Nous avons utilisé du matériel de mesure performant sous la supervision de notre enseignant. Cela m’a permis de développer mes compétences pratiques en automatisme et électronique, essentielles pour cette compétence.</p>
+</div>
                 </div>
                 </div>
               <div class="text-center mb-3">
@@ -4770,6 +4778,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Utilisation d'outils de conception (schémas, simulations, CAO...)</li>
                     <li>Participation à la rédaction de cahiers des charges.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>J’ai obtenu une note correspondant à une maîtrise partielle (≈65%). J’ai participé à la conception intégrale d’un assistant domotique et à la programmation d’un robot autonome. Ces projets complexes ont sollicité mes compétences en électronique, en programmation (C/C++) et en organisation. Je m’autoévalue à 65%, car j’ai encore des progrès à faire sur la structuration du travail.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Le projet s’est déroulé dans un cadre propice à l’autonomie et à l’apprentissage. J’ai pu m’appuyer sur les connaissances acquises précédemment pour planifier et mener à bien les tâches. Les supports pédagogiques, les tutoriels et les TP ont joué un rôle important dans ma montée en compétence.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4792,6 +4806,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Utilisation d'outils de mesure (oscilloscope, multimètre...)</li>
                     <li>Analyse des résultats et rédaction de rapports de tests.</li>
                   </ul>
+                    <div class="mt-2">
+                      <strong>Pourquoi cette notation&nbsp;?</strong>
+                      <p>J’ai obtenu une évaluation correcte avec une autoévaluation à 65%. J’ai rédigé un programme de test en langage C et une fiche technique détaillée pour faciliter le travail des techniciens. Bien que le contenu ait été jugé pertinent, certains éléments de forme ont freiné l’évaluation optimale de mon travail.</p>
+                      <strong>Environnement de travail</strong>
+                      <p>L’ambiance de travail en équipe a favorisé les échanges d’idées et l’enrichissement mutuel. Les tâches techniques ont été réalisées grâce à mes connaissances en automatisme, électronique et programmation. Les retours du groupe et les ressources pédagogiques m’ont permis d’acquérir une meilleure maîtrise des outils de vérification.</p>
+                    </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4814,6 +4834,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Application de procédures de maintenance préventive et corrective.</li>
                     <li>Gestion de la documentation technique.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>J’ai obtenu une note correcte autour de 13/20 pour la SAé « Maintenir ». J’ai conçu une fiche d’intervention technique détaillée pour la maintenance d’un assistant domotique, incluant des tests physiques et un programme de test. Une version en anglais sous forme d’arbre décisionnel a aussi été réalisée. Malgré la richesse du contenu, la mise en forme a été critiquée, ce qui a influencé la note. Je m’autoévalue à 70%, conscient que la forme doit être soignée autant que le fond.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Le travail s’est déroulé dans un environnement favorable à la collaboration. Les tâches, variées et exigeantes, m’ont permis d’exploiter des compétences techniques et linguistiques. Les prérequis appris en cours ont été utiles, et mon investissement personnel dans les ressources m’a aidé à mieux comprendre les enjeux de la maintenance.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4836,6 +4862,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Respect des normes qualité et sécurité lors de l'implantation.</li>
                     <li>Tests de fonctionnement après implantation.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>Pour cette compétence, j’ai obtenu une note correcte à bien maîtrisée, avec une autoévaluation à 70%. J’ai rédigé un dossier de fabrication complet pour l’assistant domotique, comprenant la nomenclature des composants, les datasheets, leur fonction, leur provenance, ainsi que l’explication du code C++. Là encore, des remarques sur la mise en forme ont été faites malgré un fond solide.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>L’environnement de travail a favorisé la concentration et la rigueur. Le projet m’a demandé d’appliquer une démarche qualité stricte. Mes acquis en cours m’ont permis de produire un travail structuré et complet, en lien direct avec les attentes professionnelles.</p>
+                  </div>
                 </div>
               </div>
               <div class="text-center mb-3">
@@ -4876,6 +4908,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Approche sélective dans les choix technologiques.</li>
                     <li>Conception avancée et optimisation.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>J’ai acquis une très bonne maîtrise de la conception de systèmes embarqués complexes. Les projets comme le transmetteur longue distance m'ont permis d'intégrer les aspects hardware, RF, optimisation énergétique et architecture logicielle. Je m’autoévalue à 85%.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Travail en autonomie, avec des recherches personnelles approfondies sur les ondes et la propagation. Collaboration ponctuelle, et accès à du matériel et logiciel de test radio spécialisé.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4897,6 +4935,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Procédure qualité pour valider un système.</li>
                     <li>Validation avancée et documentation.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>Grâce aux projets intégrant du traitement de signal et des tests intensifs (notamment avec la JeVois-Pro), j’ai développé une bonne capacité à tester, calibrer et analyser les performances d’un système. Mon autonomie en vérification est solide.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Utilisation de caméras embarquées, plateformes de tests sur PC, environnement Python et bibliothèques OpenCV. Tests en conditions réelles, avec visualisation des résultats et validation fonctionnelle.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4918,6 +4962,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Stratégie de maintenance optimale.</li>
                     <li>Gestion de la maintenance à grande échelle.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>Dans les projets comme OptiPlant, j’ai su maintenir une architecture logicielle robuste, avec gestion d’erreurs, mises à jour de la base de données et documentation claire. Cela reflète un bon niveau de compétence en maintien de solutions.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Développement full-stack, maintenance de code PHP/MySQL, gestion de versions et corrections en cours de projet. Documentation systématique pour permettre reprise et évolution du projet par d'autres.</p>
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -4939,6 +4989,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>Interaction avec les acteurs pour mise en service.</li>
                     <li>Implantation de systèmes complexes.</li>
                   </ul>
+                  <div class="mt-2">
+                    <strong>Pourquoi cette notation&nbsp;?</strong>
+                    <p>Les projets du BUT3 m’ont permis d’implanter des solutions techniques complexes (radio, vision, web) en suivant une démarche qualité rigoureuse. J’ai respecté les procédures de fabrication, tests et déploiement.</p>
+                    <strong>Environnement de travail</strong>
+                    <p>Implantation sur microcontrôleurs STM32, déploiement d’applications web, configuration de modules RF, et intégration de capteurs. Travail structuré avec cahiers des charges clairs et livrables techniques.</p>
+                  </div>
                 </div>           </div>
               <div class="text-center mb-3">
                 <button class="btn btn-sm btn-outline-success" id="toggle-but3-projects">
@@ -4985,11 +5041,11 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-primary">14 semaines Assistant d’ingénieur – MADE S.A</h5>
             <p class="mb-1"><small class="text-muted">Mars 2025 – 14 semaines</small></p>
-            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp1">Plus d'information</button>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp1">Détail</button>
             <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Projet - IHM de Vérification pour SNGBUSCAN</button>
             <div class="collapse mt-2 text-start text-white" id="exp1">
               <ul class="mb-0">
-                <li>Développement et test d’une communication CAN SAE J1939 sur banc d’essai avec IHM, STM32F103RB, transceivers CAN.</li>
+                <li>Développement d'un IHM CR0451 de test, de vérification et de contrôle d’une communication CAN SAE J1939 sur banc d’essai, avec deux STM32F103RB, transceivers CAN, CANFox.</li>
                 <li>Analyse des PGN et échanges de données ECU via STM32CubeIDE.</li>
                 <li>Tests et validation des trames CAN 2.0B à l’oscilloscope.</li>
               </ul>
@@ -5011,7 +5067,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-primary">8 semaines Assistant d’ingénieur – MADE S.A</h5>
             <p class="mb-1"><small class="text-muted">Avril 2024 – 8 semaines</small></p>
-            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp2">Plus d'information</button>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp2">Détail</button>
             <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces2">Voir Projet</button>
             <div class="collapse mt-2 text-start text-white" id="exp2">
               <ul class="mb-0">
@@ -5037,7 +5093,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-warning">Équipier polyvalent – McDonald’s</h5>
             <p class="mb-1"><small class="text-muted">Décembre 2022 – Avril 2025</small></p>
-            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp3">Plus d'information</button>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp3">Détail</button>
             <div class="collapse mt-2 text-start text-white" id="exp3">
               <ul class="mb-0">
                 <li>Plonge et service à table.</li>
@@ -5062,7 +5118,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-success">Assistant menuisier – Intérim</h5>
             <p class="mb-1"><small class="text-muted">Un mois en 2022</small></p>
-            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp4">Plus d'information</button>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp4">Détail</button>
             <div class="collapse mt-2 text-start text-white" id="exp4">
               <ul class="mb-0">
                 <li>Travaux de manutention et gondage de portes et fenêtres.</li>
@@ -5087,7 +5143,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-info">Encadrement judo – USC JUDO La Crau</h5>
             <p class="mb-1"><small class="text-muted">2021 – 2022</small></p>
-            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp5">Plus d'information</button>
+            <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp5">Détail</button>
             <div class="collapse mt-2 text-start text-white" id="exp5">
               <ul class="mb-0">
                 <li>Aide et encadrement des cours Poussins et Benjamins (2 h/semaine).</li>
@@ -5105,14 +5161,48 @@ document.addEventListener('DOMContentLoaded', function() {
             <h5 class="modal-title" id="modalTraces1Label">Traces - MADE S.A (Mars 2025)</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
           </div>
-          <div class="modal-body">
-            <iframe
+           <div class="modal-body">
+            <div class="carousel">
+              <div class="slides2" id="slides2">
+                <div class="slide"> <h5 class="modal-title" id="modalTraces1Label">Présentation des fonctionnalités de l'IHM</h5><iframe
               src="https://drive.google.com/file/d/10NIfZZrPH1BgGfQvG-QN4zJKCAWAMioC-2O2Ja5yieQ/preview"
               width="100%"
               height="700"
               frameborder="0"
               allow="autoplay">
-        </iframe>
+          </iframe></div>
+               
+                <div class="slide"><h5 class="modal-title" id="modalTraces1Label">Banc de test CAN</h5><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/MADE2/IMG_5465.jpg" alt="Photo 2"></div>
+                <div class="slide">
+                  <h5 class="modal-title" id="modalTraces1Label">Vidéo de présentation de l'IHM</h5>
+                  <div class="ratio ratio-16x9">
+                    <iframe 
+                      src="https://drive.google.com/file/d/1nbeDDbteTbpfqYM3bTG-wmPcxveYgZZ0/preview" 
+                      frameborder="0" 
+                      allow="autoplay"
+                      width="50%" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <br>
+                  <div class="ratio ratio-16x9">
+                    <iframe 
+                      src="https://drive.google.com/file/d/1CgSHvvRWjlv4bqHcvwdfihehNB1fl1fl/preview" 
+                      frameborder="0" 
+                      allow="autoplay"
+                      width="50%" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+          </div>
+          </div>
+              </div>
+
+              <div class="navro">
+                <button onclick="prevSlide2()">❮</button>
+                <button onclick="nextSlide2()">❯</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -5127,9 +5217,16 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="modal-body">
             <div class="carousel">
               <div class="slides" id="slides">
-                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 1"></div>
-                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 2"></div>
-                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 3"></div>
+                <div class="slide"><h5 class="modal-title" id="modalTraces2Label">Sourcing et Debut de Soft Communication J1939</h5><iframe 
+                      src="https://drive.google.com/file/d/1MWPxZeqz05Q8ipEoyQeIPhJSv1LCVlef/preview" 
+                      width="100%"
+              height="700"
+              frameborder="0"
+              allow="autoplay">
+                    </iframe></div>
+                <div class="slide"><h5 class="modal-title" id="modalTraces2Label">Boîtier SkyNG Radio</h5><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/MADE1/IMG_4279.jpg" alt="Photo 2"> <br> </div>
+                <div class="slide"><h5 class="modal-title" id="modalTraces2Label">Boîtier SkyNG Radio démonté</h5><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/MADE1/IMG_4267.jpg" alt="Photo 3"></div>
+                <div class="slide"><h5 class="modal-title" id="modalTraces2Label">Module Radio ZigBee 3.0</h5><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/MADE1/IMG_4272.jpg" alt="Photo 4"></div>
               </div>
 
               <div class="navro">
@@ -5553,7 +5650,7 @@ document.addEventListener('DOMContentLoaded', () => {
   competencesModal.addEventListener('show.bs.modal', showAnnual);
 });
 
-
+/*CAROUSEL 1 */
 const slides = document.getElementById('slides');
   const totalSlides = slides.children.length;
   let index = 0;
@@ -5570,7 +5667,23 @@ const slides = document.getElementById('slides');
   function prevSlide() {
     showSlide(index - 1);
   }
+/*CAROUSEL 2 */
+const slides2 = document.getElementById('slides2');
+  const totalSlides2 = slides2.children.length;
+  let index2 = 0;
 
+  function showSlide2(i) {
+    index2 = (i + totalSlides2) % totalSlides2;
+    slides2.style.transform = `translateX(-${index2 * 100}%)`;
+  }
+
+  function nextSlide2() {
+    showSlide2(index2 + 1);
+  }
+
+  function prevSlide2() {
+    showSlide2(index2 - 1);
+  }
   </script>
 
 
