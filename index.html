@@ -3058,6 +3058,52 @@
     .footer-icon:hover {
       border-radius: 50% !important;
     }
+
+      .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+
+    .navro {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .navro button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .navro button:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
   </style>
 </head>
 
@@ -3089,6 +3135,66 @@
 </div> -->
 
 
+
+<script>
+// Recherche simple dans la page (scroll vers le résultat et surlignage)
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('globalSearchInput');
+  const btn = document.getElementById('globalSearchBtn');
+  const result = document.getElementById('globalSearchResult');
+  let lastMark = null;
+
+  function clearHighlight() {
+    if (lastMark) {
+      lastMark.outerHTML = lastMark.innerText;
+      lastMark = null;
+    }
+  }
+
+  function searchAndHighlight() {
+    clearHighlight();
+    const query = input.value.trim();
+    if (!query) {
+      result.textContent = '';
+      return;
+    }
+    // Recherche dans le body
+    const bodyText = document.body.innerText;
+    const idx = bodyText.toLowerCase().indexOf(query.toLowerCase());
+    if (idx === -1) {
+      result.textContent = 'Aucun résultat trouvé.';
+      return;
+    }
+    // Recherche dans le DOM (éléments visibles)
+    let found = false;
+    const treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    while(treeWalker.nextNode()) {
+      const node = treeWalker.currentNode;
+      const pos = node.nodeValue.toLowerCase().indexOf(query.toLowerCase());
+      if (pos !== -1 && node.parentElement.id !== 'globalSearchInput') {
+        // Surligner le texte trouvé
+        const mark = document.createElement('mark');
+        mark.textContent = node.nodeValue.substr(pos, query.length);
+        lastMark = mark;
+        const after = node.splitText(pos);
+        after.nodeValue = after.nodeValue.substr(query.length);
+        node.parentNode.insertBefore(mark, after);
+        // Scroll vers le résultat
+        mark.scrollIntoView({behavior:'smooth', block:'center'});
+        found = true;
+        break;
+      }
+    }
+    result.textContent = found ? 'Résultat trouvé et surligné.' : 'Aucun résultat trouvé.';
+  }
+
+  btn.addEventListener('click', searchAndHighlight);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') searchAndHighlight();
+  });
+});
+</script>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
@@ -3109,6 +3215,16 @@
       </div>
     </div>
   </nav>
+
+<!-- Barre de recherche globale -->
+<div class="container mt-3 mb-4">
+  <div class="input-group">
+    <input type="text" class="form-control" id="globalSearchInput" placeholder="Rechercher dans la page...">
+    <button class="btn btn-primary" id="globalSearchBtn" type="button"><i class="fas fa-search"></i></button>
+  </div>
+  <div id="globalSearchResult" class="mt-2 small text-info"></div>
+</div>
+
   <!-- Header -->
   <header class="py-5 text-white" style="background-color: var(--dark);">
     <div class="container d-flex flex-column flex-lg-row align-items-center position-relative">
@@ -3135,7 +3251,7 @@
           <a href="mailto:taha.aziz5111@gmail.com" class="header-icon email-icon me-2" title="Envoyer un email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://www.linkedin.com/in/taha-aziz-51a506297/" target="_blank" class="header-icon linkedin-icon me-2" title="Profil LinkedIn">
+          <a href="https://www.linkedin.com/in/tahaaziz83/" target="_blank" class="header-icon linkedin-icon me-2" title="Profil LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
           <a href="https://github.com/AZIZTaha83" target="_blank" class="header-icon github-icon" title="Profil GitHub">
@@ -3466,12 +3582,11 @@
 <!-- Projets -->
 <section id="projects" class="py-5 bg-dark-section">
   <div class="container">
-    <h2 class="section-title">Projets</h2>
-
-    <!-- Onglets -->
-    <ul class="nav nav-tabs" id="projectsTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="but1-tab"
+    <h2 class="section-title">Projets</h2>    <!-- Contrôles des onglets -->
+    <div class="d-flex align-items-center mb-3">
+      <ul class="nav nav-tabs flex-grow-1" id="projectsTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="but1-tab"
                 data-bs-toggle="tab" data-bs-target="#but1"
                 type="button" role="tab" aria-controls="but1"
                 aria-selected="true">BUT 1</button>
@@ -3485,10 +3600,14 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="but3-tab"
                 data-bs-toggle="tab" data-bs-target="#but3"
-                type="button" role="tab" aria-controls="but3"
-                aria-selected="false">BUT 3</button>
+                type="button" role="tab" aria-controls="but3"                aria-selected="false">BUT 3</button>
       </li>
     </ul>
+      <div class="form-check form-switch ms-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="autoScrollSwitch" checked>
+        <label class="form-check-label" for="autoScrollSwitch">Défilement auto</label>
+      </div>
+    </div>
 
     <!-- Contenu des onglets -->
     <div class="tab-content mt-4" id="projectsTabContent">
@@ -3512,6 +3631,7 @@
                 <div class="mb-2">
                   <span class="badge bg-primary me-1">Électronique</span>
                   <span class="badge bg-primary">PCB</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3537,7 +3657,7 @@
                     <p class="small">Développer une carte électronique intelligente pour le contrôle d'éclairage embarqué avec gestion de l'énergie et interface utilisateur intuitive.</p>
                     
                     <h6>💻 Technologies utilisées</h6>
-                    <p class="small">• Conception PCB avec Altium Designer<br>• Microcontrôleur STM32<br>• Capteurs de luminosité et température<br>• Protocoles de communication I2C/SPI</p>
+                    <p class="small">• Conception PCB avec Kicad<br>• Microcontrôleur STM32<br>• Capteurs de luminosité et température<br>• Protocoles de communication I2C/SPI</p>
                     
                     <h6>🏆 Réalisations</h6>
                     <p class="small">• Carte fonctionnelle avec gestion automatique de l'éclairage<br>• Optimisation de la consommation énergétique<br>• Interface de contrôle à distance développée<br>• Tests et validation en conditions réelles</p>
@@ -3568,6 +3688,7 @@
                 <div class="mb-2">
                   <span class="badge bg-primary me-1">Vérification</span>
                   <span class="badge bg-primary">Validation</span>
+                  <span class="badge bg-secondary me-1">Vérifier Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3619,10 +3740,12 @@
               </div>
               <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/RobotS2.png" class="card-img-top" alt="Robot Mobile Autonome">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Robot mobile autonome</h5>
-                <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation intelligente.</p>                <div class="mb-2">
+                <h5 class="card-title">Robot esquiveur d'obstacles</h5>
+                <p class="flex-grow-1">Conception et pilotage d’un robot mobile autonome pour navigation automatique et manuelle.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Arduino</span>
                   <span class="badge bg-primary">IR/Ultrason</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 1</span>
+                  <span class="badge bg-secondary me-1">Vérifier Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3645,13 +3768,13 @@
                 </div>
                 <div class="collapse mt-2" id="robotBut1Details">                  <div class="card card-body bg-light text-dark">
                     <h6>🎯 Objectif</h6>
-                    <p class="small">Concevoir et développer un robot mobile capable de navigation autonome avec évitement d'obstacles et reconnaissance d'environnement.</p>
+                    <p class="small">Concevoir et développer un robot mobile capable de navigation autonome avec évitement d'obstacles.</p>
                     
                     <h6>💻 Technologies utilisées</h6>
-                    <p class="small">• Régulateurs PID pour l'asservissement<br>• Capteurs ultrasoniques et caméra<br>• Traitement d'image et vision artificielle<br>• Microcontrôleur et programmation C/C++</p>
+                    <p class="small">• Capteurs ultrasoniques et infrarouges<br>• Microcontrôleur et programmation Arduino (C++)</p>
                     
                     <h6>🏆 Réalisations</h6>
-                    <p class="small">• Robot fonctionnel avec navigation autonome<br>• Algorithmes d'évitement d'obstacles<br>• Système de vision pour reconnaissance d'objets<br>• Interface de contrôle et monitoring</p>
+                    <p class="small">• Robot fonctionnel avec navigation autonome<br>• Algorithmes d'évitement d'obstacles</p>
                   </div>
                 </div>
                 <div class="collapse mt-2" id="robotBut1Feedback">
@@ -3683,6 +3806,8 @@
                 <p class="flex-grow-1">Optimisation des performances et précision du robot mobile.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Optimisation</span>
                   <span class="badge bg-primary">Automatisation</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 2</span>
+                  <span class="badge bg-secondary me-1">Implanter Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3734,9 +3859,13 @@
               <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/domotique.png" class="card-img-top" alt="Assistant domotique">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Assistant domotique</h5>
-                <p class="flex-grow-1">Développement d'un assistant vocal pour la maison intelligente.</p>                <div class="mb-2">
+                <p class="flex-grow-1">Développement d'un assistant domotique pour une maison intelligente.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">IoT</span>
-                  <span class="badge bg-primary">Assistant Vocal</span>
+                  <span class="badge bg-primary">Capteurs</span>
+                  <span class="badge bg-secondary me-1">Concevoir Niv 2</span>
+                  <span class="badge bg-secondary me-1">Vérifier Niv 2</span>
+                  <span class="badge bg-secondary me-1">Implanter Niv 1</span>
+                  <span class="badge bg-secondary me-1">Maintenir Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3791,6 +3920,8 @@
                 <p class="flex-grow-1">Implémentation d'une carte NanoPi Neo 2, Mise en place d'une distribution Linux et exploration de l'ensemble de ses fonctionnalités.</p>                <div class="mb-2">
                   <span class="badge bg-primary me-1">Linux</span>
                   <span class="badge bg-primary">Embarqué</span>
+                  <span class="badge bg-secondary me-1">Vérifier Niv 2</span>
+                  <span class="badge bg-secondary me-1">Maintenir Niv 1</span>
                 </div>                <div class="mt-auto">
                   <div class="d-flex gap-2 mb-2">
                     <a href="#" class="btn btn-primary btn-sm"
@@ -3825,7 +3956,7 @@
                 <div class="collapse mt-2" id="nanoPiFeedback">
                   <div class="card card-body bg-success text-white">
                     <h6>💭 Mon ressenti</h6>
-                    <p class="small">Ce projet m'a initié au monde des systèmes embarqués Linux. Configurer le système from scratch était challenging mais très formateur. J'ai appris la patience et la méthodologie nécessaires pour le debug bas niveau. Une vraie découverte de l'informatique embarquée !</p>
+                    <p class="small">Ce projet m'a initié au monde des systèmes embarqués Linux. Configurer le système à partir d'une distribution armbian était très intéressant et très formateur. J'ai appris la patience et la méthodologie nécessaires pour le debug bas niveau. Une vraie découverte de l'informatique embarquée !</p>
                   </div>
                 </div>
               </div>
@@ -4069,7 +4200,6 @@
                 frameborder="0"
                 allow="autoplay">
             </iframe>
-            <p><strong>Mon ressenti :</strong> Ce projet m'a permis d'approfondir ma compréhension des communications radio bas débit et de l'optimisation énergétique.</p>
             <div>
               <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
               <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
@@ -4096,9 +4226,8 @@
             height="600"
             frameborder="0"
             allow="autoplay">
-        </iframe>
-            <p><strong>Mon ressenti :</strong> J'ai apprécié la gestion de l'asservissement PID et l'intégration de la vision pour améliorer l'autonomie.</p>
-            <div>
+            </iframe>
+          <div>
               <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
               <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
               <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
@@ -4133,8 +4262,7 @@
         frameborder="0"
         allow="autoplay">
     </iframe>
-            <p><strong>Mon ressenti :</strong> Ce projet m'a confronté à la complexité des traitements d'image en temps réel.</p>
-            <div>
+          <div>
               <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
               <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
               <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
@@ -4169,8 +4297,7 @@
         frameborder="0"
         allow="autoplay">
     </iframe>
-            <p><strong>Mon ressenti :</strong> La gestion de la base de données et l'UX de l'interface web ont été particulièrement enrichissantes.</p>
-            <div>
+          <div>
               <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
               <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
               <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
@@ -4205,8 +4332,7 @@
                 frameborder="0"
                 allow="autoplay">
             </iframe>
-            <p><strong>Mon ressenti :</strong> L'exploration d'Armbian et la configuration Linux sur NanoPi ont renforcé mes compétences SysAdmin.</p>
-            <div>
+             <div>
               <span class="badge bg-secondary me-1">Concevoir Niv 3</span>
               <span class="badge bg-secondary me-1">Vérifier Niv 3</span>
               <span class="badge bg-secondary me-1">Maintenir Niv 2</span>
@@ -4289,9 +4415,14 @@
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>                <div class="collapse mt-2 text-white" id="but1-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Mener une conception partielle intégrant une démarche projet.</li>
                     <li>Premiers choix techniques et schémas simples.</li>
+                  </ul>
+                  <h6>Mon évaluation:</h6>
+                  <ul class="mb-0">
+                    <p></p>
                   </ul>
                 </div>
               </div>
@@ -4309,6 +4440,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but1-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Effectuer les tests et mesures nécessaires à la vérification d’un système.</li>
                     <li>Utilisation d’oscilloscope, multimètre, etc.</li>
@@ -4351,10 +4483,15 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Analyse fonctionnelle et choix de solutions techniques adaptées.</li>
                     <li>Utilisation d'outils de conception (schémas, simulations, CAO...)</li>
                     <li>Participation à la rédaction de cahiers des charges.</li>
+                  </ul>
+                  <h6>Mon évaluation:</h6>
+                  <ul class="mb-0">
+                    <p></p>
                   </ul>
                 </div>
               </div>
@@ -4372,6 +4509,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Élaboration de protocoles de tests et validation de systèmes.</li>
                     <li>Utilisation d'outils de mesure (oscilloscope, multimètre...)</li>
@@ -4393,6 +4531,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-maintenir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Diagnostic de pannes et interventions sur systèmes électroniques.</li>
                     <li>Application de procédures de maintenance préventive et corrective.</li>
@@ -4414,6 +4553,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-implanter-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Réalisation de prototypes et intégration de solutions techniques.</li>
                     <li>Respect des normes qualité et sécurité lors de l'implantation.</li>
@@ -4444,9 +4584,9 @@
                 <label class="form-label">Concevoir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:85%"></div>
+                    <div class="progress-bar bg-primary" style="width:90%"></div>
                   </div>
-                  <small>85%</small>
+                  <small>90%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-concevoir-details" aria-expanded="false" aria-controls="but3-concevoir-details">
@@ -4454,6 +4594,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Approche sélective dans les choix technologiques.</li>
                     <li>Conception avancée et optimisation.</li>
@@ -4464,9 +4605,9 @@
                 <label class="form-label">Vérifier</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:85%"></div>
+                    <div class="progress-bar bg-primary" style="width:90%"></div>
                   </div>
-                  <small>85%</small>
+                  <small>90%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-verifier-details" aria-expanded="false" aria-controls="but3-verifier-details">
@@ -4474,6 +4615,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Procédure qualité pour valider un système.</li>
                     <li>Validation avancée et documentation.</li>
@@ -4484,9 +4626,9 @@
                 <label class="form-label">Maintenir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-success" style="width:85%"></div>
+                    <div class="progress-bar bg-success" style="width:90%"></div>
                   </div>
-                  <small>85%</small>
+                  <small>90%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-maintenir-details" aria-expanded="false" aria-controls="but3-maintenir-details">
@@ -4494,6 +4636,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-maintenir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Stratégie de maintenance optimale.</li>
                     <li>Gestion de la maintenance à grande échelle.</li>
@@ -4504,9 +4647,9 @@
                 <label class="form-label">Implanter</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-success" style="width:85%"></div>
+                    <div class="progress-bar bg-success" style="width:90%"></div>
                   </div>
-                  <small>85%</small>
+                  <small>90%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but3-implanter-details" aria-expanded="false" aria-controls="but3-implanter-details">
@@ -4514,6 +4657,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-implanter-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Interaction avec les acteurs pour mise en service.</li>
                     <li>Implantation de systèmes complexes.</li>
@@ -4556,6 +4700,7 @@
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>                <div class="collapse mt-2 text-white" id="but1-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Mener une conception partielle intégrant une démarche projet.</li>
                     <li>Premiers choix techniques et schémas simples.</li>
@@ -4576,6 +4721,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but1-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Effectuer les tests et mesures nécessaires à la vérification d’un système.</li>
                     <li>Utilisation d’oscilloscope, multimètre, etc.</li>
@@ -4608,9 +4754,9 @@
                 <label class="form-label">Concevoir</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                    <div class="progress-bar bg-primary" style="width:65%"></div>
                   </div>
-                  <small>60%</small>
+                  <small>65%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-concevoir-details" aria-expanded="false" aria-controls="but2-concevoir-details">
@@ -4618,6 +4764,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Analyse fonctionnelle et choix de solutions techniques adaptées.</li>
                     <li>Utilisation d'outils de conception (schémas, simulations, CAO...)</li>
@@ -4629,9 +4776,9 @@
                 <label class="form-label">Vérifier</label>
                 <div class="d-flex align-items-center">
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
-                    <div class="progress-bar bg-primary" style="width:60%"></div>
+                    <div class="progress-bar bg-primary" style="width:65%"></div>
                   </div>
-                  <small>60%</small>
+                  <small>65%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-verifier-details" aria-expanded="false" aria-controls="but2-verifier-details">
@@ -4639,6 +4786,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Élaboration de protocoles de tests et validation de systèmes.</li>
                     <li>Utilisation d'outils de mesure (oscilloscope, multimètre...)</li>
@@ -4652,7 +4800,7 @@
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
                     <div class="progress-bar bg-success" style="width:60%"></div>
                   </div>
-                  <small>60%</small>
+                  <small>70%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-maintenir-details" aria-expanded="false" aria-controls="but2-maintenir-details">
@@ -4660,6 +4808,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-maintenir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Diagnostic de pannes et interventions sur systèmes électroniques.</li>
                     <li>Application de procédures de maintenance préventive et corrective.</li>
@@ -4673,7 +4822,7 @@
                   <div class="progress flex-grow-1 me-2" style="height:1rem;">
                     <div class="progress-bar bg-success" style="width:60%"></div>
                   </div>
-                  <small>60%</small>
+                  <small>70%</small>
                   <button class="btn btn-primary btn-sm ms-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width:2rem;height:2rem;padding:0;"
                           data-bs-toggle="collapse" data-bs-target="#but2-implanter-details" aria-expanded="false" aria-controls="but2-implanter-details">
@@ -4681,6 +4830,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but2-implanter-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Réalisation de prototypes et intégration de solutions techniques.</li>
                     <li>Respect des normes qualité et sécurité lors de l'implantation.</li>
@@ -4721,6 +4871,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-concevoir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Approche sélective dans les choix technologiques.</li>
                     <li>Conception avancée et optimisation.</li>
@@ -4741,6 +4892,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-verifier-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Procédure qualité pour valider un système.</li>
                     <li>Validation avancée et documentation.</li>
@@ -4761,6 +4913,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-maintenir-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Stratégie de maintenance optimale.</li>
                     <li>Gestion de la maintenance à grande échelle.</li>
@@ -4781,6 +4934,7 @@
                   </button>
                 </div>
                 <div class="collapse mt-2 text-white" id="but3-implanter-details">
+                  <h6>Description :</h6>
                   <ul class="mb-0">
                     <li>Interaction avec les acteurs pour mise en service.</li>
                     <li>Implantation de systèmes complexes.</li>
@@ -4832,7 +4986,7 @@
             <h5 class="card-title text-primary">14 semaines Assistant d’ingénieur – MADE S.A</h5>
             <p class="mb-1"><small class="text-muted">Mars 2025 – 14 semaines</small></p>
             <button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#exp1">Plus d'information</button>
-            <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Voir Projet</button>
+            <button class="btn btn-outline-secondary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTraces1">Projet - IHM de Vérification pour SNGBUSCAN</button>
             <div class="collapse mt-2 text-start text-white" id="exp1">
               <ul class="mb-0">
                 <li>Développement et test d’une communication CAN SAE J1939 sur banc d’essai avec IHM, STM32F103RB, transceivers CAN.</li>
@@ -4953,11 +5107,12 @@
           </div>
           <div class="modal-body">
             <iframe
-              src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
+              src="https://drive.google.com/file/d/10NIfZZrPH1BgGfQvG-QN4zJKCAWAMioC-2O2Ja5yieQ/preview"
               width="100%"
-              height="180"
+              height="700"
               frameborder="0"
-              allow="autoplay"></iframe>
+              allow="autoplay">
+        </iframe>
           </div>
         </div>
       </div>
@@ -4970,12 +5125,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
           </div>
           <div class="modal-body">
-            <iframe
-              src="https://drive.google.com/file/d/1QIrAD8LGH-weqRUFr_JYgBbgTnJEnxV3/preview"
-              width="100%"
-              height="180"
-              frameborder="0"
-              allow="autoplay"></iframe>
+            <div class="carousel">
+              <div class="slides" id="slides">
+                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 1"></div>
+                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 2"></div>
+                <div class="slide"><img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Transmetteur_TLD.png" alt="Photo 3"></div>
+              </div>
+
+              <div class="navro">
+                <button onclick="prevSlide()">❮</button>
+                <button onclick="nextSlide()">❯</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -5362,9 +5523,6 @@
     currentIndex = (currentIndex + 1) % tabsOrder.length;
   }
 
-  // Démarrer la boucle de changements toutes les 10 secondes
-  cycleTabs();
-  setInterval(cycleTabs, 10000);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -5394,8 +5552,92 @@ document.addEventListener('DOMContentLoaded', () => {
   const competencesModal = document.getElementById('competencesModal');
   competencesModal.addEventListener('show.bs.modal', showAnnual);
 });
+
+
+const slides = document.getElementById('slides');
+  const totalSlides = slides.children.length;
+  let index = 0;
+
+  function showSlide(i) {
+    index = (i + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(index + 1);
+  }
+
+  function prevSlide() {
+    showSlide(index - 1);
+  }
+
   </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tabsOrder = ['but1', 'but2', 'but3'];
+  const tabButtons = tabsOrder.reduce((acc, key) => {
+    acc[key] = document.querySelector(`#projectsTab button[data-bs-target="#${key}"]`);
+    return acc;
+  }, {});
+  const tabInstances = Object.fromEntries(
+    tabsOrder.map(key => [key, new bootstrap.Tab(tabButtons[key])])
+  );
+  
+  let currentIndex = 0;
+  let intervalId = null;
+
+  const autoScrollSwitch = document.getElementById('autoScrollSwitch');
+  
+  function cycleTabs() {
+    currentIndex = (currentIndex + 1) % tabsOrder.length;
+    const key = tabsOrder[currentIndex];
+    tabInstances[key].show();
+  }
+
+  function startAutoScroll() {
+    if (intervalId === null) {
+      // Premier changement immédiat
+      cycleTabs();
+      // Puis toutes les 10 secondes
+      intervalId = setInterval(cycleTabs, 10000);
+    }
+  }
+
+  function stopAutoScroll() {
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+
+  // Gérer le switch
+  autoScrollSwitch.addEventListener('change', function() {
+    if (this.checked) {
+      startAutoScroll();
+    } else {
+      stopAutoScroll();
+    }
+  });
+
+  // Démarrer le défilement automatique si le switch est coché au chargement
+  if (autoScrollSwitch.checked) {
+    startAutoScroll();
+  }
+
+  // Arrêter le défilement si l'utilisateur clique manuellement sur un onglet
+  document.querySelectorAll('#projectsTab button[data-bs-toggle="tab"]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (autoScrollSwitch.checked) {
+        // Désactiver le switch
+        autoScrollSwitch.checked = false;
+        stopAutoScroll();
+      }
+    });
+  });
+});
+</script>
   <style>
     /* Animation pour les jauges de compétences */
     @keyframes pulse-glow {
