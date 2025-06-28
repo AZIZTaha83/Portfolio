@@ -84,7 +84,7 @@
 </head>
 <body>
 
-    <!-- Animation de connexion  -->
+    <!-- Animation de connexion 
  <div id="login-animation">
    <div class="login-box text-white text-center position-relative">
     <div class="login-glow"></div>
@@ -92,7 +92,7 @@
      <h2>Connexion à l’espace de Taha Aziz</h2>
      <p id="login-message">Connexion en cours...</p>
    </div>
- </div>
+ </div> -->
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
@@ -1331,6 +1331,84 @@
                 allow="autoplay">
       </iframe>
     </div>
+    <div class="carousel-item">
+      <p><strong>Kicad de conception:</strong></p>
+      <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Domotique/KicaDomo.png" class="d-block w-100" alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <p><strong>Routage de la carte:</strong></p>
+      <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Domotique/Vuedefacedomotiq.png" class="d-block w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <p><strong>Domotique Finale:</strong></p>
+      <img src="https://raw.githubusercontent.com/AZIZTaha83/Portfolio/refs/heads/main/images/Domotique/Assisttant.png" class="d-block w-100" alt="Slide 3">
+    </div>
+    </div>
+
+
+      <!-- Contrôles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
+              <div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Education -->
+  <section id="education" class="py-5 bg-dark-section">
+    <div class="container">
+      <h2 class="section-title">Formation</h2>
+      <div class="timeline-vertical">
+        <!-- BUT3 GEII -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>BUT3 GEII, Université de Toulon, IUT La Garde</h5>
+            <p>En cours – Électronique systèmes embarqués</p>
+            <button class="btn btn-primary btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#competencesModal">Voir compétences</button>
+          </div>
+        </div>
+        <!-- Habilitation électrique BR -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>Habilitation électrique BR</h5>
+            <p>2022 – Chargé d'interventions générales</p>
+          </div>
+        </div>
+        <!-- Bac Général -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h5>Baccalauréat Général</h5>
+            <p>2022 – Maths, Physique-Chimie, SVT – Mention Assez Bien</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+              <!-- Compétences Modal -->
+  <div class="modal fade" id="competencesModal" tabindex="-1" aria-labelledby="competencesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">        <div class="modal-header">
+          <h5 class="modal-title" id="competencesModalLabel">Auto-évaluation des compétences du BUT GEII</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>        </div>
+        <div class="modal-body">
+          <!-- Bouton de basculement entre évaluation actuelle et historique -->
+          <div class="d-flex justify-content-center mb-4">
+            <div class="btn-group" role="group" aria-label="Type d'évaluation">
+              <input type="radio" class="btn-check" name="evaluationType" id="toggle-annual" checked>
+              <label class="btn btn-outline-primary" for="toggle-annual">
+                <i class="fas fa-calendar-check me-2"></i>Évaluation actuelle
               </label>
               <input type="radio" class="btn-check" name="evaluationType" id="toggle-historical">
               <label class="btn btn-outline-secondary" for="toggle-historical">
